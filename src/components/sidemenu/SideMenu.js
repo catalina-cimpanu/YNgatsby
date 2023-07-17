@@ -15,8 +15,11 @@ const SideMenu = () => {
       <CloseButton aria-label="close side menu" onClick={toggleSideMenu}>
         <FaTimes />
       </CloseButton>
-      <LogoLink to="/" aria-label="link to homepage">
-        <Logo src={logo} alt="logo" />
+      <LogoLink to="/" aria-label="link to homepage" onClick={toggleSideMenu}>
+        <Link to="/" aria-label="link to homepage">
+          {/* For some reason it only works if I have 2 Link elements and the onclick remains on the styled one... */}
+          <Logo src={logo} alt="logo" />
+        </Link>
       </LogoLink>
       <Div>
         <SideMenuLinks />

@@ -7,11 +7,8 @@ import SideMenu from "./sidemenu/SideMenu";
 const Layout = ({ children }) => {
   return (
     <LayoutDiv>
-      {/* somehow anyway my grid doesn't work if i don't put the navbar in a div, but it is better for both menus anyway */}
-      <div id="top">
-        <Navbar />
-        <SideMenu />
-      </div>
+      <Navbar />
+      <SideMenu />
       <Main>
         {/* <MyCookieConsentBanner /> */}
         {children}
@@ -24,7 +21,8 @@ const Layout = ({ children }) => {
 export default Layout;
 
 const LayoutDiv = styled.div`
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
   font-family: ${(props) => props.theme.fonts.secondary};

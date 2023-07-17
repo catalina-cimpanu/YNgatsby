@@ -4,7 +4,7 @@ import Layout from "../../components/Layout";
 const NeuroskillsPage = () => {
   return (
     <Layout>
-      <h1>Neuroskills</h1>
+      <h1>NeuroSkills</h1>
       <p>This is the Neuroskills page</p>
     </Layout>
   );

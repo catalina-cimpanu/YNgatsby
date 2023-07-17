@@ -31,6 +31,7 @@ const StyledFooter = styled.footer`
   box-shadow: ${(props) => props.theme.elevations.elevation3};
   display: grid;
   place-items: center;
+  align-self: end;
 `;
 const Div = styled.div`
   width: 100vw;
