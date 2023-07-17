@@ -79,14 +79,27 @@ const CloseButton = styled.button`
 const Logo = styled.img`
   height: 100%;
   width: 100%;
+  padding: 1rem;
 `;
 const LogoLink = styled(Link)`
   position: absolute;
   top: 5%;
-  height: 30%;
-  width: 45%;
-  display: grid;
+  height: 6rem;
+  width: 6rem;
+  @media screen and (min-width: 600px) {
+    height: 8rem;
+    width: 8rem;
+  }
+  @media screen and (min-width: 900px) {
+    height: 10rem;
+    width: 10rem;
+  }
+  display: flex;
   place-items: center;
+  border-radius: ${(props) => props.theme.radiusL};
+  box-shadow: ${(props) => props.theme.elevations.elevation3};
+  -webkit-box-shadow: ${(props) => props.theme.elevations.elevation3};
+  background-color: ${(props) => props.theme.colors.surface2};
 `;
 const Div = styled.div`
   position: absolute;
