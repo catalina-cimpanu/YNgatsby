@@ -12,7 +12,7 @@ const HomePage = () => {
       </p>
       <StaticImage
         alt="Young Neuros Logo"
-        src="../images/icon.png"
+        src="../images/logo.png"
         placeholder="blurred"
         width={200}
         height={200}

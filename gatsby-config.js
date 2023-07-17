@@ -18,7 +18,19 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "src/images/logo_icon.png",
+        name: `Young Neuros`,
+        short_name: `Young Neuros`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: ["/", "/about/"],
       },
     },
     "gatsby-plugin-mdx",
