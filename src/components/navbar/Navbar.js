@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import logo from "../../images/logo.svg";
 import MenuLinksArray from "../../constants/menuLinks";
+import ToggleThemeButton from "./ToggleThemeButton";
+import RoundIconButton from "./RoundIconButton";
 
 const Navbar = () => {
   return (
@@ -25,6 +27,19 @@ const Navbar = () => {
           );
         })}
       </MenuList>
+      <IconContainer>
+        <RoundIconButton
+          aria-label="community"
+          buttonIcon="community"
+          buttonLink="https://community.youngneuros.com/"
+        />
+        <RoundIconButton
+          aria-label="calendar"
+          buttonIcon="calendar"
+          buttonLink="/calendar"
+        />
+        <ToggleThemeButton />
+      </IconContainer>
     </NavBar>
   );
 };
@@ -106,6 +121,13 @@ const NavLink = styled(Link)`
     -webkit-box-shadow: ${(props) => props.theme.elevations.elevation3};
     background-color: ${(props) => props.theme.colors.surface2};
   }
+`;
+
+const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  justify-items: flex-end;
 `;
 
 export default Navbar;

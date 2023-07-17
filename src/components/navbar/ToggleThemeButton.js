@@ -1,0 +1,59 @@
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { ThemeContext } from "../../context/Provider";
+import { RiMoonFill, RiSunFill } from "react-icons/ri";
+
+const ToggleThemeButton = () => {
+  const { toggleDarkMode, darkMode } = useContext(ThemeContext);
+  return (
+    <ToggleButton aria-label="toggle dark mode" onClick={toggleDarkMode}>
+      <SunIcon aria-label="light mode" isDark={darkMode} />
+      <MoonIcon aria-label="dark mode" isDark={darkMode} />
+    </ToggleButton>
+  );
+};
+
+const ToggleButton = styled.button`
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 20px;
+  height: 40px;
+  border-radius: 50px;
+  background: ${(props) => props.theme.colors.surface6};
+  box-shadow: inset 0px 0 4px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0px 0 4px rgba(0, 0, 0, 0.25);
+  padding: 0.2rem;
+  margin-left: 0.7rem;
+  @media screen and (min-width: 900px) {
+    margin-left: 0.5rem;
+  }
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  :focus {
+    outline: none;
+    appearance: none;
+    border: none;
+  }
+`;
+const SunIcon = styled(RiSunFill)`
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: ${(props) => props.theme.radiusL};
+  color: ${(props) => props.theme.colors.roundButtonBg};
+  opacity: ${(props) => (props.isDark ? "0" : "1")};
+`;
+
+const MoonIcon = styled(RiMoonFill)`
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: ${(props) => props.theme.radiusL};
+  color: ${(props) => props.theme.colors.roundButtonBg};
+  opacity: ${(props) => (props.isDark ? "1" : "0")};
+`;
+
+export default ToggleThemeButton;
