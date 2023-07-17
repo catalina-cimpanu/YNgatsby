@@ -1,0 +1,16 @@
+.container {
+  margin: 0 8%;
+}
+
+.container h1 {
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.container h2 {
+  margin: 2rem 0 1rem 0;
+}
+
+.container h3 {
+  margin: 1rem 0 0;
+}

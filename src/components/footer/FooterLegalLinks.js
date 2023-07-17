@@ -10,7 +10,7 @@ const FooterLegalLinks = () => {
         const { id, url, text } = legalLink;
         return (
           <li key={id}>
-            <LegalLink to={url}>{text}</LegalLink>
+            <LegalLink to={"/legal" + url}>{text}</LegalLink>
           </li>
         );
       })}
