@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar/Navbar";
 import Footer from "./Footer";
 import styled from "styled-components";
 
@@ -7,10 +7,10 @@ const Layout = ({ children }) => {
   return (
     <LayoutDiv>
       {/* somehow anyway my grid doesn't work if i don't put the navbar in a div, but it is better for both menus anyway */}
-      {/* <div id="top"> */}
-      <Navbar />
-      {/* <SideMenu /> */}
-      {/* </div> */}
+      <div id="top">
+        <Navbar />
+        {/* <SideMenu /> */}
+      </div>
       <Main>
         {/* <MyCookieConsentBanner /> */}
         {children}
@@ -37,6 +37,7 @@ const Main = styled.main`
   padding-top: -5rem;
   margin-top: 5rem;
   margin-left: 0;
+  padding: 3rem;
   width: 100vw;
   scroll-behavior: smooth;
 `;
