@@ -15,7 +15,7 @@ const SideMenu = () => {
       <CloseButton aria-label="close side menu" onClick={toggleSideMenu}>
         <FaTimes />
       </CloseButton>
-      <LogoLink aria-label="link to homepage" to="/">
+      <LogoLink to="/" aria-label="link to homepage">
         <Logo src={logo} alt="logo" />
       </LogoLink>
       <Div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./navbar/Navbar";
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
 import styled from "styled-components";
 import SideMenu from "./sidemenu/SideMenu";
 
