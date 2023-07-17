@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby Minimal Starter
+  Young Neuros 
 </h1>
 
 This is the skeleton of Young Neuros.
