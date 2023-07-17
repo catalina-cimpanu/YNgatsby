@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./navbar/Navbar";
 import Footer from "./Footer";
 import styled from "styled-components";
+import SideMenu from "./sidemenu/SideMenu";
 
 const Layout = ({ children }) => {
   return (
@@ -9,7 +10,7 @@ const Layout = ({ children }) => {
       {/* somehow anyway my grid doesn't work if i don't put the navbar in a div, but it is better for both menus anyway */}
       <div id="top">
         <Navbar />
-        {/* <SideMenu /> */}
+        <SideMenu />
       </div>
       <Main>
         {/* <MyCookieConsentBanner /> */}

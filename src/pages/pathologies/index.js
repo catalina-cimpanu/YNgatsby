@@ -4,7 +4,7 @@ import Layout from "../../components/Layout";
 const PathologiesPage = () => {
   return (
     <Layout>
-      <h1>Congratulations</h1>
+      <h1>Pathologies</h1>
       <p>This is the pathologies page</p>
     </Layout>
   );

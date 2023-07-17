@@ -4,7 +4,8 @@ import styled from "styled-components";
 import logo from "../../images/logo.svg";
 import MenuLinksArray from "../../constants/menuLinks";
 import ToggleThemeButton from "./ToggleThemeButton";
-import RoundIconButton from "./RoundIconButton";
+import RoundIconButton from "../buttons/RoundIconButton";
+import SideMenuButton from "../sidemenu/SideMenuButton";
 
 const Navbar = () => {
   return (
@@ -12,6 +13,7 @@ const Navbar = () => {
       <LogoLink aria-label="link to homepage" to="/">
         <Logo src={logo} alt="Young Neuros logo" />
       </LogoLink>
+      <SideMenuButton aria-label="sidemenu button" />
       <MenuList>
         {MenuLinksArray.map((menuLink) => {
           const { id, url, text } = menuLink;
@@ -84,19 +86,15 @@ const Logo = styled.img`
 
 // nav-links
 const MenuList = styled.ul`
-  /* list-style: none;
+  list-style: none;
   list-style-type: none;
-  display: none; */
-  /* @media screen and (min-width: 900px) {
+  display: none;
+  @media screen and (min-width: 900px) {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     grid-column: 3 / 4;
-  } */
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  grid-column: 3 / 4;
+  }
 `;
 
 const NavLink = styled(Link)`
