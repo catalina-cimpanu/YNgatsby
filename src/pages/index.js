@@ -1,12 +1,14 @@
 import * as React from "react";
 import Layout from "../components/Layout";
 import HeroNew from "../components/hero/HeroNew";
+import Description from "../components/Description";
 import { styled } from "styled-components";
 
 const HomePage = () => {
   return (
     <Layout>
       <HeroNew />
+      <Description />
       <p id="first">
         Edit <code>src/pages/index.js</code> to see this page update in
         real-time. 😎

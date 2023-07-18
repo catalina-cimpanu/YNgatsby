@@ -23,7 +23,7 @@ module.exports = {
         short_name: `Young Neuros`,
         start_url: `/`,
         background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        theme_color: `#28C1EA`,
         display: `standalone`,
       },
     },

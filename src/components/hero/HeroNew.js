@@ -9,7 +9,7 @@ const HeroNew = () => {
       <HeroInfo>
         <h1>Welcome to Young Neuros</h1>
         <h3>The young neurologists hub to stay smart and stay in touch</h3>
-        <PrimaryButton buttonText="discover" buttonLink="#first">
+        <PrimaryButton buttonText="discover" buttonLink="#description">
           read more
         </PrimaryButton>
       </HeroInfo>
@@ -31,7 +31,8 @@ const HeroSection = styled.section`
   align-content: center;
   justify-content: center;
   grid-template-columns: 8% 1fr 8%;
-  margin-bottom: 5rem;
+  /* height: 82vh; */
+  margin: 3rem 0 5rem 0;
   @media screen and (min-width: 900px) {
     grid-template-columns: 8% 34% 50% 8%;
   }

@@ -22,7 +22,7 @@ body, html {
     background-color: ${(props) => props.theme.colors.bg};
     scroll-behavior: smooth; 
     scroll-margin-top: 5rem;
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 5rem;
 }
 /* scrollbar */
 /* Hide scrollbar for Chrome, Safari and Opera */

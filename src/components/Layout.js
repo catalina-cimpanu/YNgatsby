@@ -36,7 +36,7 @@ const Main = styled.main`
   padding-top: -5rem;
   margin-top: 5rem;
   margin-left: 0;
-  padding: 3rem;
+  /* padding-top: 3rem; */
   width: 100vw;
   scroll-behavior: smooth;
 `;
