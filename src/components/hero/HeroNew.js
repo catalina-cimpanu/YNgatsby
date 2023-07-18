@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
+import PrimaryButton from "../buttons/PrimaryButton";
 
 const HeroNew = () => {
   return (
@@ -8,7 +9,9 @@ const HeroNew = () => {
       <HeroInfo>
         <h1>Welcome to Young Neuros</h1>
         <h3>The young neurologists hub to stay smart and stay in touch</h3>
-        <button>read more</button>
+        <PrimaryButton buttonText="discover" buttonLink="#first">
+          read more
+        </PrimaryButton>
       </HeroInfo>
       <StaticImage
         src="../../images/YN_hero.svg"
@@ -28,6 +31,7 @@ const HeroSection = styled.section`
   align-content: center;
   justify-content: center;
   grid-template-columns: 8% 1fr 8%;
+  margin-bottom: 5rem;
   @media screen and (min-width: 900px) {
     grid-template-columns: 8% 34% 50% 8%;
   }
