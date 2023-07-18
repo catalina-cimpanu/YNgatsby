@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
 import PrimaryButton from "../buttons/PrimaryButton";
+import HeroSvg from "../../images/YN_hero.inline.svg";
 
 const HeroNew = () => {
   return (
@@ -13,14 +14,17 @@ const HeroNew = () => {
           read more
         </PrimaryButton>
       </HeroInfo>
-      <StaticImage
+      <div className="img-wrapper">
+        <HeroSvg />
+      </div>
+      {/* <StaticImage
         src="../../images/YN_hero.svg"
         alt="young people"
         layout="fullWidth"
         placeholder="blurred"
         className="img-wrapper"
         imgClassName="hero-img"
-      />
+      /> */}
     </HeroSection>
   );
 };
@@ -31,7 +35,7 @@ const HeroSection = styled.section`
   align-content: center;
   justify-content: center;
   grid-template-columns: 8% 1fr 8%;
-  /* height: 82vh; */
+  height: 80vh;
   margin: 3rem 0 5rem 0;
   @media screen and (min-width: 900px) {
     grid-template-columns: 8% 34% 50% 8%;
