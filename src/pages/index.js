@@ -1,10 +1,11 @@
 import * as React from "react";
 import Layout from "../components/Layout";
+import HeroNew from "../components/hero/HeroNew";
 
 const HomePage = () => {
   return (
     <Layout>
-      <h1>Home Page</h1>
+      <HeroNew />
       <p>
         Edit <code>src/pages/index.js</code> to see this page update in
         real-time. 😎
