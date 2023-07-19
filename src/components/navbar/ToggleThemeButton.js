@@ -18,8 +18,7 @@ const ToggleButton = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  width: 20px;
-  height: 40px;
+  height: calc(0.55 * 5rem);
   border-radius: 50px;
   background: ${(props) => props.theme.colors.surface6};
   box-shadow: inset 0px 0 4px rgba(0, 0, 0, 0.25);
@@ -37,16 +36,12 @@ const ToggleButton = styled.button`
   }
 `;
 const SunIcon = styled(RiSunFill)`
-  height: 1.25rem;
-  width: 1.25rem;
   border-radius: ${(props) => props.theme.radiusL};
   color: ${(props) => props.theme.colors.roundButtonBg};
   opacity: ${(props) => (props.isDark ? "0" : "1")};
 `;
 
 const MoonIcon = styled(RiMoonFill)`
-  height: 1.25rem;
-  width: 1.25rem;
   border-radius: ${(props) => props.theme.radiusL};
   color: ${(props) => props.theme.colors.roundButtonBg};
   opacity: ${(props) => (props.isDark ? "1" : "0")};

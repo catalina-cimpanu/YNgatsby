@@ -3,18 +3,23 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { ThemeContext } from "../../context/Provider";
 import LogoSvg from "../../images/logo.inline.svg";
-import SideMenuLinks from "./SideMenuLinks";
 import RoundIconButton from "../buttons/RoundIconButton";
-import SocialLinks from "./SideMenuSocialLinks";
 import { FaTimes } from "react-icons/fa";
+import SideMenuLinks from "./SideMenuLinks";
+import SocialLinks from "./SideMenuSocialLinks";
 
 const SideMenu = () => {
   const { isOpen, toggleSideMenu } = useContext(ThemeContext);
   return (
     <AsideNavbar isOpen={isOpen}>
-      <CloseButton aria-label="close side menu" onClick={toggleSideMenu}>
+      <button
+        className="close-button"
+        aria-label="close side menu"
+        onClick={toggleSideMenu}
+      >
         <FaTimes />
-      </CloseButton>
+      </button>
+
       <div className="logo-container" onClick={toggleSideMenu}>
         <Link to="/" aria-label="link to homepage">
           <LogoSvg />
@@ -22,6 +27,7 @@ const SideMenu = () => {
       </div>
 
       <SideMenuLinks />
+
       <div className="icon-container">
         <RoundIconButton
           aria-label="community"
@@ -36,6 +42,7 @@ const SideMenu = () => {
           isOpen
         />
       </div>
+
       <SocialLinks styleClass={`${isOpen ? "sidemenu-icons" : ""}`} />
     </AsideNavbar>
   );
@@ -68,53 +75,20 @@ const AsideNavbar = styled.aside`
     align-content: center;
     justify-content: space-evenly;
   }
-`;
-const CloseButton = styled.button`
-  position: absolute;
-  right: 1%;
-  top: 1%;
-  font-size: 2rem;
-  background: transparent;
-  border-color: transparent;
-  color: ${(props) => props.theme.colors.H1H2};
-  cursor: pointer;
-  /* display: flex;
-  align-items: center; */
-  :hover {
-    color: ${(props) => props.theme.colors.primary};
-    transform: scale(1.1);
+  .close-button {
+    position: absolute;
+    right: 1%;
+    top: 1%;
+    font-size: 2rem;
+    background: transparent;
+    border-color: transparent;
+    color: ${(props) => props.theme.colors.H1H2};
+    cursor: pointer;
+    &:hover {
+      color: ${(props) => props.theme.colors.primary};
+      transform: scale(1.1);
+    }
   }
-`;
-
-const IconContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: right;
-  /* @media screen and (max-width: 900px) {
-    justify-content: space-evenly;
-  }
-  @media screen and (min-height: 350px) {
-    margin: 1rem auto 0 auto;
-  }
-  @media screen and (min-height: 400px) {
-    margin: 1.5rem auto 0 auto;
-  }
-  @media screen and (min-height: 450px) {
-    margin: 2rem auto 0 auto;
-  }
-  @media screen and (min-height: 500px) {
-    margin: 1rem auto 0 auto; */
-  /*smaller because at the same breakpoint, the menu that is on top of it grows */
-  /* }
-  @media screen and (min-height: 600px) {
-    margin: 3rem auto 0 auto;
-  }
-  @media screen and (min-height: 750px) {
-    margin: 4.5rem auto 0 auto;
-  }
-  @media screen and (min-height: 800px) {
-    margin: 5rem auto 0 auto;
-  } */
 `;
 
 export default SideMenu;

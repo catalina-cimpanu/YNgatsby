@@ -19,19 +19,18 @@ const SideButton = styled.button`
   appearance: none;
   border: none;
   outline: none;
+  background: transparent;
   cursor: pointer;
-  font-size: 3rem;
-  width: 3rem;
-  height: 80%;
+  font-size: calc(0.65 * 5rem);
   align-self: center;
   justify-self: right;
-  background: transparent;
+  margin-right: 0.5rem;
   color: ${(props) => props.theme.colors.roundButtonBg};
   border-radius: ${(props) => props.theme.radius};
   display: grid;
   place-items: center;
   transition: ${(props) => props.theme.transition};
-  :hover {
+  &:hover {
     transform: scale(1.1);
   }
   @media screen and (min-width: 900px) {

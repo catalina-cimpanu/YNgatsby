@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import logo from "../../images/logo.svg";
+import LogoSvg from "../../images/logo.inline.svg";
 import MenuLinksArray from "../../constants/menuLinks";
 import ToggleThemeButton from "./ToggleThemeButton";
 import RoundIconButton from "../buttons/RoundIconButton";
@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <NavBar>
       <Link className="logo-link" aria-label="link to homepage" to="/">
-        <Logo src={logo} alt="Young Neuros logo" />
+        <LogoSvg className="logo-svg" />
       </Link>
       <SideMenuButton aria-label="sidemenu button" />
       <ul className="menu-list">
@@ -19,8 +19,8 @@ const Navbar = () => {
           const { id, url, text } = menuLink;
           return (
             <Link
-              className="nav-link"
               key={id}
+              className="nav-link"
               aria-label={`link for page: ${text}`}
               to={url}
               activeClassName="active"
@@ -30,8 +30,8 @@ const Navbar = () => {
           );
         })}
       </ul>
-      <div className="all-icons">
-        <div className="round-icons">
+      <div className="all-icons-container">
+        <div className="round-icons-container">
           <RoundIconButton
             aria-label="community"
             buttonIcon="community"
@@ -80,6 +80,11 @@ const NavBar = styled.nav`
     align-content: center;
     justify-content: left;
   }
+  .logo-svg {
+    align-self: center;
+    justify-self: left;
+    height: 90%;
+  }
   .menu-list {
     list-style: none;
     list-style-type: none;
@@ -114,29 +119,25 @@ const NavBar = styled.nav`
       background-color: ${(props) => props.theme.colors.surface2};
     }
   }
-  .all-icons {
+  .all-icons-container {
+    min-width: min-content;
     display: grid;
     grid-template-columns: 85% 15%;
     align-content: center;
     justify-items: end;
   }
-  .round-icons {
+  .round-icons-container {
     min-width: min-content;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 0.5vw;
     align-content: center;
     justify-items: end;
+    margin-right: 5px;
   }
   .toggle-theme-button {
     min-width: min-content;
   }
-`;
-
-const Logo = styled.img`
-  align-self: center;
-  justify-self: left;
-  height: 90%;
 `;
 
 export default Navbar;
