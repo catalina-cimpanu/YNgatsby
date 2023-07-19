@@ -6,47 +6,41 @@ import FooterLegalLinks from "./FooterLegalLinks";
 const Footer = () => {
   return (
     <StyledFooter>
-      <Div>
-        <FooterSocialLinks styleClass="footer-links-s" />
-        <StyledH4>
-          &copy; {new Date().getFullYear()}
-          <Span> Young Neuros</Span> Made by Catalina
-        </StyledH4>
-        <FooterLegalLinks />
-      </Div>
+      <FooterSocialLinks styleClass="footer-links-s" />
+      <h4>
+        &copy; {new Date().getFullYear()}
+        <span> Young Neuros</span> Made by Catalina
+      </h4>
+      <FooterLegalLinks />
     </StyledFooter>
   );
 };
 
 const StyledFooter = styled.footer`
-  height: 16rem;
-  z-index: 1;
-  @media screen and (min-width: 275px) {
-    height: 13rem;
-  }
-  @media screen and (min-width: 442px) {
-    height: 12rem;
-  }
-  background: ${(props) => props.theme.colors.surface1};
-  box-shadow: ${(props) => props.theme.elevations.elevation3};
-  display: grid;
-  place-items: center;
-  align-self: end;
-`;
-const Div = styled.div`
+  position: relative;
+  bottom: 0;
+  left: 0;
   width: 100vw;
-  padding: 0 8%;
-`;
-const StyledH4 = styled.h4`
-  margin: 0.5rem 0;
-  color: ${(props) => props.theme.colors.H3toH6};
-  font-size: 1rem;
-  font-weight: normal;
-  text-transform: uppercase;
-  text-align: center;
-`;
-const Span = styled.span`
-  font-weight: bold;
+  z-index: 1;
+  padding: 1rem 8%;
+  background: ${(props) => props.theme.colors.surface1};
+  box-shadow: ${(props) => props.theme.elevations.elevation5};
+  align-self: end;
+  display: grid;
+  grid-row-gap: 1rem;
+  /*padding and row gap same */
+  justify-content: center;
+  align-content: space-evenly;
+  h4 {
+    color: ${(props) => props.theme.colors.H3toH6};
+    font-size: 1rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  span {
+    font-weight: bold;
+  }
 `;
 
 export default Footer;

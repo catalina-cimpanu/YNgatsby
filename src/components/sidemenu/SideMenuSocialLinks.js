@@ -9,11 +9,7 @@ const SideMenuSocialLinks = () => {
         const { id, url, icon } = socialLink;
         return (
           <li key={id}>
-            <a
-              className="social-link"
-              aria-label={`social link to ${url}`}
-              href={url}
-            >
+            <a aria-label={`social link to ${url}`} href={url}>
               {icon}
             </a>
           </li>
@@ -29,7 +25,7 @@ const SocialList = styled.ul`
   display: flex;
   align-content: flex-end;
   justify-content: space-evenly;
-  .social-link {
+  a {
     font-size: 1.5rem;
     color: ${(props) => props.theme.colors.H1H2};
     transition: ${(props) => props.theme.transition};

@@ -10,7 +10,9 @@ const FooterLegalLinks = () => {
         const { id, url, text } = legalLink;
         return (
           <li key={id}>
-            <LegalLink to={"/legal" + url}>{text}</LegalLink>
+            <Link className="legal-link" to={"/legal" + url}>
+              {text}
+            </Link>
           </li>
         );
       })}
@@ -18,27 +20,24 @@ const FooterLegalLinks = () => {
   );
 };
 
-// .legal-links
 const LegalList = styled.ul`
-  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-`;
-// .legal-link
-const LegalLink = styled(Link)`
-  justify-self: center;
-  display: block;
-  font-size: 1rem;
-  text-align: center;
-  color: ${(props) => props.theme.colors.navLinkText};
-  border-radius: ${(props) => props.theme.radiusL};
-  transition: ${(props) => props.theme.transition};
-  padding: 0.25rem 0.5rem;
-  :hover {
-    ${"" /* color: ${props => props.theme.colors.H1H2}; */}
-    background-color: ${(props) => props.theme.colors.surface2};
-    box-shadow: ${(props) => props.theme.elevations.elevation3};
+  justify-content: space-evenly;
+  .legal-link {
+    display: block;
+    justify-self: center;
+    margin: 0 0.5rem;
+    padding: 0 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+    color: ${(props) => props.theme.colors.navLinkText};
+    border-radius: ${(props) => props.theme.radiusL};
+    transition: ${(props) => props.theme.transition};
+    &:hover {
+      background-color: ${(props) => props.theme.colors.surface2};
+      box-shadow: ${(props) => props.theme.elevations.elevation3};
+    }
   }
 `;
 
