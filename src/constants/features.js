@@ -1,15 +1,10 @@
 import React from "react";
 import { RiDossierLine, RiCalendarCheckFill, RiTeamLine } from "react-icons/ri";
-// import Library from "../assets/Library1.svg";
-// import Calendar from "../assets/Calendar.svg";
-// import Community from "../assets/Community.svg";
 
 export default [
   {
     id: 1,
     icon: <RiDossierLine />,
-    //  img: Library,
-    img_src: "",
     img_png: "Library.png",
     title: "Library",
     link: "/library",
@@ -21,8 +16,6 @@ export default [
   {
     id: 2,
     icon: <RiCalendarCheckFill />,
-    //  img: Calendar,
-    img_src: "",
     img_png: "Calendar.png",
     title: "Calendar",
     link: "/calendar",
@@ -31,8 +24,6 @@ export default [
   {
     id: 3,
     icon: <RiTeamLine />,
-    //  img: Community,
-    img_src: "",
     img_png: "Community.png",
     title: "Community",
     link: "https://community.youngneuros.com/",

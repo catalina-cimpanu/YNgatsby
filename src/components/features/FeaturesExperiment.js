@@ -1,10 +1,13 @@
+// Note: kept the logic from the previous version, but I'm using SVGs instead of img with src
+// tried to refactor the code, but I didn't manage
+
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
-import { RiDossierLine, RiCalendarCheckFill, RiTeamLine } from "react-icons/ri";
-
 import features from "../../constants/features";
+import LibraryImg from "../../images/feature_images/Library.inline.svg";
+import CalendarImg from "../../images/feature_images/Calendar.inline.svg";
+import CommunityImg from "../../images/feature_images/Community.inline.svg";
 
 const FeaturesSVG = () => {
   return (
@@ -12,8 +15,8 @@ const FeaturesSVG = () => {
       <h2>Features</h2>
       <div className="features-container">
         {features.map((feature, index) => {
-          const { id, img_src, title, text, link } = feature;
-
+          const { id, icon, title, text, link } = feature;
+          console.log(icon);
           return (
             <Feature
               key={id}
@@ -23,6 +26,11 @@ const FeaturesSVG = () => {
               rel="noopener noreferrer"
               imgLeft={index % 2 === 0}
             >
+              {title === "Community" && (
+                <CommunityImg className="feature-img" />
+              )}
+              {title === "Calendar" && <CalendarImg className="feature-img" />}
+              {title === "Library" && <LibraryImg className="feature-img" />}
               <div className="feature-info">
                 <h3>{title}</h3>
                 <p>{text}</p>
@@ -39,7 +47,7 @@ const FeaturesSection = styled.section`
   margin: 4rem auto;
   .features-container {
     display: grid;
-    grid-template-columns: 8% 1fr 8%;
+    grid-template-columns: 8% 1fr 1fr 8%;
   }
   h2 {
     text-align: center;
@@ -50,48 +58,60 @@ const FeaturesSection = styled.section`
 const Feature = styled(Link)`
   text-decoration: none;
   border: none;
-  grid-column: 2/3;
+  grid-column: 2/4;
   display: grid;
-  align-content: space-evenly;
-  justify-content: space-between;
-  @media screen and (min-width: 900px) {
-    grid-template-columns: ${(props) =>
-      props.imgLeft ? "30% 60%" : "60% 30%"};
-    grid-template-areas: "area-left area-right";
-  }
-
+  grid-template-columns: repeat(6, 1fr);
+  margin-bottom: 4rem;
   &:focus-visible {
     outline: none;
   }
 
   .feature-img {
     z-index: 5;
-    background-color: teal;
     width: 100%;
-    height: 100%;
-    grid-area: ${(props) => (props.imgLeft ? "area-left" : "area-right")};
-    grid-row: 1/1; /* in small screens stays on top */
+    grid-column: 1/7;
+    grid-row: 1/1;
     justify-self: center;
     align-self: center;
+    @media screen and (min-width: 600px) and (max-width: 900px) {
+      width: 80%;
+    }
     @media screen and (min-width: 900px) {
-      justify-self: ${(props) => (props.imgLeft ? "right" : "left")};
+      grid-column: ${(props) => (props.imgLeft ? "1/4" : "4/8")};
+      max-width: 85%;
+      justify-self: ${(props) => (props.imgLeft ? "left" : "right")};
     }
   }
 
   .feature-info {
-    background-color: orange;
-    width: 100%;
-    padding: 1rem;
-    grid-column: ${(props) => (props.imgLeft ? "area-right" : "area-left")};
+    z-index: 1;
+    grid-column: 1/7;
+    grid-row: 2/3;
     text-align: center;
+    align-self: center;
+    padding: 3rem 1rem;
+    background-color: ${(props) => props.theme.colors.surface1};
+    box-shadow: ${(props) => props.theme.elevations.elevation3};
+    border-radius: ${(props) => props.theme.radiusL};
+    margin-top: -2rem;
     @media screen and (min-width: 900px) {
-      text-align: ${(props) => (props.imgLeft ? "right" : "left")};
+      grid-column: ${(props) => (props.imgLeft ? "2/7" : "1/6")};
+      grid-row: 1/1;
+      margin-top: 0;
+      padding: 6rem 3rem;
+      margin-left: ${(props) => (props.imgLeft ? "2rem" : "0")};
+      display: grid;
+      grid-template-columns: ${(props) =>
+        props.imgLeft ? "30% 70%" : "70% 30%"};
     }
 
     h3 {
+      grid-column: ${(props) => (props.imgLeft ? "2/3" : "1/2")};
+      margin-bottom: 2rem;
     }
 
     p {
+      grid-column: ${(props) => (props.imgLeft ? "2/3" : "1/2")};
     }
   }
 `;

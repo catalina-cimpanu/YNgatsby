@@ -15,6 +15,7 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-svgr-svgo",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -51,14 +52,6 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
-    },
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /\.inline\.svg$/,
-        },
-      },
     },
   ],
 };
