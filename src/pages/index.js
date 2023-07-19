@@ -4,6 +4,7 @@ import HeroNew from "../components/hero/HeroNew";
 import Description from "../components/Description";
 import { styled } from "styled-components";
 import Features from "../components/features/Features";
+import FeaturesExperiment from "../components/features/FeaturesExperiment";
 
 const HomePage = () => {
   return (
@@ -11,6 +12,7 @@ const HomePage = () => {
       <HeroNew />
       <Description />
       <Features />
+      <FeaturesExperiment />
       <p id="first">
         Edit <code>src/pages/index.js</code> to see this page update in
         real-time. 😎
