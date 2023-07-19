@@ -17,14 +17,6 @@ const HeroNew = () => {
       <div className="img-wrapper">
         <HeroSvg />
       </div>
-      {/* <StaticImage
-        src="../../images/YN_hero.svg"
-        alt="young people"
-        layout="fullWidth"
-        placeholder="blurred"
-        className="img-wrapper"
-        imgClassName="hero-img"
-      /> */}
     </HeroSection>
   );
 };
@@ -35,8 +27,7 @@ const HeroSection = styled.section`
   align-content: center;
   justify-content: center;
   grid-template-columns: 8% 1fr 8%;
-  height: 80vh;
-  margin: 3rem 0 5rem 0;
+  height: calc(100vh - 5rem);
   @media screen and (min-width: 900px) {
     grid-template-columns: 8% 34% 50% 8%;
   }
@@ -70,6 +61,8 @@ const HeroInfo = styled.article`
     grid-column: 2/3;
     grid-row: 1/2;
     justify-items: left;
+    margin-right: 1vh;
+    margin-bottom: 0;
   }
   h1 {
     font-size: clamp(3rem, 5vw, 5rem);
