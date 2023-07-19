@@ -3,12 +3,14 @@ import Layout from "../components/Layout";
 import HeroNew from "../components/hero/HeroNew";
 import Description from "../components/Description";
 import { styled } from "styled-components";
+import Features from "../components/features/Features";
 
 const HomePage = () => {
   return (
     <Layout>
       <HeroNew />
       <Description />
+      <Features />
       <p id="first">
         Edit <code>src/pages/index.js</code> to see this page update in
         real-time. 😎
