@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { ThemeContext } from "../../context/Provider";
-import logo from "../../images/logo.svg";
+import LogoSvg from "../../images/logo.inline.svg";
 import SideMenuLinks from "./SideMenuLinks";
 import RoundIconButton from "../buttons/RoundIconButton";
 import SocialLinks from "./SideMenuSocialLinks";
@@ -15,30 +15,28 @@ const SideMenu = () => {
       <CloseButton aria-label="close side menu" onClick={toggleSideMenu}>
         <FaTimes />
       </CloseButton>
-      <LogoLink to="/" aria-label="link to homepage" onClick={toggleSideMenu}>
+      <div className="logo-container" onClick={toggleSideMenu}>
         <Link to="/" aria-label="link to homepage">
-          {/* For some reason it only works if I have 2 Link elements and the onclick remains on the styled one... */}
-          <Logo src={logo} alt="logo" />
+          <LogoSvg />
         </Link>
-      </LogoLink>
-      <Div>
-        <SideMenuLinks />
-        <IconContainer>
-          <RoundIconButton
-            aria-label="community"
-            buttonIcon="community"
-            buttonLink="https://community.youngneuros.com/"
-            isOpen
-          />
-          <RoundIconButton
-            aria-label="community"
-            buttonIcon="calendar"
-            buttonLink="/calendar"
-            isOpen
-          />
-        </IconContainer>
-        <SocialLinks styleClass={`${isOpen ? "sidemenu-icons" : ""}`} />
-      </Div>
+      </div>
+
+      <SideMenuLinks />
+      <div className="icon-container">
+        <RoundIconButton
+          aria-label="community"
+          buttonIcon="community"
+          buttonLink="https://community.youngneuros.com/"
+          isOpen
+        />
+        <RoundIconButton
+          aria-label="community"
+          buttonIcon="calendar"
+          buttonLink="/calendar"
+          isOpen
+        />
+      </div>
+      <SocialLinks styleClass={`${isOpen ? "sidemenu-icons" : ""}`} />
     </AsideNavbar>
   );
 };
@@ -48,19 +46,27 @@ const AsideNavbar = styled.aside`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  min-width: 160px;
-  height: 100%;
   z-index: 999;
-  display: grid;
-  place-items: center;
   opacity: 1;
+  width: 100vw;
+  height: 100vh;
   transform: ${(props) =>
     props.isOpen ? "translateX(0)" : "translateX(-100%)"};
   transition: 0.3s; /* i've tested! 0.3 or 0.4 are good!! */
   box-shadow: ${(props) => props.theme.elevations.elevation3};
   @media screen and (min-width: 900px) {
     transform: translateX(-100%);
+  }
+  display: grid;
+  justify-content: center;
+  align-content: space-evenly;
+  .logo-container {
+    padding: 0 1rem;
+  }
+  .icon-container {
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
   }
 `;
 const CloseButton = styled.button`
@@ -72,48 +78,19 @@ const CloseButton = styled.button`
   border-color: transparent;
   color: ${(props) => props.theme.colors.H1H2};
   cursor: pointer;
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   :hover {
     color: ${(props) => props.theme.colors.primary};
     transform: scale(1.1);
   }
 `;
-const Logo = styled.img`
-  height: 100%;
-  width: 100%;
-  padding: 1rem;
-`;
-const LogoLink = styled(Link)`
-  position: absolute;
-  top: 5%;
-  height: 6rem;
-  width: 6rem;
-  @media screen and (min-width: 600px) {
-    height: 8rem;
-    width: 8rem;
-  }
-  @media screen and (min-width: 900px) {
-    height: 10rem;
-    width: 10rem;
-  }
-  display: flex;
-  place-items: center;
-  border-radius: ${(props) => props.theme.radiusL};
-  box-shadow: ${(props) => props.theme.elevations.elevation3};
-  -webkit-box-shadow: ${(props) => props.theme.elevations.elevation3};
-  background-color: ${(props) => props.theme.colors.surface2};
-`;
-const Div = styled.div`
-  position: absolute;
-  top: 30%;
-  margin-top: 5%;
-`;
+
 const IconContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: right;
-  @media screen and (max-width: 900px) {
+  /* @media screen and (max-width: 900px) {
     justify-content: space-evenly;
   }
   @media screen and (min-height: 350px) {
@@ -126,9 +103,9 @@ const IconContainer = styled.div`
     margin: 2rem auto 0 auto;
   }
   @media screen and (min-height: 500px) {
-    margin: 1rem auto 0 auto;
-    /*smaller because at the same breakpoint, the menu that is on top of it grows */
-  }
+    margin: 1rem auto 0 auto; */
+  /*smaller because at the same breakpoint, the menu that is on top of it grows */
+  /* }
   @media screen and (min-height: 600px) {
     margin: 3rem auto 0 auto;
   }
@@ -137,7 +114,7 @@ const IconContainer = styled.div`
   }
   @media screen and (min-height: 800px) {
     margin: 5rem auto 0 auto;
-  }
+  } */
 `;
 
 export default SideMenu;

@@ -12,9 +12,8 @@ const SideMenuLinks = () => {
       {MenuLinksArray.map((menuLink) => {
         const { id, url, text } = menuLink;
         return (
-          <Button aria-label="close sidemenu" onClick={closeSideMenu}>
+          <Button key={id} aria-label="close sidemenu" onClick={closeSideMenu}>
             <SideMenuLink
-              key={id}
               aria-label={`link for page: ${text}`}
               to={url}
               activeClassName="active"

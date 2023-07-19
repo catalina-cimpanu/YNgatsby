@@ -11,9 +11,9 @@ function RoundButton({ buttonIcon, buttonLink, isOpen }) {
       rel="noopener noreferrer"
     >
       {buttonIcon === "community" ? (
-        <CommunityIcon />
+        <BsPeopleFill />
       ) : buttonIcon === "calendar" ? (
-        <CalendarIcon />
+        <BsCalendarFill />
       ) : (
         buttonIcon
       )}
@@ -22,32 +22,27 @@ function RoundButton({ buttonIcon, buttonLink, isOpen }) {
 }
 
 const Icon = styled.a`
-  border-radius: ${(props) => props.theme.radiusL};
-  padding: 0.5rem;
-  margin-left: 0.5rem;
-  height: 40px;
-  width: 40px;
   background-color: ${(props) => props.theme.colors.roundButtonBg};
+  color: ${(props) => props.theme.colors.surface1};
   box-shadow: ${(props) => props.theme.elevations.elevation3};
+  border-radius: ${(props) => props.theme.radiusL};
+  height: 5vh;
+  width: 5vh;
+  @media screen and (min-width: 320px) {
+    height: 4vh;
+    width: 4vh;
+  }
   /* rules for the elements inside it */
   display: grid;
-  place-items: center;
+  align-content: center;
+  justify-content: center;
   transition: ${(props) => props.theme.transition};
-  :hover {
+  &:hover {
     transform: scale(1.1);
   }
   @media screen and (max-width: 900px) {
     display: ${(props) => (props.isOpen ? "grid" : "none")};
-    margin-left: 0;
   }
-`;
-const CommunityIcon = styled(BsPeopleFill)`
-  color: ${(props) => props.theme.colors.surface1};
-  font-size: 1.5rem;
-`;
-const CalendarIcon = styled(BsCalendarFill)`
-  color: ${(props) => props.theme.colors.surface1};
-  font-size: 1.2rem;
 `;
 
 export default RoundButton;

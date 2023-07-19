@@ -25,16 +25,12 @@ const ToggleButton = styled.button`
   box-shadow: inset 0px 0 4px rgba(0, 0, 0, 0.25);
   -webkit-box-shadow: inset 0px 0 4px rgba(0, 0, 0, 0.25);
   padding: 0.2rem;
-  margin-left: 0.7rem;
-  @media screen and (min-width: 900px) {
-    margin-left: 0.5rem;
-  }
   align-self: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  :focus {
+  &:focus {
     outline: none;
     appearance: none;
     border: none;

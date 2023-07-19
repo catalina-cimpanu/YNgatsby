@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { StaticImage } from "gatsby-plugin-image";
 import PrimaryButton from "../buttons/PrimaryButton";
 import HeroSvg from "../../images/YN_hero.inline.svg";
 
