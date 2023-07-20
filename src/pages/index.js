@@ -2,12 +2,12 @@ import * as React from "react";
 import Layout from "../components/Layout";
 import HeroNew from "../components/hero/HeroNew";
 import Description from "../components/Description";
-import { styled } from "styled-components";
 import Features from "../components/features/Features";
-import FeaturesExperiment from "../components/features/FeaturesExperiment";
+// import FeaturesExperiment from "../components/features/FeaturesExperiment";
 import MiniFeatures from "../components/features/MiniFeatures";
 import advantages from "../constants/advantages";
 import actions from "../constants/actions";
+import ContactSection from "../components/contact/ContactSection";
 
 const HomePage = () => {
   return (
@@ -17,6 +17,7 @@ const HomePage = () => {
       <Features />
       <MiniFeatures features={advantages} title="Our philosophy" blue />
       <MiniFeatures features={actions} title="Support our work" />
+      <ContactSection />
       {/* <FeaturesExperiment /> */}
       <p id="first">
         Edit <code>src/pages/index.js</code> to see this page update in
