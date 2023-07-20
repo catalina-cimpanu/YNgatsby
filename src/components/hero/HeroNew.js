@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import PrimaryButton from "../buttons/PrimaryButton";
 import HeroSvg from "../../images/YN_hero_multi_color.inline.svg";
+import BigBlob from "../../images/blobs/Big_blob.inline.svg";
 
 const HeroNew = () => {
   return (
     <HeroSection>
+      <BigBlob className="blob" />
       <HeroInfo>
         <h1>Welcome to Young Neuros</h1>
         <h3>The young neurologists hub to stay smart and stay in touch</h3>
@@ -40,6 +42,15 @@ const HeroSection = styled.section`
     @media screen and (min-width: 900px) {
       grid-column: 3/4;
       grid-row: 1/2;
+    }
+  }
+  .blob {
+    position: absolute;
+    left: 0;
+    top: -21%;
+    opacity: 0.5;
+    @media screen and (min-width: 900px) {
+      opacity: 1;
     }
   }
 `;

@@ -5,6 +5,11 @@ import features from "../../constants/features";
 import LibraryImg from "../../images/feature_images/Library.inline.svg";
 import CalendarImg from "../../images/feature_images/Calendar.inline.svg";
 import CommunityImg from "../../images/feature_images/Community.inline.svg";
+import Blob1 from "../../images/blobs/Blob1.inline.svg";
+import Blob2 from "../../images/blobs/Blob2.inline.svg";
+import Blob3 from "../../images/blobs/Blob3.inline.svg";
+import Blob4 from "../../images/blobs/Blob4.inline.svg";
+import Blobbies from "../../images/blobs/blobbies.inline.svg";
 
 const FeaturesSVG = () => {
   return (
@@ -36,6 +41,11 @@ const FeaturesSVG = () => {
           );
         })}
       </div>
+      <Blob1 className="blob1" />
+      <Blob2 className="blob2" />
+      <Blob3 className="blob3" />
+      <Blob4 className="blob4" />
+      <Blobbies className="blobbies" />
     </FeaturesSection>
   );
 };
@@ -50,6 +60,38 @@ const FeaturesSection = styled.section`
     text-align: center;
     margin: 4rem auto;
   }
+  .blob1 {
+    position: absolute;
+    right: -5%;
+    top: -20%;
+    opacity: 0.4;
+    @media screen and (min-width: 900px) {
+      opacity: 0.8;
+    }
+  }
+  .blob2 {
+    position: absolute;
+    left: -5%;
+    top: 33%;
+  }
+  .blob3 {
+    position: absolute;
+    left: 7%;
+    top: 44%;
+    opacity: 0.3;
+  }
+  .blob4 {
+    position: absolute;
+    right: 0;
+    bottom: -10%;
+    opacity: 0.6;
+  }
+  .blobbies {
+    position: absolute;
+    right: 0;
+    bottom: -15%;
+    opacity: 0.6;
+  }
 `;
 
 const Feature = styled(Link)`
@@ -63,7 +105,7 @@ const Feature = styled(Link)`
   align-items: center;
   @media screen and (min-width: 900px) {
     grid-template-columns: ${(props) =>
-      props.imgLeft ? "40% 60%" : "60% 40%"};
+      props.imgLeft ? "37% 60%" : "60% 37%"};
     grid-template-areas: "area-left area-right";
   }
 
@@ -81,7 +123,7 @@ const Feature = styled(Link)`
     align-self: center;
     @media screen and (min-width: 900px) {
       width: 100%;
-      height: 100%;
+      /* justify-self: ${(props) => (props.imgLeft ? "start" : "end")}; */
     }
   }
 

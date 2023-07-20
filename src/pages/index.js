@@ -5,6 +5,10 @@ import Description from "../components/Description";
 import { styled } from "styled-components";
 import Features from "../components/features/Features";
 import FeaturesExperiment from "../components/features/FeaturesExperiment";
+import Blob from "../images/blobs/Blob1.inline.svg";
+import Blob2 from "../images/blobs/Blob2.inline.svg";
+import Blob3 from "../images/blobs/Blob3.inline.svg";
+import Blob4 from "../images/blobs/Blob4.inline.svg";
 
 const HomePage = () => {
   return (
