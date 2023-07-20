@@ -23,20 +23,17 @@ export default Layout;
 const LayoutDiv = styled.div`
   min-height: 100vh;
   height: 100%;
+  width: 100vw;
   display: grid;
   grid-template-rows: auto 1fr auto;
   font-family: ${(props) => props.theme.fonts.secondary};
   background-color: ${(props) => props.theme.colors.bg};
-  scroll-behavior: smooth;
   scroll-snap-type: y proximity;
-  ${"" /* scroll-padding: 5.5rem 0 0 0; */}
+  /* scroll-padding: 5.5rem 0 0 0; */
 `;
 const Main = styled.main`
   display: block;
   padding-top: -5rem;
   margin-top: 5rem;
   margin-left: 0;
-  /* padding-top: 3rem; */
-  width: 100vw;
-  scroll-behavior: smooth;
 `;

@@ -5,16 +5,16 @@ import features from "../../constants/features";
 import LibraryImg from "../../images/feature_images/Library.inline.svg";
 import CalendarImg from "../../images/feature_images/Calendar.inline.svg";
 import CommunityImg from "../../images/feature_images/Community.inline.svg";
+import TitleH2 from "../TitleH2";
 import Blob1 from "../../images/blobs/Blob1.inline.svg";
 import Blob2 from "../../images/blobs/Blob2.inline.svg";
 import Blob3 from "../../images/blobs/Blob3.inline.svg";
 import Blob4 from "../../images/blobs/Blob4.inline.svg";
-import Blobbies from "../../images/blobs/blobbies.inline.svg";
 
 const FeaturesSVG = () => {
   return (
-    <FeaturesSection>
-      <h2>Features</h2>
+    <FeaturesSection id="features">
+      <TitleH2 title="Features" />
       <div className="features-container">
         {features.map((feature, index) => {
           const { id, title, text, link } = feature;
@@ -45,7 +45,6 @@ const FeaturesSVG = () => {
       <Blob2 className="blob2" />
       <Blob3 className="blob3" />
       <Blob4 className="blob4" />
-      <Blobbies className="blobbies" />
     </FeaturesSection>
   );
 };
@@ -56,10 +55,7 @@ const FeaturesSection = styled.section`
     display: grid;
     grid-template-columns: 8% 1fr 8%;
   }
-  h2 {
-    text-align: center;
-    margin: 4rem auto;
-  }
+
   .blob1 {
     position: absolute;
     right: -5%;
@@ -84,12 +80,6 @@ const FeaturesSection = styled.section`
     position: absolute;
     right: 0;
     bottom: -10%;
-    opacity: 0.6;
-  }
-  .blobbies {
-    position: absolute;
-    right: 0;
-    bottom: -15%;
     opacity: 0.6;
   }
 `;

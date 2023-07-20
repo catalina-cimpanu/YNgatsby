@@ -29,6 +29,7 @@ const HeroSection = styled.section`
   justify-content: center;
   grid-template-columns: 8% 1fr 8%;
   height: calc(100vh - 5rem);
+  width: 100vw;
   @media screen and (min-width: 900px) {
     grid-template-columns: 8% 34% 50% 8%;
   }

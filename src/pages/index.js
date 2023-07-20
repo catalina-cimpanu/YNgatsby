@@ -5,10 +5,9 @@ import Description from "../components/Description";
 import { styled } from "styled-components";
 import Features from "../components/features/Features";
 import FeaturesExperiment from "../components/features/FeaturesExperiment";
-import Blob from "../images/blobs/Blob1.inline.svg";
-import Blob2 from "../images/blobs/Blob2.inline.svg";
-import Blob3 from "../images/blobs/Blob3.inline.svg";
-import Blob4 from "../images/blobs/Blob4.inline.svg";
+import MiniFeatures from "../components/features/MiniFeatures";
+import advantages from "../constants/advantages";
+import actions from "../constants/actions";
 
 const HomePage = () => {
   return (
@@ -16,7 +15,9 @@ const HomePage = () => {
       <HeroNew />
       <Description />
       <Features />
-      <FeaturesExperiment />
+      <MiniFeatures features={advantages} title="Our philosophy" blue />
+      <MiniFeatures features={actions} title="Support our work" />
+      {/* <FeaturesExperiment /> */}
       <p id="first">
         Edit <code>src/pages/index.js</code> to see this page update in
         real-time. 😎

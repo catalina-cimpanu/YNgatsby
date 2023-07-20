@@ -23,16 +23,17 @@ body, html {
     scroll-behavior: smooth; 
     scroll-margin-top: 5rem;
     scroll-padding-top: 5rem;
+    overflow-x: hidden; /* hides horizontal scrolling */
 }
 /* scrollbar */
 /* Hide scrollbar for Chrome, Safari and Opera */
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   display: none;
 }
 /* Hide scrollbar for IE, Edge and Firefox */
-* {
-  scrollbar-width: none;  /* Firefox */
-}
+/* * {
+  scrollbar-width: none; 
+} */
 div {
   display: block;
   position: relative;

@@ -5,7 +5,6 @@ export default [
   {
     id: 1,
     icon: <RiDossierLine />,
-    img_png: "Library.png",
     title: "Library",
     link: "/library",
     text: `Make your learning more immersive with this curated collection of diverse resources, from guidelines and articles all the way to podcasts and apps, conveniently organized and categorized.`,
@@ -16,7 +15,6 @@ export default [
   {
     id: 2,
     icon: <RiCalendarCheckFill />,
-    img_png: "Calendar.png",
     title: "Calendar",
     link: "/calendar",
     text: `All important events in one place. Never miss a deadline or a registration again.`,
@@ -24,7 +22,6 @@ export default [
   {
     id: 3,
     icon: <RiTeamLine />,
-    img_png: "Community.png",
     title: "Community",
     link: "https://community.youngneuros.com/",
     text: `Connect, find answers and share experiences on our unique platform exclusively for young neurologists. Because collaboration accelerates growth.`,
