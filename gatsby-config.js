@@ -6,6 +6,32 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const strapiConfig = {
+  apiURL: process.env.STRAPI_API_URL || "http://127.0.0.1:1337",
+  accessToken: process.env.STRAPI_TOKEN,
+  queryParams: {
+    publicationState:
+      process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
+    populate: {
+      cover: "*",
+      blocks: {
+        populate: "*",
+      },
+    },
+  },
+  collectionTypes: ["blog-article"],
+  singleTypes: [],
+  remoteFileHeaders: {
+    /**
+     * Customized request headers
+     * For http request with a image or other files need authorization
+     * For expamle: Fetch a CDN file which has a security config when gatsby building needs
+     */
+    // Referer: "https://your-site-domain/",
+    // Authorization: "Bearer eyJhabcdefg_replace_it_with_your_own_token",
+  },
+};
+
 module.exports = {
   siteMetadata: {
     title: `Young Neuros`,
@@ -52,6 +78,10 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: strapiConfig,
     },
   ],
 };

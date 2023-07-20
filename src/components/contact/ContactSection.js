@@ -10,7 +10,7 @@ const ContactSection = () => {
         <a className="email" href="mailto:email@youngneuros.com">
           email@youngneuros.com
         </a>
-        or directly on our <Link to="/contact">contact page</Link>.
+        or directly on our <Link to="/legal/contact">contact page</Link>.
       </p>
     </Section>
   );

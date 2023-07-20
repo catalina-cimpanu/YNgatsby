@@ -46,7 +46,7 @@ const MiniCard = styled.div`
     /* background-color: ${(props) => props.theme.colors.miniFeatureBG}; */
     border-radius: ${(props) => props.theme.radiusS};
     @media screen and (min-width: 900px) {
-      width: 45%;
+      width: 55%;
     }
   }
 `;

@@ -28,6 +28,12 @@ const MiniFeaturesSection = styled.section`
     justify-content: space-evenly;
     justify-content: center;
     justify-items: center;
+    /* display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 3;
+    margin: 1.5rem;
+    justify-content: center;
+    justify-items: space-evenly; */
   }
 
   h2 {

@@ -29,6 +29,8 @@
     "gatsby-plugin-styled-components": "^6.11.0",
     "gatsby-plugin-svgr-svgo": "^2.0.0",
     "gatsby-source-filesystem": "^5.11.0",
+    "gatsby-source-strapi": "^3.3.0",
+    "gatsby-transformer-remark": "^6.11.0",
     "gatsby-transformer-sharp": "^5.11.0",
     "loader-utils": "^3.2.1",
     "react": "^18.2.0",
