@@ -8,7 +8,7 @@ import SecondaryButton from "../buttons/SecondaryButton";
 
 const BlogCards = ({ title, articles, showLink }) => {
   return (
-    <Container inSection={showLink}>
+    <Section inSection={showLink}>
       <TitleH2 title={title} />
       <div className="card-list">
         {articles.map((article, index) => {
@@ -24,11 +24,11 @@ const BlogCards = ({ title, articles, showLink }) => {
           <SecondaryButton buttonLink="/blog" buttonText="see more posts" />
         </div>
       )}
-    </Container>
+    </Section>
   );
 };
 
-const Container = styled.section`
+const Section = styled.section`
   background-color: ${(props) =>
     props.inSection && props.theme.colors.sectionBg};
   padding-top: 0.1rem;

@@ -22,7 +22,7 @@ const StyledFooter = styled.footer`
   left: 0;
   width: 100vw;
   z-index: 1;
-  padding: 1rem 8%;
+  padding: 1.5rem 8%;
   background: ${(props) => props.theme.colors.surface1};
   box-shadow: ${(props) => props.theme.elevations.elevation5};
   align-self: end;
