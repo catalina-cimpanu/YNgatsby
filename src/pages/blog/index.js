@@ -5,6 +5,7 @@ import Layout from "../../components/Layout";
 import TitleH1 from "../../components/titles/TitleH1";
 import TitleH2 from "../../components/titles/TitleH2";
 import LoadBlogposts from "../../components/blog/LoadBlogposts";
+import BlogSidebar from "../../components/blog/BlogSidebar";
 
 const BlogPage = ({
   data: {
@@ -17,7 +18,7 @@ const BlogPage = ({
       <BlogPageContainer>
         <TitleH2 title="Latest Posts" />
         <LoadBlogposts articles={articles} title="Latest Posts" />
-        <aside className="aside">aside here </aside>
+        <BlogSidebar blogPage />
       </BlogPageContainer>
     </Layout>
   );
@@ -28,15 +29,8 @@ const BlogPageContainer = styled.div`
   display: grid;
 
   @media screen and (min-width: 900px) {
-    /* grid-template-columns: 65% 10% 25%; */
-    /* grid-column-gap: 10%; */
     grid-template-columns: 70% 25%;
     justify-content: space-between;
-  }
-
-  .aside {
-    /* grid-column: 3/4; */
-    /* margin-top: 11rem; */
   }
 `;
 
