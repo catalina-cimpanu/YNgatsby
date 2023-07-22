@@ -58,7 +58,6 @@ function LibraryCards({ cards, title, onLibraryPage, arePathologies }) {
 const ItemsSection = styled.section`
   text-align: left;
   display: grid;
-  margin-bottom: 5rem;
   grid-template-columns: 1fr;
   grid-gap: 1.5rem;
   @media screen and (min-width: 768px) {

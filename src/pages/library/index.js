@@ -32,7 +32,9 @@ const LibraryPage = ({ data, location }) => {
           </p>
         </div>
         <div className="cards-and-contents-section">
-          <aside className="aside">sidebar aside</aside>
+          <aside className="aside">
+            <h4>Contents</h4>
+          </aside>
           <div className="cards-section">
             <LibraryCards
               cards={pathologies}
@@ -40,6 +42,7 @@ const LibraryPage = ({ data, location }) => {
               onLibraryPage
               arePathologies
             />
+            <div className="separator"></div>
             <LibraryCards
               cards={neuroskills}
               title="Neuroskills"
@@ -81,6 +84,10 @@ const Container = styled.div`
   .cards-section {
     width: 100%;
     height: 100%;
+  }
+
+  .separator {
+    height: 5rem;
   }
 
   .aside {

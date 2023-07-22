@@ -78,6 +78,9 @@ const BlogCard = styled(Link)`
     -webkit-box-direction: normal;
     flex-direction: row;
   }
+  @media screen and (min-width: 900px) {
+    height: 35vh;
+  }
 
   .meta-div {
     position: relative;
@@ -91,7 +94,8 @@ const BlogCard = styled(Link)`
 
   .description {
     z-index: 1;
-    min-height: 350px;
+    /* min-height: 350px; */
+    height: 100%;
     padding: 2rem 1rem;
     background: ${(props) => props.theme.colors.surface1};
     display: flex;
@@ -116,10 +120,20 @@ const BlogCard = styled(Link)`
         z-index: -1;
       }
     }
+
+    p {
+      max-height: 45%;
+      overflow: auto;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 
   .underline {
     height: 0.3rem;
+    margin: 0.5rem 0;
     background: ${(props) => props.theme.colors.primary};
     width: 30%;
     border-radius: 3px;
@@ -129,6 +143,7 @@ const BlogCard = styled(Link)`
     color: ${(props) => props.theme.colors.H1H2};
     font-weight: bold;
     letter-spacing: ${(props) => props.theme.spacing};
+    height: min-content;
     &:after {
       content: "❱";
       margin-left: -10px;
@@ -152,10 +167,11 @@ const BlogCard = styled(Link)`
 const Photo = styled(GatsbyImage)`
   -webkit-transition: -webkit-transform 0.2s;
   position: absolute;
-  top: 0;
+  height: 100%;
+  /* top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: 0; */
   /* background-size: cover; */
   /* background-position: center; */
   transition: -webkit-transform 0.2s;

@@ -52,6 +52,7 @@ const Card = styled(Link)`
   background-color: ${(props) => props.theme.colors.surface2};
   margin: 0 0.3rem 2rem 0.3rem;
   transition: ${(props) => props.theme.transition};
+  overflow: hidden;
 
   .card-image {
     height: 45%;

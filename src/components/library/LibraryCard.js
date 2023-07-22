@@ -25,7 +25,9 @@ const LibraryCard = ({
       }
     >
       {cardImg &&
-        (childImageSharp ? (
+        (!childImageSharp && extension === "svg" ? (
+          <img className="card-img-svg" src={publicURL} alt={alternativeText} />
+        ) : (
           <GatsbyImage
             className="card-img"
             alt={alternativeText}
@@ -33,8 +35,6 @@ const LibraryCard = ({
             placeholder="blurred"
             layout="fullWidth"
           />
-        ) : (
-          <img className="card-img-svg" src={publicURL} alt={alternativeText} />
         ))}
       <div className="card-body">
         <h4>{cardTitle}</h4>
@@ -65,12 +65,12 @@ const Card = styled(Link)`
   .card-img {
     min-height: 40%;
     max-height: 40%;
+    /* so that is always the same height */
     border-top-left-radius: ${(props) => props.theme.radiusL};
     border-top-right-radius: ${(props) => props.theme.radiusL};
   }
 
   .card-img-svg {
-    background-color: ${(props) => props.theme.colors.sectionBg2};
     width: 100%;
     height: 40%;
     border-top-left-radius: ${(props) => props.theme.radiusL};
