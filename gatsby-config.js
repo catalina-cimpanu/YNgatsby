@@ -19,7 +19,21 @@ const strapiConfig = {
       },
     },
   },
-  collectionTypes: ["blog-article"],
+  collectionTypes: [
+    "blog-article",
+    "blog-category",
+    "pathology",
+    "neuroskill",
+    "sub-neuroskill",
+    "guideline",
+    "resource",
+    "resource-type",
+    "pricing",
+    "link",
+    "location",
+    "language",
+    "feature",
+  ],
   singleTypes: [],
   remoteFileHeaders: {
     /**

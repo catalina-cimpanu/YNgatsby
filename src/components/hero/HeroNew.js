@@ -28,6 +28,7 @@ const HeroSection = styled.section`
   align-content: center;
   justify-content: center;
   grid-template-columns: 8% 1fr 8%;
+  min-height: 700px;
   height: calc(100vh - 5rem);
   width: 100vw;
   @media screen and (min-width: 900px) {
