@@ -88,6 +88,7 @@ export default {
 
     bg: colorPalette.bg,
     sectionBg: colorPalette.bg1,
+    sectionBg2: colorPalette.bg2,
     transparentBg: colorPalette.colorSecondarytransparent,
     surface1: colorPalette.bg1,
     surface2: colorPalette.bg2,

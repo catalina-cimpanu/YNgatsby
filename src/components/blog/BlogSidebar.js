@@ -18,7 +18,7 @@ const BlogSidebar = ({ blogPage }) => {
   const categories = data.allStrapiBlogCategory.nodes;
   return (
     <Aside>
-      <h3>Categories: </h3>
+      <h3>Categories:</h3>
       <ul className="tags-list">
         {categories.map((category, index) => {
           return (

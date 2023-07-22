@@ -20,7 +20,6 @@ const FeaturesSVG = () => {
       <div className="features-container">
         {features.map((feature, index) => {
           const { id, icon, title, text, link } = feature;
-          console.log(icon);
           return (
             <Feature
               key={id}

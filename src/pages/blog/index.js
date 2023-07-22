@@ -45,7 +45,6 @@ export const query = graphql`
         }
         blogpost_title
         blogpost_slug
-
         blogpost_summary
         blogpost_image {
           localFile {

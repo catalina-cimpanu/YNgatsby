@@ -5,41 +5,35 @@ import styled from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 const BlogCard = ({
-  id,
-  index,
   blogpost_slug,
   blogpost_title,
   blogpost_summary,
   blog_categories,
-  blogpost_image,
+  blogpost_image: {
+    localFile: { extension, publicURL, childImageSharp },
+    alternativeText,
+  },
 }) => {
-  const blog_img = blogpost_image.localFile.childImageSharp.gatsbyImageData;
+  const first_tag = blog_categories[0].blog_category_name;
   return (
     <Card
-      key={id}
-      index={index}
       to={`/blog/${blogpost_slug}`}
       aria-label={`link to the article ${blogpost_title}`}
     >
-      {blog_img && (
+      {!childImageSharp && extension === "svg" ? (
+        <div className="svg-container">
+          <img className="svg" src={publicURL} alt={alternativeText} />
+        </div>
+      ) : (
         <GatsbyImage
+          image={childImageSharp.gatsbyImageData}
+          alt={alternativeText}
           className="card-image"
-          image={blog_img}
-          alt={blogpost_title}
         />
       )}
       <div className="card-body">
         <div className="tags">
-          {/* this thing is a bit shitty code, but I didn't know how to get the
-          first element without iterating ocver them */}
-          {blog_categories.map(
-            (category, index) =>
-              index === 0 && (
-                <p className="tag" key={category.id}>
-                  {category.blog_category_name}
-                </p>
-              )
-          )}
+          <p className="tag">{first_tag}</p>
         </div>
         <h3>{blogpost_title}</h3>
         <p>{blogpost_summary}</p>
@@ -65,13 +59,25 @@ const Card = styled(Link)`
     border-top-right-radius: ${(props) => props.theme.radiusL};
   }
 
+  .svg-container {
+    height: 45%;
+    border-top-left-radius: ${(props) => props.theme.radiusL};
+    border-top-right-radius: ${(props) => props.theme.radiusL};
+    background-color: ${(props) => props.theme.colors.sectionBg2};
+  }
+
+  .svg {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
+
   .card-body {
     height: 55%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1rem 1.5rem 2rem 1.5rem;
-    margin-bottom: 0;
+    padding: 0.5rem 1.5rem 2rem 1.5rem;
     border-bottom-left-radius: ${(props) => props.theme.radiusL};
     border-bottom-right-radius: ${(props) => props.theme.radiusL};
   }
@@ -86,8 +92,7 @@ const Card = styled(Link)`
   .tag {
     background-color: ${(props) => props.theme.colors.tag};
     border-radius: ${(props) => props.theme.radiusL};
-    padding: 0.1rem 0.5rem;
-    margin: 0 0.2rem 0.2rem 0;
+    padding: 0.1rem 0.5rem 0 0.5rem;
     width: max-content;
   }
 

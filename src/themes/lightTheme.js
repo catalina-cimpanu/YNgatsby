@@ -103,6 +103,7 @@ export default {
 
     bg: "#FFFFFF",
     sectionBg: colorPalette.PBlue1,
+    sectionBg2: colorPalette.PBlue2,
     transparentBg: colorPalette.colorSecondarytransparent,
     surface1: "#FFFFFF",
     surface2: "#FFFFFF",

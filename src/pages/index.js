@@ -52,10 +52,13 @@ export const query = graphql`
         }
         blogpost_image {
           localFile {
+            extension
+            publicURL
             childImageSharp {
               gatsbyImageData
             }
           }
+          alternativeText
         }
       }
     }

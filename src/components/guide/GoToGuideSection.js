@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import PrimaryButton from "../buttons/PrimaryButton";
-import { ThemeContext } from "../../context/Provider";
+// import { ThemeContext } from "../../context/Provider";
 import Blobbies from "../../images/blobs/blobbies.inline.svg";
 import BlobX from "../../images/blobs/BlobX.inline.svg";
 import ToGuideSvg from "../../images/ToGuide.inline.svg";
 
 const GoToGuideSection = () => {
-  const { darkMode } = useContext(ThemeContext);
+  // const { darkMode } = useContext(ThemeContext);
 
   return (
     <Section>

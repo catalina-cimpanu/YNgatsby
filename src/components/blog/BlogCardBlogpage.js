@@ -11,11 +11,7 @@ const BlogCardBlogpage = ({
   blogpost_slug,
   blogpost_summary,
   blogpost_image: {
-    localFile: {
-      extension,
-      publicURL,
-      childImageSharp: { gatsbyImageData },
-    },
+    localFile: { extension, publicURL, childImageSharp },
     alternativeText,
   },
   blog_categories,
@@ -23,10 +19,13 @@ const BlogCardBlogpage = ({
   return (
     <BlogCard to={`/blog/${blogpost_slug}`}>
       <div className="meta-div">
-        {!gatsbyImageData && extension === "svg" ? (
+        {!childImageSharp && extension === "svg" ? (
           <PhotoSVG src={publicURL} alt={alternativeText} />
         ) : (
-          <Photo image={gatsbyImageData} alt={alternativeText} />
+          <Photo
+            image={childImageSharp.gatsbyImageData}
+            alt={alternativeText}
+          />
         )}
         <Photo />
         <Details>
@@ -169,14 +168,11 @@ const Photo = styled(GatsbyImage)`
 `;
 
 const PhotoSVG = styled.img`
-  /* background-image: url(${(props) => props.bgImg}); */
+  background-color: ${(props) => props.theme.colors.sectionBg2};
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  /* background-size: cover;
-  background-position: center; */
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
   -webkit-transition: -webkit-transform 0.2s;
   transition: -webkit-transform 0.2s;
   transition: transform 0.2s;
