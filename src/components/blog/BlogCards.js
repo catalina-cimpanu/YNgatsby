@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import TitleH2 from "../TitleH2";
+import TitleH2 from "../titles/TitleH2";
 import { Link } from "gatsby";
 import BlogCard from "./BlogCard";
 import BlogCardBlogPage from "./BlogCardBlogpage";
@@ -9,7 +9,7 @@ import SecondaryButton from "../buttons/SecondaryButton";
 const BlogCards = ({ title, articles, showLink }) => {
   return (
     <Section inSection={showLink}>
-      <TitleH2 title={title} />
+      {title && <TitleH2 title={title} />}
       <div className="card-list">
         {articles.map((article, index) => {
           return showLink ? (

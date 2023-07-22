@@ -5,7 +5,7 @@ import features from "../../constants/features";
 import LibraryImg from "../../images/feature_images/Library.inline.svg";
 import CalendarImg from "../../images/feature_images/Calendar.inline.svg";
 import CommunityImg from "../../images/feature_images/Community.inline.svg";
-import TitleH2 from "../TitleH2";
+import TitleH2 from "../titles/TitleH2";
 import Blob1 from "../../images/blobs/Blob1.inline.svg";
 import Blob2 from "../../images/blobs/Blob2.inline.svg";
 import Blob3 from "../../images/blobs/Blob3.inline.svg";

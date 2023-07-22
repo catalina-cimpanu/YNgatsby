@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import TitleH2 from "../TitleH2";
+import TitleH2 from "../titles/TitleH2";
 import MiniFeatureCard from "./MiniFeatureCard";
 
 const MiniFeatures = ({ features, title, blue }) => {
