@@ -46,8 +46,12 @@ export const query = graphql`
       nodes {
         post_id: id
         updatedAt(formatString: "DD MMMM YYYY")
+        author {
+          username
+        }
         blogpost_title
         blogpost_slug
+
         blogpost_summary
         blogpost_image {
           localFile {
@@ -58,11 +62,6 @@ export const query = graphql`
             }
           }
           alternativeText
-        }
-        blogpost_body {
-          data {
-            blogpost_body
-          }
         }
         blog_categories {
           blog_category_id: id

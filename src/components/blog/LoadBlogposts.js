@@ -42,6 +42,7 @@ const LoadBlogposts = ({ articles }) => {
 
 const Container = styled.div`
   grid-column: 1/2;
+  width: 100%;
   display: grid;
   justify-items: center;
 
@@ -58,8 +59,8 @@ const Container = styled.div`
     outline: none;
     cursor: pointer;
     width: max-content;
-    padding: 0.3rem 0.7rem;
-    margin: 1rem 0 3rem 0;
+    padding: 0.3rem 0.7rem 0.4rem;
+    margin: 1rem 0 4rem 0;
     text-align: center;
     border-radius: ${(props) => props.theme.radiusL};
     background-color: ${(props) => props.theme.colors.surface1};
@@ -78,7 +79,6 @@ const Container = styled.div`
       font-family: ${(props) => props.theme.fonts.primary};
       text-transform: capitalize;
       letter-spacing: ${(props) => props.theme.spacing};
-      font-size: 1rem;
       line-height: 1;
     }
   }

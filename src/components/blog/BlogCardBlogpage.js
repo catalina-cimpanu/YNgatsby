@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { RiCalendarFill, RiPriceTag3Fill } from "react-icons/ri";
+import { RiCalendarFill, RiPriceTag3Fill, RiUserFill } from "react-icons/ri";
 
 const BlogCardBlogpage = ({
   updatedAt,
+  author,
   blogpost_title,
   blogpost_slug,
   blogpost_summary,
@@ -17,7 +18,7 @@ const BlogCardBlogpage = ({
     },
     alternativeText,
   },
-  blog_categories: { blog_category_id, blog_category_name, blog_category_slug },
+  blog_categories,
 }) => {
   return (
     <BlogCard to={`/blog/${blogpost_slug}`}>
@@ -28,12 +29,32 @@ const BlogCardBlogpage = ({
           <Photo image={gatsbyImageData} alt={alternativeText} />
         )}
         <Photo />
-        <Details />
+        <Details>
+          <li className="detail">
+            <RiUserFill />
+            {author ? author.username : "Catalina from Young Neuros"}
+          </li>
+          <li className="detail">
+            <RiCalendarFill />
+            {updatedAt}
+          </li>
+          {blog_categories && (
+            <li className="detail">
+              <RiPriceTag3Fill />
+              {blog_categories.map(
+                (category, index) =>
+                  index < 3 && (
+                    <span index={index}>{category.blog_category_name}</span>
+                  )
+              )}
+            </li>
+          )}
+        </Details>
       </div>
       <div className="description">
         <h3>{blogpost_title}</h3>
-        <p>{blogpost_summary}</p>
         <div className="underline"></div>
+        <p>{blogpost_summary}</p>
         <p className="continue">continue reading</p>
       </div>
     </BlogCard>
@@ -46,9 +67,8 @@ const BlogCard = styled(Link)`
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   flex-direction: column;
-  margin: 1rem auto;
+  margin: 0 0 2rem 0;
   box-shadow: ${(props) => props.theme.elevations.elevation3};
-  margin-bottom: 1.5rem;
   background: ${(props) => props.theme.colors.surface1};
   line-height: 1.4;
   border-radius: ${(props) => props.theme.radiusL};
@@ -129,6 +149,7 @@ const BlogCard = styled(Link)`
   }
 `;
 
+// had to make them as components cuz of the hover effect ${BlogCard} thingy
 const Photo = styled(GatsbyImage)`
   -webkit-transition: -webkit-transform 0.2s;
   position: absolute;
@@ -166,7 +187,7 @@ const PhotoSVG = styled.img`
   }
 `;
 
-const Details = styled.div`
+const Details = styled.ul`
   list-style: none;
   position: absolute;
   top: 0;
@@ -176,13 +197,35 @@ const Details = styled.div`
   background: ${(props) => props.theme.colors.transparentBg};
   width: 100%;
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-items: space-between;
+  display: grid;
+  /* grid-template-row: repeat(3, 1fr); */
+  justify-content: center;
+  justify-items: center;
+  align-content: space-evenly;
+  text-align: center;
   -webkit-transition: left 0.2s;
   transition: left 0.2s;
   ${BlogCard}:hover & {
     left: 0%;
+  }
+
+  .detail {
+    margin: auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tag {
+    background-color: ${(props) => props.theme.colors.tag};
+    border-radius: ${(props) => props.theme.radiusL};
+    padding: 0.1rem 0.3rem 0 0.3rem;
+    margin: 0.2rem 0.2rem 0.2rem 0;
+    width: max-content;
+    height: max-content;
   }
 `;
 

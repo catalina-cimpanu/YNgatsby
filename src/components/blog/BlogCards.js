@@ -35,7 +35,6 @@ const Section = styled.section`
   z-index: 1;
   .card-list {
     margin: ${(props) => (props.inSection ? "0 8%" : "")};
-    margin: 0 8%;
     padding-bottom: 1rem;
     display: flex;
     flex-wrap: wrap;
