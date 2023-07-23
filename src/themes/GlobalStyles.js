@@ -18,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
 }
 body, html {
     font-family: ${(props) => props.theme.fonts.secondary};
+    word-break: break-word;
     height: 100%;
     background-color: ${(props) => props.theme.colors.bg};
     scroll-behavior: smooth; 

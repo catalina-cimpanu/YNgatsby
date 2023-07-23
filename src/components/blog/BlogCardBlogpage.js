@@ -25,13 +25,14 @@ const BlogCardBlogpage = ({
           <Photo
             image={childImageSharp.gatsbyImageData}
             alt={alternativeText}
+            layout="fullWidth"
           />
         )}
         <Photo />
         <Details>
           <li className="detail">
             <RiUserFill />
-            {author ? author.username : "Catalina from Young Neuros"}
+            {author ? author.username : "Catalina"}
           </li>
           <li className="detail">
             <RiCalendarFill />
@@ -79,7 +80,7 @@ const BlogCard = styled(Link)`
     flex-direction: row;
   }
   @media screen and (min-width: 900px) {
-    height: 35vh;
+    height: 37vh;
   }
 
   .meta-div {
@@ -94,7 +95,6 @@ const BlogCard = styled(Link)`
 
   .description {
     z-index: 1;
-    /* min-height: 350px; */
     height: 100%;
     padding: 2rem 1rem;
     background: ${(props) => props.theme.colors.surface1};
@@ -122,7 +122,7 @@ const BlogCard = styled(Link)`
     }
 
     p {
-      max-height: 45%;
+      max-height: 34%;
       overflow: auto;
       scrollbar-width: none;
       &::-webkit-scrollbar {
@@ -168,12 +168,6 @@ const Photo = styled(GatsbyImage)`
   -webkit-transition: -webkit-transform 0.2s;
   position: absolute;
   height: 100%;
-  /* top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0; */
-  /* background-size: cover; */
-  /* background-position: center; */
   transition: -webkit-transform 0.2s;
   transition: transform 0.2s;
   transition: transform 0.2s, -webkit-transform 0.2s;

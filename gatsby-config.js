@@ -97,5 +97,9 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: strapiConfig,
     },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {},
+    },
   ],
 };
