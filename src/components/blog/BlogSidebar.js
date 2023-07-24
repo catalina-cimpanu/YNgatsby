@@ -3,7 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby";
 import styled from "styled-components";
 import { ThemeContext } from "../../context/Provider";
 
-const BlogSidebar = ({ blogPage }) => {
+const BlogSidebar = () => {
   const { closePageContents } = React.useContext(ThemeContext);
   const data = useStaticQuery(graphql`
     query {

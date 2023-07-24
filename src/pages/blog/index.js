@@ -18,7 +18,7 @@ const BlogPage = ({
       <BlogPageContainer>
         <TitleH2 title="Latest Posts" />
         <LoadBlogposts articles={articles} title="Latest Posts" />
-        <BlogSidebar blogPage />
+        <BlogSidebar />
       </BlogPageContainer>
     </Layout>
   );
@@ -57,9 +57,7 @@ export const query = graphql`
           alternativeText
         }
         blog_categories {
-          blog_category_id: id
           blog_category_name
-          blog_category_slug
         }
       }
     }

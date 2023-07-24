@@ -13,9 +13,9 @@ const BlogCards = ({ title, articles, showLink }) => {
       <div className="card-list">
         {articles.map((article, index) => {
           return showLink ? (
-            <BlogCard key={article.id} index={index} {...article} />
+            <BlogCard key={index} index={index} {...article} />
           ) : (
-            <BlogCardBlogPage key={article.id} index={index} {...article} />
+            <BlogCardBlogPage key={index} index={index} {...article} />
           );
         })}
       </div>
