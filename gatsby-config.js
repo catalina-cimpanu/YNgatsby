@@ -50,6 +50,7 @@ module.exports = {
   siteMetadata: {
     title: `Young Neuros`,
     siteUrl: `https://youngneuros.gatsbyjs.io/`,
+    twitter: `@Young_Neuros`,
   },
   plugins: [
     "gatsby-plugin-styled-components",

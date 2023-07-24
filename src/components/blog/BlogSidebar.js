@@ -42,9 +42,8 @@ const Aside = styled.aside`
   display: none;
   max-height: 50vh; /* TODO to see exactly how high when i have all the categs */
   overflow-x: visible;
-  overflow-y: auti;
   @media screen and (min-width: 900px) {
-    width: 100%;
+    /* max-width: 100%; */
     text-align: right;
     height: max-content;
     display: flex;
@@ -69,8 +68,7 @@ const Aside = styled.aside`
     border: none;
     outline: none;
     cursor: pointer;
-    height: 2rem;
-    width: max-content;
+    text-align: right;
     background-color: ${(props) => props.theme.colors.tag};
     font-size: 1.2rem;
     letter-spacing: ${(props) => props.theme.spacing};

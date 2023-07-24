@@ -3,6 +3,10 @@ import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 
 const RichTextBody = styled.div`
+  * {
+    word-break: break-word;
+  }
+
   h2,
   h3,
   h4,
@@ -13,6 +17,7 @@ const RichTextBody = styled.div`
   }
   p {
     display: inline;
+    word-break: break-word;
   }
   h4,
   h5,

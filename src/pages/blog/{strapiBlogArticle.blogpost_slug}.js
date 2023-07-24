@@ -1,16 +1,19 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import Layout from "../../components/Layout";
 import { RiPriceTag3Fill, RiUserFill, RiCalendarFill } from "react-icons/ri";
 import RichText from "../../components/RichText";
 import SecondaryButton from "../../components/buttons/SecondaryButton";
+import BlogSidebar from "../../components/blog/BlogSidebar";
+import PreviousNextButtons from "../../components/blog/PreviousNextButtons";
 
 const BlogpostPageTemplate = ({ data }) => {
   const {
     strapiBlogArticle: {
       blogpost_title,
+      blogpost_slug,
       updatedAt,
       author,
       language,
@@ -23,17 +26,20 @@ const BlogpostPageTemplate = ({ data }) => {
         data: { blogpost_body },
       },
     },
+    allStrapiBlogArticle: { edges },
   } = data;
+  const activeArticle = edges.filter(
+    (art) => art.node.blogpost_slug === blogpost_slug
+  )[0]; /* because filter returns a list, but in this case it will always 
+  return a list with one element, so you take this first element */
 
   return (
     <Layout>
-      {/* <ButtonDiv>
-        <SecondaryButton buttonText="❮ back to blog" buttonLink="blog" />
-      </ButtonDiv> */}
       <Container>
         <div className="button-div">
           <SecondaryButton buttonText="❮ back to blog" buttonLink="/blog" />
         </div>
+
         <div className="blogpost-head">
           <h1 className="blog-title">{blogpost_title}</h1>
           <ul className="list">
@@ -72,33 +78,40 @@ const BlogpostPageTemplate = ({ data }) => {
           <RichText content={blogpost_body} />
         </article>
 
-        <aside className="aside">
-          <h4>Categories:</h4>aside with tags
-        </aside>
+        <div className="blogpost-footer">
+          <PreviousNextButtons activeArticle={activeArticle} />
+        </div>
+
+        <div className="sidebar">
+          <BlogSidebar />
+        </div>
       </Container>
     </Layout>
   );
 };
 
-const ButtonDiv = styled.div`
-  grid-column: 1 / 3;
-  position: sticky;
-  top: 5.5rem; /* for the sticky positioning */
-  /* padding: 0 0 3rem 8%; */
-  z-index: 3;
-`;
-
 const Container = styled.div`
   padding: 0 8%;
   width: 100%;
   display: grid;
+  grid-template-areas:
+    "button-back"
+    "post-head"
+    "post-body"
+    "post-footer";
   /* grid-row-gap: 1rem; */
   @media screen and (min-width: 900px) {
     grid-template-columns: 75% 20%;
+    grid-template-areas:
+      "button-back ."
+      "post-head ."
+      "post-body sidebar"
+      "post-footer sidebar";
     justify-content: space-between;
   }
 
   .button-div {
+    grid-area: button-back;
     position: sticky;
     top: 5.5rem; /* for the sticky positioning */
     margin: 3rem 0;
@@ -106,9 +119,12 @@ const Container = styled.div`
   }
 
   .blogpost-head {
-    grid-column: 1/2;
+    /* grid-column: 1/2; */
+    grid-area: post-head;
+    width: 100%;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-content: space-around;
@@ -138,14 +154,16 @@ const Container = styled.div`
   }
 
   .blogpost-body {
-    grid-column: 1 / 2;
+    /* grid-column: 1 / 2; */
+    grid-area: post-body;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 
     .img {
-      max-height: 50vh;
       border-radius: ${(props) => props.theme.radiusL};
+      max-height: 50vh;
+      width: 100%;
     }
 
     .svg {
@@ -154,15 +172,21 @@ const Container = styled.div`
     }
   }
 
-  .aside {
-    text-align: right;
+  .blogpost-footer {
+    /* grid-column: 1 / 2; */
+    grid-area: post-footer;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
   }
 `;
 
 export const query = graphql`
-  query ($blogpost_slug: String) {
+  query GetSingleBlogpost($blogpost_slug: String) {
     strapiBlogArticle(blogpost_slug: { eq: $blogpost_slug }) {
       blogpost_title
+      blogpost_slug
       updatedAt(formatString: "DD MMMM YYYY")
       author {
         username
@@ -187,6 +211,21 @@ export const query = graphql`
       blogpost_body {
         data {
           blogpost_body
+        }
+      }
+    }
+    allStrapiBlogArticle {
+      edges {
+        node {
+          blogpost_slug
+        }
+        next {
+          blogpost_slug
+          blogpost_title
+        }
+        previous {
+          blogpost_slug
+          blogpost_title
         }
       }
     }
