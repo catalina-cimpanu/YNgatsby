@@ -7,6 +7,7 @@ import { RiPriceTag3Fill, RiUserFill, RiCalendarFill } from "react-icons/ri";
 import RichText from "../../components/RichText";
 import SecondaryButton from "../../components/buttons/SecondaryButton";
 import BlogSidebar from "../../components/blog/BlogSidebar";
+import ShareButtons from "../../components/buttons/ShareButtons";
 import PreviousNextButtons from "../../components/blog/PreviousNextButtons";
 
 const BlogpostPageTemplate = ({ data }) => {
@@ -14,6 +15,7 @@ const BlogpostPageTemplate = ({ data }) => {
     strapiBlogArticle: {
       blogpost_title,
       blogpost_slug,
+      blogpost_summary,
       updatedAt,
       author,
       language,
@@ -27,6 +29,9 @@ const BlogpostPageTemplate = ({ data }) => {
       },
     },
     allStrapiBlogArticle: { edges },
+    site: {
+      siteMetadata: { siteUrl },
+    },
   } = data;
   const activeArticle = edges.filter(
     (art) => art.node.blogpost_slug === blogpost_slug
@@ -79,6 +84,20 @@ const BlogpostPageTemplate = ({ data }) => {
         </article>
 
         <div className="blogpost-footer">
+          <div className="share-div">
+            <h4>
+              If you found value in this article, share it !
+              <span role="img" aria-label="eyeglasses and speak bubble">
+                🤓💬
+              </span>
+            </h4>
+            <ShareButtons
+              url={`${siteUrl}/blog/${blogpost_slug}`}
+              title={blogpost_title}
+              description={blogpost_summary}
+            />
+          </div>
+
           <PreviousNextButtons activeArticle={activeArticle} />
         </div>
 
@@ -99,7 +118,7 @@ const Container = styled.div`
     "post-head"
     "post-body"
     "post-footer";
-  /* grid-row-gap: 1rem; */
+  grid-row-gap: 1.5rem;
   @media screen and (min-width: 900px) {
     grid-template-columns: 75% 20%;
     grid-template-areas:
@@ -114,19 +133,17 @@ const Container = styled.div`
     grid-area: button-back;
     position: sticky;
     top: 5.5rem; /* for the sticky positioning */
-    margin: 3rem 0;
+    margin: 3rem 0 1.5rem 0;
     z-index: 5;
   }
 
   .blogpost-head {
-    /* grid-column: 1/2; */
     grid-area: post-head;
     width: 100%;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
     height: fit-content;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     align-content: space-around;
     justify-items: left;
 
@@ -154,7 +171,6 @@ const Container = styled.div`
   }
 
   .blogpost-body {
-    /* grid-column: 1 / 2; */
     grid-area: post-body;
     display: flex;
     flex-direction: column;
@@ -173,8 +189,17 @@ const Container = styled.div`
   }
 
   .blogpost-footer {
-    /* grid-column: 1 / 2; */
     grid-area: post-footer;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .share-div {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      place-items: center;
+      text-align: center;
+    }
   }
 
   .sidebar {
@@ -183,7 +208,7 @@ const Container = styled.div`
 `;
 
 export const query = graphql`
-  query GetSingleBlogpost($blogpost_slug: String) {
+  query ($blogpost_slug: String) {
     strapiBlogArticle(blogpost_slug: { eq: $blogpost_slug }) {
       blogpost_title
       blogpost_slug
@@ -208,13 +233,14 @@ export const query = graphql`
           extension
         }
       }
+      blogpost_summary
       blogpost_body {
         data {
           blogpost_body
         }
       }
     }
-    allStrapiBlogArticle {
+    allStrapiBlogArticle(sort: { updatedAt: DESC }) {
       edges {
         node {
           blogpost_slug
@@ -227,6 +253,11 @@ export const query = graphql`
           blogpost_slug
           blogpost_title
         }
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }

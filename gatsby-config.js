@@ -49,7 +49,7 @@ const strapiConfig = {
 module.exports = {
   siteMetadata: {
     title: `Young Neuros`,
-    siteUrl: `https://youngneuros.gatsbyjs.io/`,
+    siteUrl: `http://localhost:8000/`,
     twitter: `@Young_Neuros`,
   },
   plugins: [
