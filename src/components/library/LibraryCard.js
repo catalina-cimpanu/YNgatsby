@@ -15,8 +15,10 @@ const LibraryCard = ({
     alternativeText,
     localFile: { publicURL, childImageSharp, extension },
   } = cardImg;
+  const { link_url } = contentsLink;
   return (
     <Card
+      id={link_url}
       aria-label={cardTitle}
       to={
         isPathology ? `/pathologies/${cardSlug}` : `/neuro-skills/${cardSlug}`
@@ -45,6 +47,7 @@ const Card = styled(Link)`
   display: flex;
   flex-direction: column;
   height: 500px;
+  scroll-margin-top: 0.5rem; /* same as margin top of the sidebar, this way they'll align perfectly */
   background-color: ${(props) => props.theme.colors.surface1};
   box-shadow: ${(props) => props.theme.elevations.elevation3};
   border-radius: ${(props) => props.theme.radiusL};

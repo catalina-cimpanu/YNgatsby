@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../../components/Layout";
 import TitleH1 from "../../components/titles/TitleH1";
 import LibraryCards from "../../components/library/LibraryCards";
+import LibrarySidebar from "../../components/library/LibrarySidebar";
 
 const LibraryPage = ({ data, location }) => {
   const {
@@ -31,9 +32,12 @@ const LibraryPage = ({ data, location }) => {
           </p>
         </div>
         <div className="cards-and-contents-section">
-          <aside className="aside">
-            <h4>Contents</h4>
-          </aside>
+          <LibrarySidebar
+            title="Contents"
+            pathologies={pathologies}
+            neuroskills={neuroskills}
+          />
+
           <div className="cards-section">
             <LibraryCards
               cards={pathologies}
@@ -70,7 +74,7 @@ const Container = styled.section`
     grid-template-columns: 1fr;
     place-items: center;
     @media screen and (min-width: 900px) {
-      grid-template-columns: 25% 73%;
+      grid-template-columns: 25% 70%;
       grid-template-areas: "sidebar cards";
       justify-content: space-between;
     }
@@ -87,11 +91,6 @@ const Container = styled.section`
   }
 
   .aside {
-    grid-area: sidebar;
-    background-color: pink;
-    height: 100%;
-    width: 100%;
-    text-align: left;
   }
 
   h2 {
@@ -133,7 +132,7 @@ export const query = graphql`
           alternativeText
           localFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(layout: FULL_WIDTH)
             }
             extension
           }

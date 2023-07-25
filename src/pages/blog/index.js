@@ -28,7 +28,7 @@ const BlogPageContainer = styled.div`
   display: grid;
 
   @media screen and (min-width: 900px) {
-    grid-template-columns: 70% 25%;
+    grid-template-columns: 75% 20%;
     justify-content: space-between;
   }
 `;

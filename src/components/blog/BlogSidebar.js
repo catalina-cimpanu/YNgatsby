@@ -40,7 +40,7 @@ const BlogSidebar = () => {
 
 const Aside = styled.aside`
   display: none;
-  max-height: 50vh; /* TODO to see exactly how high when i have all the categs */
+  max-height: calc(100vh - 5.5rem);
   overflow-x: visible;
   @media screen and (min-width: 900px) {
     /* max-width: 100%; */
