@@ -31,11 +31,12 @@ const LibraryPage = ({ data, location }) => {
             laboris proident dolore.
           </p>
         </div>
-        <div className="cards-and-contents-section">
+        <div className="cards-and-sidebar-section">
           <LibrarySidebar
             title="Contents"
             pathologies={pathologies}
             neuroskills={neuroskills}
+            fromLibraryPage
           />
 
           <div className="cards-section">
@@ -66,7 +67,7 @@ const Container = styled.section`
     margin-bottom: 4rem;
   }
 
-  .cards-and-contents-section {
+  .cards-and-sidebar-section {
     width: 100%;
     grid-column: 2/3; /* place itself in regard to mother element = main from layout */
     margin-bottom: 4rem;

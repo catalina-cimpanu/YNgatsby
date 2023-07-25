@@ -2,12 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import LibraryContents from "./LibraryContents";
 
-const LibrarySidebar = ({ title, pathologies, neuroskills }) => {
+const LibrarySidebar = ({
+  title,
+  pathologies,
+  neuroskills,
+  fromLibraryPage,
+}) => {
   return (
     <Aside>
       <h4>{title}</h4>
-      <LibraryContents links={pathologies} title="Pathologies" arePathologies />
-      <LibraryContents links={neuroskills} title="Neuroskills" />
+      {fromLibraryPage && (
+        <LibraryContents
+          links={pathologies}
+          title="Pathologies"
+          arePathologies
+        />
+      )}
+      {fromLibraryPage && (
+        <LibraryContents links={neuroskills} title="Neuroskills" />
+      )}
     </Aside>
   );
 };
@@ -17,7 +30,7 @@ const Aside = styled.aside`
   display: none;
   height: 100%;
   width: 100%;
-  /* max-height: calc(100vh - 5.5rem); */
+  max-height: calc(100vh - 5.5rem);
   overflow-x: visible;
   overflow-y: auto;
   /* text-align: center; */
