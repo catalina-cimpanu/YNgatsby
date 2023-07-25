@@ -16,7 +16,7 @@ import GoToGuideSection from "../components/guide/GoToGuideSection";
 const HomePage = ({ data }) => {
   const articles = data.allStrapiBlogArticle.nodes;
   return (
-    <Layout>
+    <Layout homepage>
       <HeroNew />
       <Description />
       <Features />

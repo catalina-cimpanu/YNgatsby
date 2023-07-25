@@ -25,7 +25,6 @@ const BlogPage = ({
 };
 
 const BlogPageContainer = styled.div`
-  margin: 0 8%;
   display: grid;
 
   @media screen and (min-width: 900px) {

@@ -25,7 +25,6 @@ function LibraryCards({ cards, title, onLibraryPage, arePathologies }) {
                   cardSlug={pathology_slug}
                   cardImg={pathology_image}
                   contentsLink={contents_link}
-                  onLibraryPage={onLibraryPage}
                   isPathology
                 />
               );
@@ -47,7 +46,6 @@ function LibraryCards({ cards, title, onLibraryPage, arePathologies }) {
                   cardSlug={neuroskill_slug}
                   cardImg={neuroskill_image}
                   contentsLink={contents_link}
-                  onLibraryPage={onLibraryPage}
                 />
               );
             })}
@@ -67,7 +65,7 @@ const ItemsSection = styled.section`
 const H3 = styled.h3`
   border-bottom: 3px solid ${(props) => props.theme.colors.primary};
   border-top: 3px solid ${(props) => props.theme.colors.primary};
-  margin: 0 0 3rem 0;
+  margin: 0 0 2rem 0;
   padding: 1rem 0;
 `;
 

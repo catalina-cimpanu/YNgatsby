@@ -110,7 +110,6 @@ const BlogpostPageTemplate = ({ data }) => {
 };
 
 const Container = styled.div`
-  padding: 0 8%;
   width: 100%;
   display: grid;
   grid-template-areas:

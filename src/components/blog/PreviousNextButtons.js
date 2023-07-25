@@ -33,7 +33,7 @@ const PreviousNextButtons = ({ activeArticle }) => {
         <span>
           {activeArticle.next
             ? activeArticle.next.blogpost_title
-            : "No previous posts. You've read all the posts! Congrats! 👏🎉"}
+            : "No more  posts. You've read all the posts! Congrats! 👏🎉"}
         </span>
       </Link>
     </ButtonsDiv>

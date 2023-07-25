@@ -49,7 +49,7 @@ const strapiConfig = {
 module.exports = {
   siteMetadata: {
     title: `Young Neuros`,
-    siteUrl: `http://localhost:8000/`,
+    siteUrl: `https://youngneuros.netlify.app/`,
     twitter: `@Young_Neuros`,
   },
   plugins: [
@@ -76,7 +76,23 @@ module.exports = {
       },
     },
     "gatsby-plugin-mdx",
-    "gatsby-plugin-sharp",
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+          quality: 50,
+          breakpoints: [750, 1080, 1366, 1920],
+          backgroundColor: `transparent`,
+          blurredOptions: {},
+          jpgOptions: {},
+          pngOptions: {},
+          webpOptions: {},
+          avifOptions: {},
+        },
+      },
+    },
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",

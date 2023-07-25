@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 import Layout from "../../components/Layout";
 import TitleH1 from "../../components/titles/TitleH1";
-import TitleH2 from "../../components/titles/TitleH2";
 import LibraryCards from "../../components/library/LibraryCards";
 
 const LibraryPage = ({ data, location }) => {
@@ -55,42 +54,40 @@ const LibraryPage = ({ data, location }) => {
   );
 };
 
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 8% 1fr 8%;
-  place-items: center;
-
+/* i needed an element to contain my stuff and be able to use styled components */
+const Container = styled.section`
   .section {
-    grid-column: 2/3;
+    grid-column: 2/3; /* place itself in regard to mother element = main from layout */
     text-align: left;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
   .cards-and-contents-section {
-    min-height: 1000px;
     width: 100%;
-    grid-column: 2/3;
+    grid-column: 2/3; /* place itself in regard to mother element = main from layout */
     margin-bottom: 4rem;
     display: grid;
     grid-template-columns: 1fr;
     place-items: center;
     @media screen and (min-width: 900px) {
       grid-template-columns: 25% 73%;
+      grid-template-areas: "sidebar cards";
       justify-content: space-between;
-      /* column-gap: 1rem; */
     }
   }
 
   .cards-section {
+    grid-area: cards;
     width: 100%;
     height: 100%;
   }
 
   .separator {
-    height: 5rem;
+    height: 4rem;
   }
 
   .aside {
+    grid-area: sidebar;
     background-color: pink;
     height: 100%;
     width: 100%;
@@ -115,7 +112,7 @@ export const query = graphql`
           localFile {
             publicURL
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(layout: FULL_WIDTH)
             }
             extension
           }

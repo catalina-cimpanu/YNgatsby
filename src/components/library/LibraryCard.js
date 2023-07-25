@@ -8,9 +8,7 @@ const LibraryCard = ({
   cardSummary,
   cardSlug,
   cardImg,
-  imgAttr,
   contentsLink,
-  onLibraryPage,
   isPathology,
 }) => {
   const {
@@ -29,11 +27,9 @@ const LibraryCard = ({
           <img className="card-img-svg" src={publicURL} alt={alternativeText} />
         ) : (
           <GatsbyImage
-            className="card-img"
+            className="card-img-container"
             alt={alternativeText}
             image={childImageSharp.gatsbyImageData}
-            placeholder="blurred"
-            layout="fullWidth"
           />
         ))}
       <div className="card-body">
@@ -62,12 +58,19 @@ const Card = styled(Link)`
     transition: transform 0.2s, -webkit-transform 0.2s;
   }
 
-  .card-img {
+  .card-img-container {
     min-height: 40%;
     max-height: 40%;
-    /* so that is always the same height */
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    /* so that is always the same 40% height */
     border-top-left-radius: ${(props) => props.theme.radiusL};
     border-top-right-radius: ${(props) => props.theme.radiusL};
+    background-color: ${(props) => props.theme.colors.sectionBg};
   }
 
   .card-img-svg {
