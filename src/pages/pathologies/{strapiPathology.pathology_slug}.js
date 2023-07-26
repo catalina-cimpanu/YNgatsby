@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
 import AccordionSection from "../../components/library/AccordionSection";
 
@@ -261,6 +261,9 @@ export const query = graphql`
       nodes {
         link_text
         link_url
+        locations {
+          location_name
+        }
       }
     }
     locations: allStrapiLocation(sort: { location_name: ASC }) {

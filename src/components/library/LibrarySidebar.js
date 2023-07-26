@@ -11,14 +11,10 @@ const LibrarySidebar = ({
   return (
     <Aside>
       <h4>{title}</h4>
-      {fromLibraryPage && (
-        <LibraryContents
-          links={pathologies}
-          title="Pathologies"
-          arePathologies
-        />
+      {fromLibraryPage && pathologies && (
+        <LibraryContents links={pathologies} title="Pathologies" />
       )}
-      {fromLibraryPage && (
+      {fromLibraryPage && neuroskills && (
         <LibraryContents links={neuroskills} title="Neuroskills" />
       )}
     </Aside>

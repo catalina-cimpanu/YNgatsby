@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import { ThemeContext } from "../../context/Provider";
 
-const LibraryContents = ({ links, title, arePathologies }) => {
+const LibraryContents = ({ links, title }) => {
   const { closePageContents, activeLink, setActiveLink } =
     React.useContext(ThemeContext);
   return (
