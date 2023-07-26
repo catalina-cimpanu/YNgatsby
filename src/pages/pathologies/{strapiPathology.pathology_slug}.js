@@ -8,7 +8,7 @@ import AccordionSection from "../../components/library/AccordionSection";
 
 const PathologyPageTemplate = ({ data }) => {
   const {
-    strapiPathology: {
+    pathology: {
       pathology_name,
       pathology_description: {
         data: {
@@ -19,10 +19,11 @@ const PathologyPageTemplate = ({ data }) => {
         alternativeText,
         localFile: { extension, publicURL, childImageSharp },
       },
-      guidelines,
-      resources,
-      links,
     },
+    guidelines: { nodes: guidelines },
+    resources: { nodes: resources },
+    links: { nodes: links },
+    locations: { nodes: locations },
   } = data;
 
   return (
@@ -44,19 +45,24 @@ const PathologyPageTemplate = ({ data }) => {
           )}
           <h1 className="hero-title">{pathology_name}</h1>
         </div>
+
         <div dangerouslySetInnerHTML={{ __html: html }} />
+
         <div className="body">
           <LibrarySidebar title="Contents" />
+
           <div className="infos">
             <AccordionSection
               title="Guidelines"
               infos={guidelines}
-              areGuidelines
+              type="guidelines"
+              locations={locations}
             />
+
             <AccordionSection
               title="Resources"
               infos={resources}
-              areResources
+              type="resources"
             />
           </div>
         </div>
@@ -124,7 +130,7 @@ const Container = styled.div`
 
 export const query = graphql`
   query ($pathology_slug: String) {
-    strapiPathology(pathology_slug: { eq: $pathology_slug }) {
+    pathology: strapiPathology(pathology_slug: { eq: $pathology_slug }) {
       pathology_name
       pathology_slug
       pathology_description {
@@ -139,18 +145,25 @@ export const query = graphql`
         localFile {
           extension
           publicURL
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH)
+          }
         }
       }
-      guidelines {
+    }
+    guidelines: allStrapiGuideline(
+      filter: { pathology: { pathology_slug: { eq: $pathology_slug } } }
+      sort: { guideline_title: ASC }
+    ) {
+      nodes {
         guideline_title
         guideline_slug
         guideline_source
-        guideline_body {
-          data {
-            childMarkdownRemark {
-              html
-            }
-          }
+        locations {
+          location_name
+        }
+        language {
+          language_name
         }
         guideline_image {
           alternativeText
@@ -162,6 +175,22 @@ export const query = graphql`
             }
           }
         }
+        guideline_body {
+          data {
+            childMarkdownRemark {
+              html
+              rawMarkdownBody
+            }
+          }
+        }
+        guideline_external_link {
+          link_text
+          link_url
+        }
+        guideline_internal_link {
+          link_text
+          link_url
+        }
         guideline_note {
           data {
             childMarkdownRemark {
@@ -169,31 +198,40 @@ export const query = graphql`
             }
           }
         }
-        locations {
-          location_name
-        }
-        guideline_internal_link {
-          link_text
-          link_url
-        }
-        guideline_external_link {
-          link_text
-          link_url
-        }
-        language {
-          language_name
-        }
       }
-      resources {
+      totalCount
+    }
+    resources: allStrapiResource(
+      filter: { pathology: { pathology_slug: { eq: $pathology_slug } } }
+      sort: { resource_title: ASC }
+    ) {
+      nodes {
+        resource_type {
+          resource_type_name
+        }
         resource_title
         resource_slug
         resource_source
+        resource_note {
+          data {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
         resource_body {
           data {
             childMarkdownRemark {
               html
             }
           }
+        }
+        pricing {
+          pricing_type
+          pricing_description
+        }
+        language {
+          language_name
         }
         resource_image {
           alternativeText
@@ -205,13 +243,6 @@ export const query = graphql`
             }
           }
         }
-        resource_note {
-          data {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
         resource_internal_link {
           link_text
           link_url
@@ -220,18 +251,21 @@ export const query = graphql`
           link_text
           link_url
         }
-        pricing {
-          pricing_type
-          pricing_slug
-          pricing_description
-        }
-        language {
-          language_name
-        }
       }
-      links {
+      totalCount
+    }
+    links: allStrapiLink(
+      filter: { pathology: { pathology_slug: { eq: $pathology_slug } } }
+      sort: { link_text: ASC }
+    ) {
+      nodes {
         link_text
         link_url
+      }
+    }
+    locations: allStrapiLocation(sort: { location_name: ASC }) {
+      nodes {
+        location_name
       }
     }
   }

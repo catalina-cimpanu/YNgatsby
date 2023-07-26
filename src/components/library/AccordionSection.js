@@ -1,13 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import AccordionsList from "./AccordionsList";
+import AccordionsListByLocation from "./AccordionsListByLocation";
 
-const AccordionSection = ({ title, infos, areGuidelines, areResources }) => {
+const AccordionSection = ({ title, infos, type, locations }) => {
   return (
     <Section>
       <h2> {title}</h2>
       {infos.length > 0 ? (
-        <AccordionsList infos={infos} areGuidelines areResources />
+        locations ? (
+          <AccordionsListByLocation
+            infos={infos}
+            type={type}
+            locations={locations}
+          />
+        ) : (
+          <AccordionsList infos={infos} type={type} />
+        )
       ) : (
         <p>
           Sorry, nothing here... yet!{" "}
