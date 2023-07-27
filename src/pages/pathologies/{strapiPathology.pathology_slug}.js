@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import Layout from "../../components/Layout";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
-import AccordionSection from "../../components/library/AccordionSection";
+import InfosSection from "../../components/library/InfosSection";
 
 const PathologyPageTemplate = ({ data }) => {
   const {
@@ -52,18 +52,27 @@ const PathologyPageTemplate = ({ data }) => {
           <LibrarySidebar title="Contents" />
 
           <div className="infos">
-            <AccordionSection
+            <InfosSection
               title="Guidelines"
               infos={guidelines}
               type="guidelines"
               locations={locations}
             />
 
-            <AccordionSection
+            <InfosSection
               title="Resources"
               infos={resources}
               type="resources"
             />
+
+            <InfosSection
+              title="Links"
+              infos={links}
+              type="links"
+              locations={locations}
+            />
+
+            {/* <LinksSection title="Links" links={links} locations={locations} /> */}
           </div>
         </div>
       </Container>
@@ -75,8 +84,8 @@ const Container = styled.div`
   grid-column: 2/3;
   display: flex;
   flex-direction: column;
-  wrap: nowrap;
-  gap: 1rem;
+  flex-wrap: nowrap;
+  gap: 2rem;
 
   .hero {
     display: grid;

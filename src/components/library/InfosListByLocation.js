@@ -1,5 +1,6 @@
 import React from "react";
-import AccordionsList from "./AccordionsList";
+import styled from "styled-components";
+import AccordionsList from "./InfosList";
 import { FilterLocationsWithInfos } from "./libraryFunctions";
 
 /*basically based on AccordionsList, but with a filter for locations */
@@ -9,7 +10,7 @@ const AccordionsListByLocation = ({ infos, type, locations }) => {
     locations && FilterLocationsWithInfos(infos, locations);
 
   return (
-    <div>
+    <List>
       {locationsWithInfos.map((location, index) => {
         /* only return locations with at least one info in them */
         return (
@@ -21,8 +22,14 @@ const AccordionsListByLocation = ({ infos, type, locations }) => {
           )
         );
       })}
-    </div>
+    </List>
   );
 };
+
+const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
 
 export default AccordionsListByLocation;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import AccordionsList from "./AccordionsList";
-import AccordionsListByLocation from "./AccordionsListByLocation";
+import InfosList from "./InfosList";
+import InfosListByLocation from "./InfosListByLocation";
 
 const AccordionSection = ({ title, infos, type, locations }) => {
   return (
@@ -9,17 +9,17 @@ const AccordionSection = ({ title, infos, type, locations }) => {
       <h2> {title}</h2>
       {infos.length > 0 ? (
         locations ? (
-          <AccordionsListByLocation
+          <InfosListByLocation
             infos={infos}
             type={type}
             locations={locations}
           />
         ) : (
-          <AccordionsList infos={infos} type={type} />
+          <InfosList infos={infos} type={type} />
         )
       ) : (
         <p>
-          Sorry, nothing here... yet!{" "}
+          Sorry, nothing here... yet!
           <span role="img" aria-label="nerdy smile">
             🤓
           </span>

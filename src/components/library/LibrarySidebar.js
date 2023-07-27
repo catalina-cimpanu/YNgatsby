@@ -36,7 +36,6 @@ const Aside = styled.aside`
     position: -webkit-sticky;
     top: 5.5rem; /* needed for sticky to work */
     text-align: left;
-    height: max-content;
     justify-self: left;
     align-self: start;
     display: flex;
