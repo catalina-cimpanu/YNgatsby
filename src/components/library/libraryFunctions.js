@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 /* destructuring guideline */
 export function destructureGuideline(guideline) {
   const {

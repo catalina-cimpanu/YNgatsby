@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { destructureGuideline, destructureResource } from "./libraryFunctions";
+import Accordion from "./Accordion";
 import ExternalLink from "./ExternalLink";
 
 const AccordionsList = ({ infos, type }) => {
@@ -9,12 +10,12 @@ const AccordionsList = ({ infos, type }) => {
       {type === "guidelines" &&
         infos.map((info, index) => {
           const guideline = destructureGuideline(info);
-          return <p key={index}>{guideline.title}</p>;
+          return <Accordion key={index} info={guideline} />;
         })}
       {type === "resources" &&
         infos.map((info, index) => {
           const resource = destructureResource(info);
-          return <p key={index}>{resource.title}</p>;
+          return <Accordion key={index} info={resource} />;
         })}
       {type === "links" &&
         infos.map((info, index) => {

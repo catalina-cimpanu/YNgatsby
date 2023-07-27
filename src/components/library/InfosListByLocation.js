@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import AccordionsList from "./InfosList";
+import InfosList from "./InfosList";
 import { FilterLocationsWithInfos } from "./libraryFunctions";
 
 /* basically based on AccordionsList, but with a filter for locations */
@@ -13,7 +13,7 @@ const AccordionsListByLocation = ({ infos, type, locations }) => {
         return (
           <div key={index}>
             <h3>{location.location_name}</h3>
-            <AccordionsList infos={location.infos} type={type} />
+            <InfosList infos={location.infos} type={type} />
           </div>
         );
       })}
