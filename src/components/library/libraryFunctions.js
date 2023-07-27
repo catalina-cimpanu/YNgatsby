@@ -55,12 +55,23 @@ export function destructureResource(resource) {
 }
 
 export const FilterLocationsWithInfos = (infos, locations) => {
-  return locations.map((location) => {
+  /* I'm gonna make a comment, cuz this was complicated for me */
+  /* first, i make a list with the locations, and for each location,
+  it either returns false or it returns an object with the name of 
+  the location and a list with the infos.
+  Infos = guidelines, resources or links */
+  const filtered = locations.map((location) => {
     let filteredInfos = infos.filter(
       (info) => info.locations[0].location_name === location.location_name
     );
-    return filteredInfos.length > 0
-      ? { location_name: location.location_name, infos: filteredInfos }
-      : null;
+    return (
+      filteredInfos.length > 0 && {
+        location_name: location.location_name,
+        infos: filteredInfos,
+      }
+    );
   });
+  /* then from this list i only keep the ones that didn't return false */
+  const furtherFiltered = filtered.filter((location) => location !== false);
+  return furtherFiltered;
 };
