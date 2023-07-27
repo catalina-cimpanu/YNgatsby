@@ -19,7 +19,7 @@ const Accordion = ({
     internal_link,
     external_link,
     pricing,
-    language,
+    language: { language_name, language_emoji },
   },
 }) => {
   return (
@@ -40,6 +40,7 @@ const Accordion = ({
         )}
         <h4 className="title">{title}</h4>
         <span className="arrow">‣</span>
+        <span className="language">{language_emoji}</span>
       </Label>
       <Content></Content>
     </Info>
@@ -103,16 +104,24 @@ const Label = styled.label`
     align-self: center;
   }
 
-  .arrow {
-    grid-area: arrow;
-    color: ${(props) => props.theme.colors.H3toH6};
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1;
+  .language {
+    grid-area: language;
     align-self: center;
     justify-self: center;
+  }
+  .arrow {
+    grid-area: arrow;
+    align-self: center;
+    justify-self: center;
+    color: ${(props) => props.theme.colors.H3toH6};
+    font-size: clamp(2rem, 4vw, 3rem);
+    /* font-size: 3rem; */
+    line-height: 1;
+    margin-bottom: -5px;
     -webkit-transition: all 0.35s;
     transition: all 0.35s;
   }
+
   ${Input}:checked + & {
     .arrow {
       -webkit-transform: rotate(90deg);

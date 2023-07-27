@@ -173,6 +173,7 @@ export const query = graphql`
         }
         language {
           language_name
+          language_emoji
         }
         guideline_image {
           alternativeText
@@ -241,6 +242,7 @@ export const query = graphql`
         }
         language {
           language_name
+          language_emoji
         }
         resource_image {
           alternativeText
