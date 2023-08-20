@@ -4,18 +4,27 @@
 import React from "react";
 import styled from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
+import RichText from "../RichText";
+import { ExternalLink } from "react-feather";
 
 const Accordion = ({
   info: {
     title,
-    slug,
     source,
-    body,
+    body: {
+      data: {
+        childMarkdownRemark: { html },
+      },
+    },
     image: {
       alternativeText,
       localFile: { extension, publicURL, childImageSharp },
     },
-    note,
+    note: {
+      data: {
+        childMarkdownRemark: { html: note_html },
+      },
+    },
     internal_link,
     external_link,
     pricing,
@@ -42,7 +51,25 @@ const Accordion = ({
         <span className="arrow">‣</span>
         <span className="language">{language_emoji}</span>
       </Label>
-      <Content></Content>
+      <Content>
+        <div className="info-body" dangerouslySetInnerHTML={{ __html: html }} />
+
+        <ExternalLink
+          className="ext-link"
+          text={external_link.link_text}
+          url={external_link.link_url}
+        />
+
+        <div className="separator" />
+
+        <sub className="source footnote">Source</sub>
+        <sub className="source_detail footnote">{source}</sub>
+        <sub className="note footnote">Note</sub>
+        <sub
+          className="note_detail footnote"
+          dangerouslySetInnerHTML={{ __html: note_html }}
+        />
+      </Content>
     </Info>
   );
 };
@@ -102,6 +129,7 @@ const Label = styled.label`
   .title {
     grid-area: title;
     align-self: center;
+    padding: 0.5rem;
   }
 
   .language {
@@ -132,18 +160,63 @@ const Label = styled.label`
 
 /* Tab Content */
 const Content = styled.div`
-  /* max-height: 0; */
+  max-height: 0;
   -webkit-transition: all 0.35s;
   transition: all 0.35s;
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
   /* background-color: ${(props) => props.theme.colors.surface1}; */
   box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0, 0.4);
   ${Input}:checked ~ & {
     max-height: max-content;
     display: grid;
     grid-template-columns: 15% auto;
-    grid-gap: 0.5rem;
-    padding: clamp(0.5rem, 1.5vw, 1.5rem);
+    grid-template-areas:
+      "body body"
+      "external_link external_link"
+      "divider divider"
+      "source source_detail"
+      "note note_detail";
+    grid-row-gap: 1rem;
+    padding: 1rem;
+  }
+
+  .info-body {
+    grid-area: body;
+  }
+
+  .ext-link {
+    grid-area: external_link;
+    justify-self: right;
+  }
+
+  .separator {
+    grid-area: divider;
+    border-bottom: 1px solid ${(props) => props.theme.colors.separator};
+  }
+
+  .footnote {
+    color: ${(props) => props.theme.colors.p};
+    font-size: 0.8rem;
+    * {
+      font-size: 0.8rem;
+    }
+    /* somehow doesn't work if i only put font-size, who knows why */
+  }
+
+  .source {
+    grid-area: source;
+  }
+
+  .source_detail {
+    grid-area: source_detail;
+  }
+
+  .note {
+    grid-area: note;
+  }
+
+  .note_detail {
+    grid-area: note_detail;
   }
 `;
 

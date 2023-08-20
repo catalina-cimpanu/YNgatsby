@@ -66,22 +66,16 @@ const MyThemeProvider = (props) => {
   const [showButton, setShowButton] = useState(false);
 
   const handleScroll = () => {
-    if (window.pageYOffset > 350) {
-      if (!showButton) {
-        setShowButton(true);
-      }
+    if (document.body.scrollTop > 350) {
+      setShowButton(true);
     } else {
-      if (showButton) {
-        setShowButton(false);
-      }
+      setShowButton(false);
     }
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener(`scroll`, handleScroll);
-      return () => window.removeEventListener(`scroll`, handleScroll);
-    }
+    document.body.addEventListener("scroll", handleScroll);
+    return () => document.body.removeEventListener("scroll", handleScroll);
   });
 
   const value = {

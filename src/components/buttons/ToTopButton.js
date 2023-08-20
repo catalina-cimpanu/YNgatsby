@@ -1,21 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
 import { IoIosArrowUp } from "react-icons/io";
-import { ThemeContext } from "../../context/Provider";
 
-const ToTopButton = () => {
-  const { showButton } = React.useContext(ThemeContext);
+// https://medium.com/@daniwhkim/how-do-i-get-set-top-position-of-elements-scrolltop-offsettop-pageyoffset-scrolly-help-275a7ada5569
+// it didn't work with window, but it worked with document.body
+
+const ToTopButton = ({ showBelow }) => {
+  const [show, setShow] = useState(false);
+
+  const handleScroll = () => {
+    if (document.body.scrollTop > showBelow) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  };
+
+  const goToTop = () => {
+    document.body.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    document.body.addEventListener("scroll", handleScroll);
+    return () => document.body.removeEventListener("scroll", handleScroll);
+  });
+
   return (
-    <>
-      {showButton && (
-        <Button aria-label="to top">
-          <Link className="link" to="#top">
-            <IoIosArrowUp />
-          </Link>
-        </Button>
-      )}
-    </>
+    <Button
+      aria-label="to top"
+      style={{ display: show ? "block" : "none" }}
+      onClick={goToTop}
+    >
+      <IoIosArrowUp />
+    </Button>
   );
 };
 
