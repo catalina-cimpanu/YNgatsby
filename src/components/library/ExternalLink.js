@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { RiExternalLinkLine } from "react-icons/ri";
 
 const ExternalLink = ({ text, url }) => {
+  console.log(text, url);
   return (
     <MyLink href={url}>
       <p>
@@ -13,6 +14,8 @@ const ExternalLink = ({ text, url }) => {
 };
 
 const MyLink = styled.a`
+  grid-area: ext_link;
+  justify-self: right; /* applies only in accordion :) */
   &:hover p {
     color: ${(props) => props.theme.colors.H1H2};
   }

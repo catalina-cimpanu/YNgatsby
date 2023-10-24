@@ -189,7 +189,6 @@ export const query = graphql`
           data {
             childMarkdownRemark {
               html
-              rawMarkdownBody
             }
           }
         }

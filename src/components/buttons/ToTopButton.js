@@ -46,7 +46,7 @@ const Button = styled.button`
   outline: none;
   cursor: pointer;
   position: fixed;
-  bottom: calc(1rem + 2.5rem);
+  bottom: 1rem;
   right: 1rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -59,7 +59,6 @@ const Button = styled.button`
   box-shadow: ${(props) => props.theme.shadows.shadowTab};
   -webkit-box-shadow: ${(props) => props.theme.shadows.shadowTab};
   transition: ${(props) => props.theme.transition};
-  margin-bottom: 0.5rem;
   @media screen and (min-width: 900px) {
     bottom: 2rem;
     right: 2rem;

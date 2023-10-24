@@ -28,13 +28,13 @@ body, html {
 }
 /* scrollbar */
 /* Hide scrollbar for Chrome, Safari and Opera */
-/* *::-webkit-scrollbar {
+ *::-webkit-scrollbar {
   display: none;
 }
 /* Hide scrollbar for IE, Edge and Firefox */
-/* * {
+* {
   scrollbar-width: none; 
-} */
+} 
 div {
   display: block;
   position: relative;
