@@ -20,9 +20,7 @@ const LibraryCard = ({
     <Card
       id={link_url}
       aria-label={cardTitle}
-      to={
-        isPathology ? `/pathologies/${cardSlug}` : `/neuro-skills/${cardSlug}`
-      }
+      to={isPathology ? `/pathologies/${cardSlug}` : `/neuroskills/${cardSlug}`}
     >
       {cardImg &&
         (!childImageSharp && extension === "svg" ? (

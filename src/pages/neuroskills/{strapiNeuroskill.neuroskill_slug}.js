@@ -6,16 +6,16 @@ import Layout from "../../components/Layout";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
 import InfosSection from "../../components/library/InfosSection";
 
-const PathologyPageTemplate = ({ data }) => {
+const NeuroskillPageTemplate = ({ data }) => {
   const {
-    pathology: {
-      pathology_name,
-      pathology_description: {
+    neuroskill: {
+      neuroskill_name,
+      neuroskill_description: {
         data: {
           childMarkdownRemark: { html },
         },
       },
-      pathology_image: {
+      neuroskill_image: {
         alternativeText,
         localFile: { extension, publicURL, childImageSharp },
       },
@@ -43,7 +43,7 @@ const PathologyPageTemplate = ({ data }) => {
               alt={alternativeText}
             />
           )}
-          <h1 className="hero-title">{pathology_name}</h1>
+          <h1 className="hero-title">{neuroskill_name}</h1>
         </div>
 
         <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -103,6 +103,18 @@ const Container = styled.div`
       width: 100%;
       max-height: 150%;
       opacity: 0.35;
+      -webkit-mask-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(rgba(0, 0, 0, 1)),
+        to(rgba(0, 0, 0, 0))
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0)
+      );
     }
 
     .hero-title {
@@ -138,18 +150,18 @@ const Container = styled.div`
 `;
 
 export const query = graphql`
-  query ($pathology_slug: String) {
-    pathology: strapiPathology(pathology_slug: { eq: $pathology_slug }) {
-      pathology_name
-      pathology_slug
-      pathology_description {
+  query ($neuroskill_slug: String) {
+    neuroskill: strapiNeuroskill(neuroskill_slug: { eq: $neuroskill_slug }) {
+      neuroskill_name
+      neuroskill_slug
+      neuroskill_description {
         data {
           childMarkdownRemark {
             html
           }
         }
       }
-      pathology_image {
+      neuroskill_image {
         alternativeText
         localFile {
           extension
@@ -161,7 +173,7 @@ export const query = graphql`
       }
     }
     guidelines: allStrapiGuideline(
-      filter: { pathology: { pathology_slug: { eq: $pathology_slug } } }
+      filter: { neuroskill: { neuroskill_slug: { eq: $neuroskill_slug } } }
       sort: { guideline_title: ASC }
     ) {
       nodes {
@@ -220,7 +232,7 @@ export const query = graphql`
       totalCount
     }
     resources: allStrapiResource(
-      filter: { pathology: { pathology_slug: { eq: $pathology_slug } } }
+      filter: { neuroskill: { neuroskill_slug: { eq: $neuroskill_slug } } }
       sort: { resource_title: ASC }
     ) {
       nodes {
@@ -283,7 +295,7 @@ export const query = graphql`
       totalCount
     }
     links: allStrapiLink(
-      filter: { pathology: { pathology_slug: { eq: $pathology_slug } } }
+      filter: { neuroskill: { neuroskill_slug: { eq: $neuroskill_slug } } }
       sort: { link_text: ASC }
     ) {
       nodes {
@@ -302,4 +314,4 @@ export const query = graphql`
   }
 `;
 
-export default PathologyPageTemplate;
+export default NeuroskillPageTemplate;

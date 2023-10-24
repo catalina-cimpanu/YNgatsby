@@ -4,7 +4,6 @@
 import React from "react";
 import styled from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
-import RichText from "../RichText";
 import ExternalLink from "./ExternalLink";
 
 const Accordion = ({
@@ -28,7 +27,13 @@ const Accordion = ({
     internal_link,
     external_link,
     pricing,
-    language: { language_name, language_emoji },
+    language: {
+      language_name,
+      language_emoji,
+      language_flag: {
+        localFile: { flag_extension, flag_publicURL, flag_childImageSharp },
+      },
+    },
   },
 }) => {
   console.log(external_link);
@@ -38,7 +43,7 @@ const Accordion = ({
       <Label for={internal_link.link_url}>
         {!childImageSharp && extension === "svg" ? (
           <div className="img-container">
-            <img className="img svg" src={publicURL} alt={alternativeText} />
+            <img className="img" src={publicURL} alt={alternativeText} />
           </div>
         ) : (
           <GatsbyImage
@@ -50,7 +55,23 @@ const Accordion = ({
         )}
         <h4 className="title">{title}</h4>
         <span className="arrow">‣</span>
-        <span className="language">{language_emoji}</span>
+        {/* <span className="language">{language_emoji}</span> */}
+        {!flag_childImageSharp && flag_extension === "svg" ? (
+          <div className="flag-img-container">
+            <img
+              className="flag-img"
+              src={flag_publicURL}
+              alt={language_name}
+            />
+          </div>
+        ) : (
+          <GatsbyImage
+            className="flag-img-container"
+            // imgClassName="img"
+            image={flag_childImageSharp.gatsbyImageData}
+            alt={language_name}
+          />
+        )}
       </Label>
       <Content>
         <div className="info-body" dangerouslySetInnerHTML={{ __html: html }} />
@@ -110,6 +131,12 @@ const Label = styled.label`
     grid-template-columns: 15% auto 5% 5%;
   }
 
+  .img {
+    object-fit: contain !important;
+    padding: 0 0.1rem;
+    /* cuz otherwise freaking gatsby overrides this */
+  }
+
   .img-container {
     grid-area: logo;
     align-self: center;
@@ -120,10 +147,21 @@ const Label = styled.label`
     border-radius: ${(props) => props.theme.radiusXS};
   }
 
-  .img {
-    object-fit: contain !important;
-    padding: 0 0.1rem;
-    /* cuz otherwise freaking gatsby overrides this */
+  .flag-img {
+    background-color: ${(props) => props.theme.colors.miniFeatureBG};
+    border-radius: ${(props) => props.theme.radiusXS};
+    height: 50%;
+    @media screen and (min-width: 550px) {
+      height: 75%;
+    }
+  }
+
+  .flag-img-container {
+    grid-area: language;
+    align-self: center;
+    justify-self: center;
+    display: grid;
+    place-items: center;
   }
 
   .title {
