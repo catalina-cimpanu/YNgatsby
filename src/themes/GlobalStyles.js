@@ -16,16 +16,18 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box; 
   padding: 0;
 }
-body, html {
+
+html, body {
     font-family: ${(props) => props.theme.fonts.secondary};
     word-break: break-word;
-    height: 100%;
     background-color: ${(props) => props.theme.colors.bg};
     scroll-behavior: smooth; 
     scroll-margin-top: 5rem;
     scroll-padding-top: 5rem;
+    height: 100%;
     overflow-x: hidden; /* hides horizontal scrolling */
 }
+
 /* scrollbar */
 /* Hide scrollbar for Chrome, Safari and Opera */
  *::-webkit-scrollbar {

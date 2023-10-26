@@ -95,6 +95,7 @@ const Feature = styled(Link)`
   grid-column: 2/4;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 40% 40%;
   margin-bottom: 4rem;
   &:focus-visible {
     outline: none;
@@ -127,7 +128,8 @@ const Feature = styled(Link)`
     background-color: ${(props) => props.theme.colors.surface1};
     box-shadow: ${(props) => props.theme.elevations.elevation3};
     border-radius: ${(props) => props.theme.radiusL};
-    margin-top: -2rem;
+    /* margin-top: -5vh; */
+
     @media screen and (min-width: 900px) {
       grid-column: ${(props) => (props.imgLeft ? "2/7" : "1/6")};
       grid-row: 1/1;

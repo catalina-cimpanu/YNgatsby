@@ -15,6 +15,7 @@ import GoToGuideSection from "../components/guide/GoToGuideSection";
 
 const HomePage = ({ data }) => {
   const articles = data.allStrapiBlogArticle.nodes;
+
   return (
     <Layout homepage>
       <HeroNew />
@@ -31,11 +32,11 @@ const HomePage = ({ data }) => {
   );
 };
 
-const Separator = styled.div`
-  z-index: 1;
-  height: 80vh;
-  background-color: ${(props) => props.theme.colors.sectionBg};
-`;
+// const Separator = styled.div`
+//   z-index: 1;
+//   height: 80vh;
+//   background-color: ${(props) => props.theme.colors.sectionBg};
+// `;
 
 export const query = graphql`
   query {

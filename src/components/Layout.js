@@ -6,6 +6,14 @@ import SideMenu from "./sidemenu/SideMenu";
 import ToTopButton from "./buttons/ToTopButton";
 
 const Layout = ({ children, homepage }) => {
+  // so that new page always go up
+  const goToTop = () => {
+    document.body.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  goToTop();
   return (
     <LayoutDiv>
       <Navbar />
