@@ -4,7 +4,6 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import Layout from "../../components/Layout";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
-import InfosSection from "../../components/library/InfosSection";
 import Infos from "../../components/library/Infos";
 
 const NeuroskillPageTemplate = ({ data }) => {
@@ -247,7 +246,7 @@ export const query = graphql`
           link_text
           link_url
         }
-        guideline_internal_link {
+        contents_link {
           link_text
           link_url
         }
@@ -316,7 +315,7 @@ export const query = graphql`
             }
           }
         }
-        resource_internal_link {
+        contents_link {
           link_text
           link_url
         }

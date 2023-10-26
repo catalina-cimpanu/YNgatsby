@@ -3,39 +3,54 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import { ThemeContext } from "../../context/Provider";
 
-const LibraryContents = ({ links, title }) => {
+const LibraryContents = ({ links, title, pureLinks }) => {
   const { closePageContents, activeLink, setActiveLink } =
     React.useContext(ThemeContext);
   return (
     <Details open>
-      <summary className="summary-title">{title}</summary>
-      <ul>
-        {links.map((link, index) => {
-          const {
-            contents_link: { link_text, link_url },
-          } = link;
-          return (
-            <li>
-              <button
-                className="button"
-                aria-label={`go to section ${link_text}`}
-                onClick={closePageContents}
-              >
-                <Link
-                  key={index}
-                  to={`#${link_url}`}
-                  onClick={() => {
-                    setActiveLink(link_url);
-                  }}
-                  className={activeLink === link_url ? "active link" : "link"}
+      <summary className="summary-title">
+        <Link
+          to={`#${title}`}
+          onClick={() => {
+            setActiveLink(`#${title}`);
+          }}
+          className={activeLink === `#${title}` ? "active link" : "link"}
+        >
+          {title}
+        </Link>
+      </summary>
+      {!pureLinks && (
+        <ul>
+          {links.map((link, index) => {
+            const {
+              contents_link: { link_text, link_url },
+            } = link;
+
+            return (
+              <li>
+                <button
+                  className="button"
+                  aria-label={`go to section ${link_text}`}
+                  onClick={closePageContents}
                 >
-                  {link_text}
-                </Link>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+                  <Link
+                    key={index}
+                    to={`#${link_url}`}
+                    onClick={() => {
+                      setActiveLink(link_url);
+                    }}
+                    className={
+                      activeLink === link_url ? " active link" : "link"
+                    }
+                  >
+                    {link_text}
+                  </Link>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </Details>
   );
 };

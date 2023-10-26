@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import LibraryContents from "./LibraryContents";
+import { Link } from "gatsby";
 
 const LibrarySidebar = ({
   title,
   pathologies,
   neuroskills,
   fromLibraryPage,
+  guidelines,
+  resources,
+  links,
+  locations,
 }) => {
   return (
     <Aside>
@@ -16,6 +21,13 @@ const LibrarySidebar = ({
       )}
       {fromLibraryPage && neuroskills && (
         <LibraryContents links={neuroskills} title="Neuroskills" />
+      )}
+      {!fromLibraryPage && (
+        <>
+          <LibraryContents links={guidelines} title="Guidelines" />
+          <LibraryContents links={resources} title="Resources" />
+          <LibraryContents links={links} title="Links" pureLinks />
+        </>
       )}
     </Aside>
   );

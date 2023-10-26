@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import Layout from "../../components/Layout";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
+import Infos from "../../components/library/Infos";
 import InfosSection from "../../components/library/InfosSection";
 
 const PathologyPageTemplate = ({ data }) => {
@@ -49,30 +50,21 @@ const PathologyPageTemplate = ({ data }) => {
         <div dangerouslySetInnerHTML={{ __html: html }} />
 
         <div className="body">
-          <LibrarySidebar title="Contents" />
+          <LibrarySidebar
+            title="Contents"
+            guidelines={guidelines}
+            resources={resources}
+            links={links}
+            locations={locations}
+          />
 
           <div className="infos">
-            <InfosSection
-              title="Guidelines"
-              infos={guidelines}
-              type="guidelines"
+            <Infos
+              guidelines={guidelines}
+              resources={resources}
+              links={links}
               locations={locations}
             />
-
-            <InfosSection
-              title="Resources"
-              infos={resources}
-              type="resources"
-            />
-
-            <InfosSection
-              title="Links"
-              infos={links}
-              type="links"
-              locations={locations}
-            />
-
-            {/* <LinksSection title="Links" links={links} locations={locations} /> */}
           </div>
         </div>
       </Container>
@@ -205,7 +197,7 @@ export const query = graphql`
           link_text
           link_url
         }
-        guideline_internal_link {
+        contents_link {
           link_text
           link_url
         }
@@ -271,7 +263,7 @@ export const query = graphql`
             }
           }
         }
-        resource_internal_link {
+        contents_link {
           link_text
           link_url
         }

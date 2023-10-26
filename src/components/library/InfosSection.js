@@ -6,7 +6,7 @@ import InfosListByLocation from "./InfosListByLocation";
 const AccordionSection = ({ title, infos, type, locations }) => {
   return (
     <Section>
-      <h2> {title}</h2>
+      <h2 id={title}> {title}</h2>
       {infos.length > 0 ? (
         locations ? (
           <InfosListByLocation
