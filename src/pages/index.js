@@ -19,8 +19,8 @@ const HomePage = ({ data }) => {
     <Layout homepage>
       <HeroNew />
       <Description />
-      <Features />
-      <Separator />
+      {/* <Features /> */}
+      {/* <Separator /> */}
       <FeaturesOld />
       <MiniFeatures features={advantages} title="Our philosophy" blue />
       <MiniFeatures features={actions} title="Support our work" />
