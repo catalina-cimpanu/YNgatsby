@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Layout from "../../components/Layout";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
 import InfosSection from "../../components/library/InfosSection";
+import Infos from "../../components/library/Infos";
 
 const NeuroskillPageTemplate = ({ data }) => {
   const {
@@ -19,6 +20,7 @@ const NeuroskillPageTemplate = ({ data }) => {
         alternativeText,
         localFile: { extension, publicURL, childImageSharp },
       },
+      sub_neuroskills,
     },
     guidelines: { nodes: guidelines },
     resources: { nodes: resources },
@@ -52,27 +54,40 @@ const NeuroskillPageTemplate = ({ data }) => {
           <LibrarySidebar title="Contents" />
 
           <div className="infos">
-            <InfosSection
-              title="Guidelines"
-              infos={guidelines}
-              type="guidelines"
-              locations={locations}
-            />
-
-            <InfosSection
-              title="Resources"
-              infos={resources}
-              type="resources"
-            />
-
-            <InfosSection
-              title="Links"
-              infos={links}
-              type="links"
-              locations={locations}
-            />
-
-            {/* <LinksSection title="Links" links={links} locations={locations} /> */}
+            {sub_neuroskills.length > 0 ? (
+              sub_neuroskills.map((subNeuroskill) => {
+                let name = subNeuroskill.subneuroskill_name;
+                let filteredGuidelines = guidelines.filter(
+                  (guideline) =>
+                    guideline.sub_neuroskill.subneuroskill_name === name
+                );
+                let filteredResources = resources.filter(
+                  (resource) =>
+                    resource.sub_neuroskill.subneuroskill_name === name
+                );
+                let filteredLinks = links.filter(
+                  (link) => link.sub_neuroskill.subneuroskill_name === name
+                );
+                return (
+                  <>
+                    <h2 className="titleH2">{name}</h2>
+                    <Infos
+                      guidelines={filteredGuidelines}
+                      resources={filteredResources}
+                      links={filteredLinks}
+                      locations={locations}
+                    />
+                  </>
+                );
+              })
+            ) : (
+              <Infos
+                guidelines={guidelines}
+                resources={resources}
+                links={links}
+                locations={locations}
+              />
+            )}
           </div>
         </div>
       </Container>
@@ -145,6 +160,15 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       gap: 4rem;
+
+      .titleH2 {
+        text-align: left;
+        font-size: clamp(1rem, 7vw, 3rem);
+        color: ${(props) => props.theme.colors.H3toH6};
+        border-bottom: 3px solid ${(props) => props.theme.colors.H1H2};
+        border-top: 3px solid ${(props) => props.theme.colors.H1H2};
+        padding: 1rem 0;
+      }
     }
   }
 `;
@@ -171,6 +195,9 @@ export const query = graphql`
           }
         }
       }
+      sub_neuroskills {
+        subneuroskill_name
+      }
     }
     guidelines: allStrapiGuideline(
       filter: { neuroskill: { neuroskill_slug: { eq: $neuroskill_slug } } }
@@ -180,6 +207,9 @@ export const query = graphql`
         guideline_title
         guideline_slug
         guideline_source
+        sub_neuroskill {
+          subneuroskill_name
+        }
         locations {
           location_name
         }
@@ -256,6 +286,9 @@ export const query = graphql`
             }
           }
         }
+        sub_neuroskill {
+          subneuroskill_name
+        }
         pricing {
           pricing_type
           pricing_description
@@ -301,6 +334,9 @@ export const query = graphql`
       nodes {
         link_text
         link_url
+        sub_neuroskill {
+          subneuroskill_name
+        }
         locations {
           location_name
         }
