@@ -50,7 +50,13 @@ const NeuroskillPageTemplate = ({ data }) => {
         <div dangerouslySetInnerHTML={{ __html: html }} />
 
         <div className="body">
-          <LibrarySidebar title="Contents" />
+          <LibrarySidebar
+            title="Contents"
+            guidelines={guidelines}
+            resources={resources}
+            links={links}
+            locations={locations}
+          />
 
           <div className="infos">
             {sub_neuroskills.length > 0 ? (

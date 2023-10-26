@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import LibraryContents from "./LibraryContents";
-import { Link } from "gatsby";
 
 const LibrarySidebar = ({
   title,
