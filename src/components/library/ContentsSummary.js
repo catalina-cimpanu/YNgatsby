@@ -6,14 +6,15 @@ import { ThemeContext } from "../../context/Provider";
 const ContentsSummary = ({ summary_title, subskill, sub }) => {
   const { closePageContents, activeLink, setActiveLink } =
     React.useContext(ThemeContext);
+  const link = subskill ? `#${summary_title + subskill}` : `#${summary_title}`;
   return (
     <Summary sub={sub}>
       <Link
-        to={subskill ? `#${summary_title + subskill}` : `#${summary_title}`}
+        to={link}
         onClick={() => {
-          setActiveLink(`#${summary_title}`);
+          setActiveLink(link);
         }}
-        className={activeLink === `#${summary_title}` ? "active link" : "link"}
+        className={activeLink === link ? "active link" : "link"}
       >
         {summary_title}
       </Link>

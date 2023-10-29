@@ -17,7 +17,14 @@ const LibrarySidebar = ({
   return (
     <Aside>
       <h4>{title}</h4>
+      {/* this is again difficult to read cuz of the conditionals; basically i check if both, then if each */}
       {fromLibraryPage ? (
+        (pathologies && neuroskills && (
+          <>
+            <LibraryContents links={pathologies} title="Pathologies" />
+            <LibraryContents links={neuroskills} title="Neuroskills" />
+          </>
+        )) ||
         (pathologies && (
           <LibraryContents links={pathologies} title="Pathologies" />
         )) ||
