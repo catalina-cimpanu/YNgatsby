@@ -23,9 +23,18 @@ const LibrarySidebar = ({
       )}
       {!fromLibraryPage && (
         <>
-          <LibraryContents links={guidelines} title="Guidelines" />
+          <LibraryContents
+            links={guidelines}
+            locations={locations}
+            title="Guidelines"
+          />
           <LibraryContents links={resources} title="Resources" />
-          <LibraryContents links={links} title="Links" pureLinks />
+          <LibraryContents
+            links={links}
+            locations={locations}
+            title="Links"
+            pureLinks
+          />
         </>
       )}
     </Aside>
@@ -38,7 +47,7 @@ const Aside = styled.aside`
   height: 100%;
   width: 100%;
   max-height: calc(100vh - 5.5rem);
-  overflow-x: visible;
+  overflow-x: scroll;
   overflow-y: auto;
   /* text-align: center; */
 

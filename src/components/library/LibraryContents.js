@@ -2,104 +2,76 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { ThemeContext } from "../../context/Provider";
+import { FilterLocationsWithInfos } from "./libraryFunctions";
+import ContentsSingleLink from "./ContentsSingleLink";
+import ContentsSummary from "./ContentsSummary";
 
-const LibraryContents = ({ links, title, pureLinks }) => {
-  const { closePageContents, activeLink, setActiveLink } =
-    React.useContext(ThemeContext);
+const LibraryContents = ({ links, title, pureLinks, locations }) => {
+  const { closePageContents } = React.useContext(ThemeContext);
+  const locationsWithLinks =
+    locations && FilterLocationsWithInfos(links, locations);
   return (
     <Details open>
-      <summary className="summary-title">
-        <Link
-          to={`#${title}`}
-          onClick={() => {
-            setActiveLink(`#${title}`);
-          }}
-          className={activeLink === `#${title}` ? "active link" : "link"}
-        >
-          {title}
-        </Link>
-      </summary>
-      {!pureLinks && (
-        <ul>
-          {links.map((link, index) => {
-            const {
-              contents_link: { link_text, link_url },
-            } = link;
-
+      <ContentsSummary summary_title={title} />
+      {pureLinks &&
+        locationsWithLinks.map((location, index) => {
+          console.log(location);
+          return (
+            <ContentsSingleLink
+              index={index}
+              link_text={location.location_name}
+              link_url={location.location_name}
+              pureLinks={pureLinks}
+            />
+          );
+        })}
+      {!pureLinks &&
+        (locationsWithLinks ? (
+          locationsWithLinks.map((location, index) => {
             return (
-              <li>
-                <button
-                  className="button"
-                  aria-label={`go to section ${link_text}`}
-                  onClick={closePageContents}
-                >
-                  <Link
-                    key={index}
-                    to={`#${link_url}`}
-                    onClick={() => {
-                      setActiveLink(link_url);
-                    }}
-                    className={
-                      activeLink === link_url ? " active link" : "link"
-                    }
-                  >
-                    {link_text}
-                  </Link>
-                </button>
-              </li>
+              <Details key={index} open>
+                <ContentsSummary summary_title={location.location_name} sub />
+                {location.infos.map((info, index) => {
+                  const {
+                    contents_link: { link_text, link_url },
+                  } = info;
+                  return (
+                    <ContentsSingleLink
+                      index={index}
+                      link_text={link_text}
+                      link_url={link_url}
+                      sub
+                    />
+                  );
+                })}
+              </Details>
             );
-          })}
-        </ul>
-      )}
+          })
+        ) : (
+          <ul>
+            {links.map((link, index) => {
+              const {
+                contents_link: { link_text, link_url },
+              } = link;
+
+              return (
+                <ContentsSingleLink
+                  index={index}
+                  link_text={link_text}
+                  link_url={link_url}
+                />
+              );
+            })}
+          </ul>
+        ))}
     </Details>
   );
 };
 
 const Details = styled.details`
-  .summary-title {
-    cursor: pointer;
-    font-family: ${(props) => props.theme.fonts.primary};
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: ${(props) => props.theme.colors.H3toH6};
-    letter-spacing: ${(props) => props.theme.spacing};
-    text-transform: capitalize;
-    line-height: 1.25;
-    &:focus {
-      outline: none;
-    }
-  }
-
-  .button {
-    appearance: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background: transparent;
-  }
-
-  .link {
-    color: ${(props) => props.theme.colors.navLinkText};
-    font-family: ${(props) => props.theme.fonts.primary};
-    font-size: 1rem;
-    white-space: pre;
-    &:hover {
-      &::before {
-        content: " ";
-        border-left: 3px solid ${(props) => props.theme.colors.primary};
-        margin-right: 0.2rem;
-      }
-    }
-    &.active {
-      color: ${(props) => props.theme.colors.aText};
-      /* background-color: ${(props) => props.theme.colors.aBg}; */
-      &::before {
-        content: " ";
-        border-left: 3px solid ${(props) => props.theme.colors.primary};
-        margin-right: 0.2rem;
-      }
-    }
-  }
+  display: block;
+  white-space: nowrap;
+  position: relative;
 `;
 
 export default LibraryContents;

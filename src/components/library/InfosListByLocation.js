@@ -12,7 +12,15 @@ const AccordionsListByLocation = ({ infos, type, locations }) => {
       {locationsWithInfos.map((location, index) => {
         return (
           <div key={index}>
-            <h3>{location.location_name}</h3>
+            <h3
+              id={
+                type === "links"
+                  ? `${location.location_name}_links`
+                  : location.location_name
+              }
+            >
+              {location.location_name}
+            </h3>
             <InfosList infos={location.infos} type={type} />
           </div>
         );
