@@ -36,7 +36,6 @@ const Accordion = ({
     },
   },
 }) => {
-  console.log(external_link);
   return (
     <Info>
       <Input type="checkbox" id={internal_link.link_url} />

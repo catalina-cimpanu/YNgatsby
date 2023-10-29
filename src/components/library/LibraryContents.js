@@ -6,19 +6,18 @@ import { FilterLocationsWithInfos } from "./libraryFunctions";
 import ContentsSingleLink from "./ContentsSingleLink";
 import ContentsSummary from "./ContentsSummary";
 
-const LibraryContents = ({ links, title, pureLinks, locations }) => {
+const LibraryContents = ({ links, title, pureLinks, locations, subskill }) => {
   const { closePageContents } = React.useContext(ThemeContext);
   const locationsWithLinks =
     locations && FilterLocationsWithInfos(links, locations);
   return (
     <Details open>
-      <ContentsSummary summary_title={title} />
+      <ContentsSummary summary_title={title} subskill={subskill} />
       {pureLinks &&
         locationsWithLinks.map((location, index) => {
-          console.log(location);
           return (
             <ContentsSingleLink
-              index={index}
+              key={index}
               link_text={location.location_name}
               link_url={location.location_name}
               pureLinks={pureLinks}
@@ -30,14 +29,18 @@ const LibraryContents = ({ links, title, pureLinks, locations }) => {
           locationsWithLinks.map((location, index) => {
             return (
               <Details key={index} open>
-                <ContentsSummary summary_title={location.location_name} sub />
+                <ContentsSummary
+                  summary_title={location.location_name}
+                  subskill={subskill}
+                  sub
+                />
                 {location.infos.map((info, index) => {
                   const {
                     contents_link: { link_text, link_url },
                   } = info;
                   return (
                     <ContentsSingleLink
-                      index={index}
+                      key={index}
                       link_text={link_text}
                       link_url={link_url}
                       sub

@@ -29,4 +29,5 @@ export default [
     text: "Contact",
     url: "/contact/",
   },
+  { id: 7, text: "Credits", url: "/credits/" },
 ];

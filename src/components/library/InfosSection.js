@@ -3,16 +3,17 @@ import styled from "styled-components";
 import InfosList from "./InfosList";
 import InfosListByLocation from "./InfosListByLocation";
 
-const AccordionSection = ({ title, infos, type, locations }) => {
+const AccordionSection = ({ title, infos, type, locations, subskill }) => {
   return (
     <Section>
-      <h2 id={title}> {title}</h2>
+      <h2 id={subskill ? `${title + subskill}` : `${title}`}>{title}</h2>
       {infos.length > 0 ? (
         locations ? (
           <InfosListByLocation
             infos={infos}
             type={type}
             locations={locations}
+            subskill={subskill}
           />
         ) : (
           <InfosList infos={infos} type={type} />

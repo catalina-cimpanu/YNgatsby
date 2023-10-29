@@ -4,7 +4,7 @@ import InfosList from "./InfosList";
 import { FilterLocationsWithInfos } from "./libraryFunctions";
 
 /* basically based on AccordionsList, but with a filter for locations */
-const AccordionsListByLocation = ({ infos, type, locations }) => {
+const AccordionsListByLocation = ({ infos, type, locations, subskill }) => {
   const locationsWithInfos =
     locations && FilterLocationsWithInfos(infos, locations);
   return (
@@ -13,9 +13,13 @@ const AccordionsListByLocation = ({ infos, type, locations }) => {
         return (
           <div key={index}>
             <h3
+              // unfortunately it doesn't let me keep the () when I save and the following if is a bit difficult to understand
+              // 1. check if links, 2. check if subskill
               id={
                 type === "links"
                   ? `${location.location_name}_links`
+                  : subskill
+                  ? location.location_name + subskill
                   : location.location_name
               }
             >

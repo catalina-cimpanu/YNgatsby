@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import { ThemeContext } from "../../context/Provider";
 
-const ContentsSummary = ({ summary_title, sub }) => {
+const ContentsSummary = ({ summary_title, subskill, sub }) => {
   const { closePageContents, activeLink, setActiveLink } =
     React.useContext(ThemeContext);
   return (
     <Summary sub={sub}>
       <Link
-        to={`#${summary_title}`}
+        to={subskill ? `#${summary_title + subskill}` : `#${summary_title}`}
         onClick={() => {
           setActiveLink(`#${summary_title}`);
         }}

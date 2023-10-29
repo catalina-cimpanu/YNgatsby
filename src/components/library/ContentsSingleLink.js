@@ -3,7 +3,13 @@ import styled from "styled-components";
 import { ThemeContext } from "../../context/Provider";
 import { Link } from "gatsby";
 
-const ContentsSingleLink = ({ link_text, link_url, sub, pureLinks }) => {
+const ContentsSingleLink = ({
+  link_text,
+  link_url,
+  sub,
+  pureLinks,
+  subskill,
+}) => {
   const { closePageContents, activeLink, setActiveLink } =
     React.useContext(ThemeContext);
   return (

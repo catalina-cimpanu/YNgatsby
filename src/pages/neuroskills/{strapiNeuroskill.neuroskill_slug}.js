@@ -51,11 +51,14 @@ const NeuroskillPageTemplate = ({ data }) => {
 
         <div className="body">
           <LibrarySidebar
-            title="Contents"
+            title={sub_neuroskills.length > 0 ? "" : "Contents"}
             guidelines={guidelines}
             resources={resources}
             links={links}
             locations={locations}
+            sub_neuroskills={
+              sub_neuroskills.length > 0 ? sub_neuroskills : null
+            }
           />
 
           <div className="infos">
@@ -75,12 +78,15 @@ const NeuroskillPageTemplate = ({ data }) => {
                 );
                 return (
                   <>
-                    <h2 className="titleH2">{name}</h2>
+                    <h2 id={name} className="titleH2">
+                      {name}
+                    </h2>
                     <Infos
                       guidelines={filteredGuidelines}
                       resources={filteredResources}
                       links={filteredLinks}
                       locations={locations}
+                      subskill={name}
                     />
                   </>
                 );

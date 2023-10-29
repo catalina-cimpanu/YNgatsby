@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { RiExternalLinkLine } from "react-icons/ri";
 
 const ExternalLink = ({ text, url }) => {
-  console.log(text, url);
   return (
     <MyLink href={url}>
       <p>
