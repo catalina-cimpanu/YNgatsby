@@ -5,11 +5,7 @@ import Layout from "../components/Layout";
 import HeroNew from "../components/hero/HeroNew";
 import Description from "../components/Description";
 import Features from "../components/features/Features";
-import FeaturesOld from "../components/features/FeaturesOld";
-import FeaturesImported from "../components/features/FeaturesImported";
 import MiniFeatures from "../components/features/MiniFeatures";
-import advantages from "../constants/advantages";
-import actions from "../constants/actions";
 import ContactSection from "../components/contact/ContactSection";
 import BlogCards from "../components/blog/BlogCards";
 import GoToGuideSection from "../components/guide/GoToGuideSection";
@@ -21,13 +17,8 @@ const HomePage = ({ data }) => {
     <Layout homepage>
       <HeroNew />
       <Description />
-      {/* <Features /> */}
-      {/* <Separator /> */}
-      {/* <FeaturesOld /> */}
-      {/* <Separator /> */}
-      <FeaturesImported />
-      <MiniFeatures features={advantages} title="Our philosophy" blue />
-      <MiniFeatures features={actions} title="Support our work" />
+      <Features />
+      <MiniFeatures />
       <ContactSection />
       <BlogCards title="Latest blog posts" articles={articles} showLink />
       <GoToGuideSection />
@@ -35,11 +26,11 @@ const HomePage = ({ data }) => {
   );
 };
 
-const Separator = styled.div`
-  z-index: 1;
-  height: 80vh;
-  background-color: ${(props) => props.theme.colors.sectionBg};
-`;
+// const Separator = styled.div`
+//   z-index: 1;
+//   height: 80vh;
+//   background-color: ${(props) => props.theme.colors.sectionBg};
+// `;
 
 export const query = graphql`
   query {

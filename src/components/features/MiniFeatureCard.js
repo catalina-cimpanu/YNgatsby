@@ -1,29 +1,33 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "../../context/Provider";
+import React from "react";
 import styled from "styled-components";
-import NoAdsSvg from "../../images//minifeature_images/no_ads_people.inline.svg";
-import OpenAccessSvg from "../../images//minifeature_images/open_access.inline.svg";
-import UserFriendlySvg from "../../images//minifeature_images/user_friendly.inline.svg";
-import FeedbackSvg from "../../images//minifeature_images/feedback.inline.svg";
-import TalkingSvg from "../../images//minifeature_images/talking.inline.svg";
-import TeamSvg from "../../images//minifeature_images/team.inline.svg";
+import { GatsbyImage } from "gatsby-plugin-image";
 
-const MiniFeatureCard = ({ feature }) => {
-  const { title, text, codename } = feature;
-  const { darkMode } = useContext(ThemeContext);
-
+const MiniFeatureCardNew = ({ minifeature }) => {
+  const {
+    minifeature_title,
+    minifeature_description,
+    minifeature_image: {
+      alternativeText,
+      localFile: { extension, publicURL, childImageSharp },
+    },
+  } = minifeature;
   return (
     <MiniCard>
-      <div className="minicard-img">
-        {codename === "open-access" && <OpenAccessSvg />}
-        {codename === "no-ads" && <NoAdsSvg />}
-        {codename === "user-friendly" && <UserFriendlySvg />}
-        {codename === "feedback" && <FeedbackSvg />}
-        {codename === "talk" && <TalkingSvg />}
-        {codename === "join" && <TeamSvg />}
-      </div>
-      <h4>{title}</h4>
-      <p>{text}</p>
+      {!childImageSharp && extension === "svg" ? (
+        <img
+          className="minicard-img svg"
+          src={publicURL}
+          alt={alternativeText}
+        />
+      ) : (
+        <GatsbyImage
+          className="minicard-img"
+          image={childImageSharp.gatsbyImageData}
+          alt={alternativeText}
+        />
+      )}
+      <h4>{minifeature_title}</h4>
+      <p>{minifeature_description}</p>
     </MiniCard>
   );
 };
@@ -51,4 +55,4 @@ const MiniCard = styled.div`
   }
 `;
 
-export default MiniFeatureCard;
+export default MiniFeatureCardNew;

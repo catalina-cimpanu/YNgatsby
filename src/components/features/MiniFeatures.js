@@ -1,21 +1,78 @@
 import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import TitleH2 from "../titles/TitleH2";
 import MiniFeatureCard from "./MiniFeatureCard";
 
-const MiniFeatures = ({ features, title, blue }) => {
+const MiniFeaturesImported = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allAdvantages: allStrapiMinifeature(
+        filter: { minifeature_type: { eq: "advantage" } }
+      ) {
+        nodes {
+          id
+          minifeature_title
+          minifeature_description
+          minifeature_image {
+            alternativeText
+            localFile {
+              extension
+              publicURL
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
+            }
+          }
+        }
+      }
+      allActions: allStrapiMinifeature(
+        filter: { minifeature_type: { eq: "action" } }
+      ) {
+        nodes {
+          minifeature_title
+          minifeature_description
+          minifeature_image {
+            alternativeText
+            localFile {
+              extension
+              publicURL
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+  const {
+    allAdvantages: { nodes: advantages },
+  } = data;
+  const {
+    allActions: { nodes: actions },
+  } = data;
   return (
-    <MiniFeaturesSection blue={blue}>
-      <TitleH2 title={title} />
-      <div className="minifeatures-row ">
-        {features.map((feature) => {
-          console.log(feature);
-          return <MiniFeatureCard key={feature.id} feature={feature} />;
-        })}
-      </div>
-    </MiniFeaturesSection>
+    <div>
+      <MiniFeaturesSection blue>
+        <h2>Our philosophy</h2>
+        <div className="minifeatures-row ">
+          {advantages.map((advantage, index) => {
+            return <MiniFeatureCard key={index} minifeature={advantage} />;
+          })}
+        </div>
+      </MiniFeaturesSection>
+      <MiniFeaturesSection>
+        <h2>Support our work</h2>
+        <div className="minifeatures-row ">
+          {actions.map((action, index) => {
+            return <MiniFeatureCard key={index} minifeature={action} />;
+          })}
+        </div>
+      </MiniFeaturesSection>
+    </div>
   );
 };
+
 const MiniFeaturesSection = styled.section`
   background-color: ${(props) => props.blue && props.theme.colors.sectionBg};
   width: 100vw;
@@ -42,4 +99,4 @@ const MiniFeaturesSection = styled.section`
   }
 `;
 
-export default MiniFeatures;
+export default MiniFeaturesImported;

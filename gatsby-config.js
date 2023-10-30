@@ -33,6 +33,7 @@ const strapiConfig = {
     "location",
     "language",
     "feature",
+    "minifeature",
   ],
   singleTypes: [],
   remoteFileHeaders: {
