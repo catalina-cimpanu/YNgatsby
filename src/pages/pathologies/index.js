@@ -5,6 +5,8 @@ import Layout from "../../components/Layout";
 import TitleH1 from "../../components/titles/TitleH1";
 import LibraryCards from "../../components/library/LibraryCards";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
+import LibraryContentsSmall from "../../components/library/LibraryContentsSmall";
+import ContentsButton from "../../components/buttons/ContentsButton";
 
 const LibraryPage = ({ data, location }) => {
   const {
@@ -45,6 +47,8 @@ const LibraryPage = ({ data, location }) => {
             />
           </div>
         </div>
+        <ContentsButton buttonText="Contents+" />
+        <LibraryContentsSmall />
       </Container>
     </Layout>
   );
