@@ -84,8 +84,10 @@ const HiddenContents = styled.div`
     margin-top: 1rem;
     height: 95%;
     overflow-y: auto;
-    display: grid;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
     align-items: center;
   }
 `;

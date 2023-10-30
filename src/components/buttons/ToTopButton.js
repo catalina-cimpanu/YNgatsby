@@ -5,7 +5,7 @@ import { IoIosArrowUp } from "react-icons/io";
 // https://medium.com/@daniwhkim/how-do-i-get-set-top-position-of-elements-scrolltop-offsettop-pageyoffset-scrolly-help-275a7ada5569
 // it didn't work with window, but it worked with document.body
 
-const ToTopButton = ({ showBelow }) => {
+const ToTopButton = ({ showBelow, keepdown }) => {
   const [show, setShow] = useState(false);
 
   const handleScroll = () => {
@@ -33,6 +33,7 @@ const ToTopButton = ({ showBelow }) => {
       aria-label="to top"
       style={{ display: show ? "block" : "none" }}
       onClick={goToTop}
+      keepdown={keepdown}
     >
       <IoIosArrowUp />
     </Button>
@@ -46,7 +47,7 @@ const Button = styled.button`
   outline: none;
   cursor: pointer;
   position: fixed;
-  bottom: 4rem;
+  bottom: ${(props) => (props.keepdown ? "1rem" : "4rem")};
   right: 1rem;
   width: 2.5rem;
   height: 2.5rem;

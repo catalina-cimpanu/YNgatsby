@@ -5,7 +5,7 @@ import styled from "styled-components";
 import SideMenu from "./sidemenu/SideMenu";
 import ToTopButton from "./buttons/ToTopButton";
 
-const Layout = ({ children, homepage }) => {
+const Layout = ({ children, homepage, nocontents }) => {
   // so that new page always go up
   const goToTop = () => {
     document.body.scrollTo({
@@ -23,7 +23,7 @@ const Layout = ({ children, homepage }) => {
         <Container homepage={homepage}>{children}</Container>
       </Main>
       <Footer />
-      <ToTopButton showBelow={350} />
+      <ToTopButton showBelow={350} keepdown={homepage || nocontents} />
     </LayoutDiv>
   );
 };

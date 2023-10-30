@@ -16,6 +16,7 @@ const LibraryContentsAll = ({
   const { closePageContents } = React.useContext(ThemeContext);
   return (
     <div>
+      {/* this is again difficult to read cuz of the conditionals; basically i check if both, then if each */}
       {fromLibraryPage ? (
         (pathologies && neuroskills && (
           <>

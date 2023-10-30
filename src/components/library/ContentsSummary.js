@@ -50,7 +50,7 @@ const Summary = styled.summary`
     }
     &.active {
       color: ${(props) => props.theme.colors.aText};
-      /* background-color: ${(props) => props.theme.colors.aBg}; */
+      background-color: ${(props) => props.theme.colors.aBg};
       &::before {
         content: " ";
         border-left: 3px solid ${(props) => props.theme.colors.primary};
