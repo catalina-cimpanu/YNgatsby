@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./navbar/Navbar";
 import Footer from "./footer/Footer";
 import styled from "styled-components";
@@ -6,7 +6,7 @@ import SideMenu from "./sidemenu/SideMenu";
 import ToTopButton from "./buttons/ToTopButton";
 
 const Layout = ({ children, homepage, nocontents }) => {
-  // so that new page always go up
+  // so that new page always go up - doesn't work in build
   const goToTop = () => {
     document.body.scrollTo({
       top: 0,
@@ -14,6 +14,7 @@ const Layout = ({ children, homepage, nocontents }) => {
     });
   };
   goToTop();
+
   return (
     <LayoutDiv>
       <Navbar />

@@ -6,6 +6,7 @@ import HeroNew from "../components/hero/HeroNew";
 import Description from "../components/Description";
 import Features from "../components/features/Features";
 import FeaturesOld from "../components/features/FeaturesOld";
+import FeaturesImported from "../components/features/FeaturesImported";
 import MiniFeatures from "../components/features/MiniFeatures";
 import advantages from "../constants/advantages";
 import actions from "../constants/actions";
@@ -22,7 +23,9 @@ const HomePage = ({ data }) => {
       <Description />
       {/* <Features /> */}
       {/* <Separator /> */}
-      <FeaturesOld />
+      {/* <FeaturesOld /> */}
+      {/* <Separator /> */}
+      <FeaturesImported />
       <MiniFeatures features={advantages} title="Our philosophy" blue />
       <MiniFeatures features={actions} title="Support our work" />
       <ContactSection />
@@ -32,11 +35,11 @@ const HomePage = ({ data }) => {
   );
 };
 
-// const Separator = styled.div`
-//   z-index: 1;
-//   height: 80vh;
-//   background-color: ${(props) => props.theme.colors.sectionBg};
-// `;
+const Separator = styled.div`
+  z-index: 1;
+  height: 80vh;
+  background-color: ${(props) => props.theme.colors.sectionBg};
+`;
 
 export const query = graphql`
   query {
