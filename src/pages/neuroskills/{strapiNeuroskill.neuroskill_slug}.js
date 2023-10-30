@@ -5,6 +5,8 @@ import styled from "styled-components";
 import Layout from "../../components/Layout";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
 import Infos from "../../components/library/Infos";
+import LibraryContentsSmall from "../../components/library/LibraryContentsSmall";
+import ContentsButton from "../../components/buttons/ContentsButton";
 
 const NeuroskillPageTemplate = ({ data }) => {
   const {
@@ -101,6 +103,8 @@ const NeuroskillPageTemplate = ({ data }) => {
             )}
           </div>
         </div>
+        <ContentsButton buttonText="Contents+" />
+        <LibraryContentsSmall />
       </Container>
     </Layout>
   );
