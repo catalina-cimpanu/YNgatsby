@@ -49,7 +49,7 @@ const MyThemeProvider = (props) => {
   };
 
   // contents on lib page for small screens (for pages: pathology template, neuroskill template, pathologies, library)
-  const [showPageContents, setShowPageContents] = React.useState(false);
+  const [showPageContents, setShowPageContents] = React.useState(true);
   const togglePageContents = (e) => {
     e.preventDefault();
     setShowPageContents(!showPageContents);

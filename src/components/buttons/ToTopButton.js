@@ -46,7 +46,7 @@ const Button = styled.button`
   outline: none;
   cursor: pointer;
   position: fixed;
-  bottom: 1rem;
+  bottom: 4rem;
   right: 1rem;
   width: 2.5rem;
   height: 2.5rem;
