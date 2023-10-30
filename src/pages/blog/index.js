@@ -6,19 +6,25 @@ import TitleH1 from "../../components/titles/TitleH1";
 import TitleH2 from "../../components/titles/TitleH2";
 import LoadBlogposts from "../../components/blog/LoadBlogposts";
 import BlogSidebar from "../../components/blog/BlogSidebar";
+import BlogSidebarSmall from "../../components/blog/BlogSidebarSmall";
+import ContentsButton from "../../components/buttons/ContentsButton";
 
 const BlogPage = ({
   data: {
     allStrapiBlogArticle: { nodes: articles },
+    allStrapiBlogCategory: { nodes: categories },
   },
 }) => {
+  console.log("from blogpage:", categories);
   return (
     <Layout>
       <TitleH1 title="Blog" />
       <BlogPageContainer>
         <TitleH2 title="Latest Posts" />
         <LoadBlogposts articles={articles} title="Latest Posts" />
-        <BlogSidebar />
+        <BlogSidebar categories={categories} />
+        <ContentsButton buttonText="Categories" />
+        <BlogSidebarSmall categories={categories} />
       </BlogPageContainer>
     </Layout>
   );
@@ -58,6 +64,12 @@ export const query = graphql`
         blog_categories {
           blog_category_name
         }
+      }
+    }
+    allStrapiBlogCategory(sort: { blog_category_name: ASC }) {
+      nodes {
+        blog_category_name
+        blog_category_slug
       }
     }
   }

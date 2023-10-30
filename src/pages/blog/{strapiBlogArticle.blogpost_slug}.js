@@ -7,6 +7,8 @@ import { RiPriceTag3Fill, RiUserFill, RiCalendarFill } from "react-icons/ri";
 import RichText from "../../components/RichText";
 import SecondaryButton from "../../components/buttons/SecondaryButton";
 import BlogSidebar from "../../components/blog/BlogSidebar";
+import ContentsButton from "../../components/buttons/ContentsButton";
+import BlogSidebarSmall from "../../components/blog/BlogSidebarSmall";
 import ShareButtons from "../../components/buttons/ShareButtons";
 import PreviousNextButtons from "../../components/blog/PreviousNextButtons";
 
@@ -29,6 +31,7 @@ const BlogpostPageTemplate = ({ data }) => {
       },
     },
     allStrapiBlogArticle: { edges },
+    allStrapiBlogCategory: { nodes: categories },
     site: {
       siteMetadata: { siteUrl },
     },
@@ -102,8 +105,10 @@ const BlogpostPageTemplate = ({ data }) => {
         </div>
 
         <div className="sidebar">
-          <BlogSidebar />
+          <BlogSidebar categories={categories} />
         </div>
+        <ContentsButton buttonText="Categories" />
+        <BlogSidebarSmall categories={categories} />
       </Container>
     </Layout>
   );
@@ -252,6 +257,12 @@ export const query = graphql`
           blogpost_slug
           blogpost_title
         }
+      }
+    }
+    allStrapiBlogCategory(sort: { blog_category_name: ASC }) {
+      nodes {
+        blog_category_name
+        blog_category_slug
       }
     }
     site {
