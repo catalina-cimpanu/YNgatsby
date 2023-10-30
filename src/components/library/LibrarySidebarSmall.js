@@ -1,10 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "gatsby";
 import { ThemeContext } from "../../context/Provider";
 import { FaTimes } from "react-icons/fa";
+import LibraryContentsAll from "./LibraryContentsAll";
 
-const LibraryContentsSmall = () => {
+const LibraryContentsSmall = ({
+  title,
+  pathologies,
+  neuroskills,
+  fromLibraryPage,
+  guidelines,
+  resources,
+  links,
+  locations,
+  sub_neuroskills,
+}) => {
   const { showPageContents, togglePageContents } =
     React.useContext(ThemeContext);
 
@@ -17,7 +27,20 @@ const LibraryContentsSmall = () => {
       >
         <FaTimes />
       </button>
-      <div className="contents">contents</div>
+      <div className="contents">
+        <h2>Contents</h2>
+        <LibraryContentsAll
+          title={title}
+          pathologies={pathologies}
+          neuroskills={neuroskills}
+          fromLibraryPage={fromLibraryPage}
+          guidelines={guidelines}
+          resources={resources}
+          links={links}
+          locations={locations}
+          sub_neuroskills={sub_neuroskills}
+        />
+      </div>
     </HiddenContents>
   );
 };

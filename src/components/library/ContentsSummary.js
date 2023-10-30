@@ -8,7 +8,7 @@ const ContentsSummary = ({ summary_title, subskill, sub }) => {
     React.useContext(ThemeContext);
   const link = subskill ? `#${summary_title + subskill}` : `#${summary_title}`;
   return (
-    <Summary sub={sub}>
+    <Summary sub={sub} onClick={closePageContents}>
       <Link
         to={link}
         onClick={() => {

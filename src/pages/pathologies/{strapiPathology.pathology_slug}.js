@@ -6,7 +6,7 @@ import Layout from "../../components/Layout";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
 import Infos from "../../components/library/Infos";
 import InfosSection from "../../components/library/InfosSection";
-import LibraryContentsSmall from "../../components/library/LibraryContentsSmall";
+import LibrarySidebarSmall from "../../components/library/LibrarySidebarSmall";
 import ContentsButton from "../../components/buttons/ContentsButton";
 
 const PathologyPageTemplate = ({ data }) => {
@@ -70,7 +70,13 @@ const PathologyPageTemplate = ({ data }) => {
           </div>
         </div>
         <ContentsButton buttonText="Contents+" />
-        <LibraryContentsSmall />
+        <LibrarySidebarSmall
+          title="Contents"
+          guidelines={guidelines}
+          resources={resources}
+          links={links}
+          locations={locations}
+        />
       </Container>
     </Layout>
   );

@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-import LibraryContentsAll from "./LibraryContentsAll";
+import { Link } from "gatsby";
+import LibraryContents from "./LibraryContents";
+import { ThemeContext } from "../../context/Provider";
 
-const LibrarySidebar = ({
-  title,
+const LibraryContentsAll = ({
   pathologies,
   neuroskills,
   fromLibraryPage,
@@ -13,22 +13,10 @@ const LibrarySidebar = ({
   locations,
   sub_neuroskills,
 }) => {
+  const { closePageContents } = React.useContext(ThemeContext);
   return (
-    <Aside>
-      <h4>{title}</h4>
-      <LibraryContentsAll
-        title={title}
-        pathologies={pathologies}
-        neuroskills={neuroskills}
-        fromLibraryPage={fromLibraryPage}
-        guidelines={guidelines}
-        resources={resources}
-        links={links}
-        locations={locations}
-        sub_neuroskills={sub_neuroskills}
-      />
-      {/* this is again difficult to read cuz of the conditionals; basically i check if both, then if each */}
-      {/* {fromLibraryPage ? (
+    <div>
+      {fromLibraryPage ? (
         (pathologies && neuroskills && (
           <>
             <LibraryContents links={pathologies} title="Pathologies" />
@@ -55,9 +43,11 @@ const LibrarySidebar = ({
           );
           return (
             <>
-              <Link to={`#${name}`}>
-                <h4>{name}</h4>
-              </Link>
+              <div onClick={closePageContents}>
+                <Link to={`#${name}`}>
+                  <h4>{name}</h4>
+                </Link>
+              </div>
               <LibraryContents
                 links={filteredGuidelines}
                 locations={locations}
@@ -94,32 +84,9 @@ const LibrarySidebar = ({
             pureLinks
           />
         </>
-      )} */}
-    </Aside>
+      )}
+    </div>
   );
 };
 
-const Aside = styled.aside`
-  grid-area: sidebar;
-  display: none;
-  height: 100%;
-  width: 100%;
-  max-height: calc(100vh - 5.5rem);
-  overflow-x: scroll;
-  overflow-y: auto;
-  /* text-align: center; */
-
-  @media screen and (min-width: 900px) {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 5.5rem; /* needed for sticky to work */
-    text-align: left;
-    justify-self: left;
-    align-self: start;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-`;
-
-export default LibrarySidebar;
+export default LibraryContentsAll;

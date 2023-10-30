@@ -5,7 +5,7 @@ import Layout from "../../components/Layout";
 import TitleH1 from "../../components/titles/TitleH1";
 import LibraryCards from "../../components/library/LibraryCards";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
-import LibraryContentsSmall from "../../components/library/LibraryContentsSmall";
+import LibrarySidebarSmall from "../../components/library/LibrarySidebarSmall";
 import ContentsButton from "../../components/buttons/ContentsButton";
 
 const LibraryPage = ({ data, location }) => {
@@ -48,7 +48,11 @@ const LibraryPage = ({ data, location }) => {
           </div>
         </div>
         <ContentsButton buttonText="Contents+" />
-        <LibraryContentsSmall />
+        <LibrarySidebarSmall
+          title="Contents"
+          pathologies={pathologies}
+          fromLibraryPage
+        />
       </Container>
     </Layout>
   );
