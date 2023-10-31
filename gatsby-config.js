@@ -52,7 +52,7 @@ const strapiConfig = {
 module.exports = {
   siteMetadata: {
     title: `Young Neuros`,
-    siteUrl: `http://localhost:8000/`,
+    siteUrl: `https://youngneuros.netlify.app/`,
     description: "Stay smart. Stay in touch.",
     twitterUsername: `@Young_Neuros`,
     image: "hero_image.png",

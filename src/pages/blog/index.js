@@ -78,4 +78,4 @@ export const query = graphql`
 
 export default BlogPage;
 
-export const Head = () => <SEO title="Blog" pathname="blog" />;
+export const Head = () => <SEO title="Young Neuros Blog" pathname="blog" />;

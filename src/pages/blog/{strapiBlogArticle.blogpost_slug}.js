@@ -237,6 +237,11 @@ export const query = graphql`
           publicURL
           extension
         }
+        formats {
+          small {
+            url
+          }
+        }
       }
       blogpost_summary
       blogpost_body {
@@ -275,3 +280,29 @@ export const query = graphql`
 `;
 
 export default BlogpostPageTemplate;
+
+export const Head = ({ data }) => {
+  const {
+    strapiBlogArticle: {
+      blogpost_title,
+      blogpost_slug,
+      blogpost_summary,
+      author,
+      blogpost_image: {
+        alternativeText,
+        localFile: { publicURL },
+        formats,
+      },
+    },
+  } = data;
+  console.log("from the fucking SEO on article: ", formats);
+  return (
+    <SEO
+      title={blogpost_title}
+      description={blogpost_summary}
+      pathname={`/blog/${blogpost_slug}`}
+      image={publicURL}
+      alt={alternativeText}
+    />
+  );
+};

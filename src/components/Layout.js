@@ -7,13 +7,13 @@ import ToTopButton from "./buttons/ToTopButton";
 
 const Layout = ({ children, homepage, nocontents }) => {
   // so that new page always go up - doesn't work in build
-  const goToTop = () => {
-    document.body.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-  goToTop();
+  // const goToTop = () => {
+  //   document.body.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
+  // goToTop();
 
   return (
     <LayoutDiv>
