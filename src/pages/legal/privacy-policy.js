@@ -8,17 +8,16 @@ const PrivacyPolicyPage = () => {
       <div className={legalStyles.container}>
         <h1>Privacy policy</h1>
         <p>
-          {" "}
           This privacy policy (&quot;Policy&quot;) describes how the personally
           identifiable information (&quot;Personal Information&quot;) you may
-          provide on the{" "}
+          provide on the
           <a
             target="_blank"
             rel="nofollow noreferrer noopener"
             href="http://www.youngneuros.com"
           >
             youngneuros.com
-          </a>{" "}
+          </a>
           website (&quot;Website&quot; or &quot;Service&quot;) and any of its
           related products and services (collectively, &quot;Services&quot;) is
           collected, protected and used. It also describes the choices available
@@ -74,7 +73,6 @@ const PrivacyPolicyPage = () => {
           </li>
         </ul>
         <p>
-          {" "}
           Some of the information we collect is directly from you via the
           Website and Services. However, we may also collect Personal
           Information about you from other sources such as public databases and
@@ -119,7 +117,6 @@ const PrivacyPolicyPage = () => {
           interests pursued by us or by a third party.
         </p>
         <p>
-          {" "}
           Note that under some legislations we may be allowed to process
           information until you object to such processing (by opting out),
           without having to rely on consent or any other of the following legal
@@ -142,7 +139,6 @@ const PrivacyPolicyPage = () => {
         </p>
         <h2>Disclosure of information</h2>
         <p>
-          {" "}
           Depending on the requested Services or as necessary to complete any
           transaction or provide any service you have requested, we may share
           your information with your consent with our trusted third parties that
@@ -257,20 +253,17 @@ const PrivacyPolicyPage = () => {
             Information.
           </li>
           <li>
-            {" "}
             You have the right to seek restrictions on the processing of your
             Personal Information. When you restrict the processing of your
             Personal Information, we may store it but will not process it
             further.
           </li>
           <li>
-            {" "}
             You have the right to be provided with a copy of the information we
             have on you in a structured, machine-readable and commonly used
             format.
           </li>
           <li>
-            {" "}
             You also have the right to withdraw your consent at any time where
             the Operator relied on your consent to process your Personal
             Information.
@@ -341,7 +334,7 @@ const PrivacyPolicyPage = () => {
           accept cookies, but you can usually modify your browser setting to
           decline cookies if you prefer. If you choose to decline cookies, you
           will not be able to use and experience the features of the Website and
-          Services. You may learn more about cookies and how they work{" "}
+          Services. You may learn more about cookies and how they work
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -427,7 +420,7 @@ const PrivacyPolicyPage = () => {
           terms and conditions. By accessing and using the Website and Services
           you agree to be bound by this Policy. If you do not agree to abide by
           the terms of this Policy, you are not authorized to access or use the
-          Website and Services. This privacy policy was created with the{" "}
+          Website and Services. This privacy policy was created with the
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -441,14 +434,14 @@ const PrivacyPolicyPage = () => {
         <p>
           If you would like to contact us to understand more about this Policy
           or wish to contact us concerning any matter relating to individual
-          rights and your Personal Information, you may do so via the{" "}
+          rights and your Personal Information, you may do so via the
           <a
             target="_blank"
             rel="nofollow noreferrer noopener"
             href="http://contact.youngneuros.com"
           >
             contact form
-          </a>{" "}
+          </a>
           or send an email to
           &#121;oun&#103;&#110;eu&#114;&#111;&#115;p&#114;&#111;&#106;&#101;ct&#64;g&#109;ail.&#99;o&#109;.
         </p>

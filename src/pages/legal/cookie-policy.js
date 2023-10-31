@@ -9,14 +9,14 @@ const CookiePolicyPage = () => {
         <h1>Cookie policy</h1>
         <p>
           This cookie policy (&quot;Policy&quot;) describes what cookies are and
-          how and they&#039;re being used by the{" "}
+          how and they&#039;re being used by the
           <a
             target="_blank"
             rel="nofollow noreferrer noopener"
             href="http://www.youngneuros.com"
           >
             youngneuros.com
-          </a>{" "}
+          </a>
           website (&quot;Website&quot; or &quot;Service&quot;) and any of its
           related products and services (collectively, &quot;Services&quot;).
           This Policy is a legally binding agreement between you
@@ -27,7 +27,7 @@ const CookiePolicyPage = () => {
           and how that information is used. It also describes the choices
           available to you regarding accepting or declining the use of cookies.
           For further information on how we use, store and keep your personal
-          data secure, see our{" "}
+          data secure, see our
           <a
             target="_blank"
             rel="nofollow noreferrer noopener"
@@ -63,7 +63,7 @@ const CookiePolicyPage = () => {
           advertising or analytics services on the Website (&quot;third party
           cookies&quot;). These third parties can recognize you when you visit
           our website and also when you visit certain other websites. You may
-          learn more about cookies and how they work{" "}
+          learn more about cookies and how they work
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -101,14 +101,14 @@ const CookiePolicyPage = () => {
         <p>
           If you don't like the idea of cookies or certain types of cookies, you
           can change your browser's settings to delete cookies that have already
-          been set and to not accept new cookies. Visit{" "}
+          been set and to not accept new cookies. Visit
           <a
             target="_blank"
             rel="noreferrer noopener"
             href="https://www.internetcookies.org"
           >
             internetcookies.org
-          </a>{" "}
+          </a>
           to learn more about how to do this.
         </p>
         <p>
@@ -131,7 +131,7 @@ const CookiePolicyPage = () => {
           terms and conditions. By accessing and using the Website and Services
           you agree to be bound by this Policy. If you do not agree to abide by
           the terms of this Policy, you are not authorized to access or use the
-          Website and Services. This cookie policy was created with the{" "}
+          Website and Services. This cookie policy was created with the
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -145,14 +145,14 @@ const CookiePolicyPage = () => {
         <p>
           If you would like to contact us to understand more about this Policy
           or wish to contact us concerning any matter relating to our use of
-          cookies, you may do so via the{" "}
+          cookies, you may do so via the
           <a
             target="_blank"
             rel="nofollow noreferrer noopener"
             href="http://contact.youngneuros.com"
           >
             contact form
-          </a>{" "}
+          </a>
           or send an email to
           yo&#117;&#110;&#103;n&#101;&#117;rosp&#114;o&#106;ec&#116;&#64;g&#109;ail.co&#109;.
         </p>

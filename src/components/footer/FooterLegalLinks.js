@@ -1,17 +1,30 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import LegalLinksArray from "../../constants/legalLinks";
 
 const FooterLegalLinks = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allStrapiLegalPage(sort: { order: ASC }) {
+        nodes {
+          page_menutext
+          page_slug
+        }
+      }
+    }
+  `);
+  const {
+    allStrapiLegalPage: { nodes: legalLinks },
+  } = data;
+
   return (
     <LegalList>
-      {LegalLinksArray.map((legalLink) => {
-        const { id, url, text } = legalLink;
+      {legalLinks.map((legalLink, index) => {
+        const { page_menutext, page_slug } = legalLink;
         return (
-          <li key={id}>
-            <Link className="legal-link" to={"/legal" + url}>
-              {text}
+          <li key={index}>
+            <Link className="legal-link" to={"/legal/" + page_slug}>
+              {page_menutext}
             </Link>
           </li>
         );

@@ -34,6 +34,7 @@ const strapiConfig = {
     "language",
     "feature",
     "minifeature",
+    "legal-page",
   ],
   singleTypes: [],
   remoteFileHeaders: {

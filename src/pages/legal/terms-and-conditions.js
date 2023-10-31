@@ -9,14 +9,14 @@ const TermsAndConditionsPage = () => {
         <h1>Terms and conditions</h1>
         <p>
           These terms and conditions (&quot;Agreement&quot;) set forth the
-          general terms and conditions of your use of the{" "}
+          general terms and conditions of your use of the
           <a
             target="_blank"
             rel="nofollow noreferrer noopener"
             href="http://www.youngneuros.com"
           >
             youngneuros.com
-          </a>{" "}
+          </a>
           website (&quot;Website&quot; or &quot;Service&quot;) and any of its
           related products and services (collectively, &quot;Services&quot;).
           This Agreement is legally binding between you (&quot;User&quot;,
@@ -90,7 +90,7 @@ const TermsAndConditionsPage = () => {
           make no guarantee that the data you need will be available. We do
           mention, though, that Tribe, the platform powering our community, has
           a robust data infrastructure with regular backups. For more
-          information go{" "}
+          information go
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -239,7 +239,7 @@ const TermsAndConditionsPage = () => {
           you agree to be bound by this Agreement. If you do not agree to abide
           by the terms of this Agreement, you are not authorized to access or
           use the Website and Services. This terms and conditions policy was
-          created with the{" "}
+          created with the
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -253,14 +253,14 @@ const TermsAndConditionsPage = () => {
         <p>
           If you would like to contact us to understand more about this
           Agreement or wish to contact us concerning any matter relating to it,
-          you may do so via the{" "}
+          you may do so via the
           <a
             target="_blank"
             rel="nofollow noreferrer noopener"
             href="http://contact.youngneuros.com"
           >
             contact form
-          </a>{" "}
+          </a>
           or send an email to
           yo&#117;&#110;&#103;n&#101;ur&#111;&#115;p&#114;oj&#101;&#99;t&#64;gm&#97;&#105;l.&#99;o&#109;.
         </p>

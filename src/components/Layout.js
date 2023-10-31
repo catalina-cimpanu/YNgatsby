@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Navbar from "./navbar/Navbar";
 import Footer from "./footer/Footer";
 import styled from "styled-components";
@@ -7,13 +7,13 @@ import ToTopButton from "./buttons/ToTopButton";
 
 const Layout = ({ children, homepage, nocontents }) => {
   // so that new page always go up - doesn't work in build
-  // const goToTop = () => {
-  //   document.body.scrollTo({
-  //     top: 0,
-  //     behavior: "smooth",
-  //   });
-  // };
-  // goToTop();
+  const goToTop = () => {
+    document.body.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  goToTop();
 
   return (
     <LayoutDiv>

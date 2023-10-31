@@ -10,10 +10,8 @@ const HeroNew = () => {
       <BigBlob className="blob" />
       <HeroInfo>
         <h1>Welcome to Young Neuros</h1>
-        <h3>The young neurologists hub to stay smart and stay in touch</h3>
-        <PrimaryButton buttonText="discover" buttonLink="#description">
-          read more
-        </PrimaryButton>
+        <h3>The young neurologists' hub to stay smart and stay in touch</h3>
+        <PrimaryButton buttonText="discover" buttonLink="#description" />
       </HeroInfo>
       <div className="img-wrapper">
         <HeroSvg />

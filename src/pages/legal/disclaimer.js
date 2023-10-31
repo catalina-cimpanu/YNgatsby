@@ -9,14 +9,14 @@ const DisclaimerPage = () => {
         <h1>Disclaimer</h1>
         <p>
           This disclaimer (&quot;Disclaimer&quot;) sets forth the general
-          guidelines, disclosures, and terms of your use of the{" "}
+          guidelines, disclosures, and terms of your use of the
           <a
             target="_blank"
             rel="nofollow noreferrer noopener"
             href="http://www.youngneuros.com"
           >
             youngneuros.com
-          </a>{" "}
+          </a>
           website (&quot;Website&quot; or &quot;Service&quot;) and any of its
           related products and services (collectively, &quot;Services&quot;).
           This Disclaimer is a legally binding agreement between you
@@ -89,7 +89,7 @@ const DisclaimerPage = () => {
           Website and Services in another work, whether in printed or electronic
           or another form or inclusion of any part of the Website and Services
           on another resource by embedding, framing or otherwise without the
-          express permission of the Operator is prohibited.{" "}
+          express permission of the Operator is prohibited.
         </p>
         <p>
           You may submit new content and comment on the existing content on the
@@ -103,7 +103,7 @@ const DisclaimerPage = () => {
           post content that infringes on the intellectual property rights of any
           other person or entity. You may not post any content that includes any
           computer virus or other code designed to disrupt, damage, or limit the
-          functioning of any computer software or hardware.{" "}
+          functioning of any computer software or hardware.
         </p>
         <h2>Reviews and testimonials</h2>
         <p>
@@ -158,7 +158,7 @@ const DisclaimerPage = () => {
           and Services you agree to be bound by this Disclaimer. If you do not
           agree to abide by the terms of this Disclaimer, you are not authorized
           to access or use the Website and Services. This disclaimer was created
-          with the{" "}
+          with the
           <a
             target="_blank"
             rel="noreferrer noopener"
@@ -172,14 +172,14 @@ const DisclaimerPage = () => {
         <p>
           If you would like to contact us to understand more about this
           Disclaimer or wish to contact us concerning any matter relating to it,
-          you may do so via the{" "}
+          you may do so via the
           <a
             target="_blank"
             rel="nofollow noreferrer noopener"
             href="http://contact.youngneuros.com"
           >
             contact form
-          </a>{" "}
+          </a>
           or send an email to
           &#121;&#111;u&#110;g&#110;e&#117;&#114;os&#112;&#114;oj&#101;&#99;t&#64;g&#109;&#97;&#105;l&#46;c&#111;m.
         </p>
