@@ -8,6 +8,7 @@ import LoadBlogposts from "../../components/blog/LoadBlogposts";
 import BlogSidebar from "../../components/blog/BlogSidebar";
 import BlogSidebarSmall from "../../components/blog/BlogSidebarSmall";
 import ContentsButton from "../../components/buttons/ContentsButton";
+import SEO from "../../components/SEO";
 
 const BlogPage = ({
   data: {
@@ -77,4 +78,4 @@ export const query = graphql`
 
 export default BlogPage;
 
-export const Head = () => <title>Blog | Young Neuros</title>;
+export const Head = () => <SEO title="Blog" pathname="blog" />;

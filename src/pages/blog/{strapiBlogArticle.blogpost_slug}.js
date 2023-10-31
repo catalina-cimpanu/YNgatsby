@@ -11,6 +11,7 @@ import ContentsButton from "../../components/buttons/ContentsButton";
 import BlogSidebarSmall from "../../components/blog/BlogSidebarSmall";
 import ShareButtons from "../../components/buttons/ShareButtons";
 import PreviousNextButtons from "../../components/blog/PreviousNextButtons";
+import SEO from "../../components/SEO";
 
 const BlogpostPageTemplate = ({ data }) => {
   const {

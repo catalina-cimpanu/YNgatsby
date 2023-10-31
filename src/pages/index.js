@@ -1,6 +1,5 @@
 import * as React from "react";
 import { graphql } from "gatsby";
-import styled from "styled-components";
 import Layout from "../components/Layout";
 import HeroNew from "../components/hero/HeroNew";
 import Description from "../components/Description";
@@ -9,6 +8,7 @@ import MiniFeatures from "../components/features/MiniFeatures";
 import ContactSection from "../components/contact/ContactSection";
 import BlogCards from "../components/blog/BlogCards";
 import GoToGuideSection from "../components/guide/GoToGuideSection";
+import SEO from "../components/SEO";
 
 const HomePage = ({ data }) => {
   const articles = data.allStrapiBlogArticle.nodes;
@@ -62,4 +62,4 @@ export const query = graphql`
 
 export default HomePage;
 
-export const Head = () => <title>Home | Young Neuros</title>;
+export const Head = () => <SEO />;
