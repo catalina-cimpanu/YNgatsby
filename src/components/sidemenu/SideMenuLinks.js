@@ -1,25 +1,37 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { ThemeContext } from "../../context/Provider";
-import MenuLinksArray from "../../constants/menuLinks";
 
 const SideMenuLinks = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allStrapiMenuLink(sort: { order: ASC }) {
+        nodes {
+          menulink_title
+          menulink_slug
+        }
+      }
+    }
+  `);
+  const {
+    allStrapiMenuLink: { nodes: links },
+  } = data;
   const { closeSideMenu } = React.useContext(ThemeContext);
 
   return (
     <SideMenuList>
-      {MenuLinksArray.map((menuLink) => {
-        const { id, url, text } = menuLink;
+      {links.map((menuLink, index) => {
+        const { menulink_title, menulink_slug } = menuLink;
         return (
-          <li key={id} onClick={closeSideMenu}>
+          <li key={index} onClick={closeSideMenu}>
             <Link
               className="nav-link"
-              aria-label={`link for page: ${text}`}
-              to={url}
+              aria-label={`link for page: ${menulink_title}`}
+              to={`/${menulink_slug ? menulink_slug : ""}`}
               activeClassName="active"
             >
-              {text}
+              {menulink_title}
             </Link>
           </li>
         );
