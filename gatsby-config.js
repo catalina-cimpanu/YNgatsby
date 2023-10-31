@@ -35,6 +35,7 @@ const strapiConfig = {
     "feature",
     "minifeature",
     "legal-page",
+    "menu-link",
   ],
   singleTypes: [],
   remoteFileHeaders: {

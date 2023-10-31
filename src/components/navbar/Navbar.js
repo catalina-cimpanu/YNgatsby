@@ -1,13 +1,25 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import LogoSvg from "../../images/logo.inline.svg";
-import MenuLinksArray from "../../constants/menuLinks";
 import ToggleThemeButton from "./ToggleThemeButton";
 import RoundIconButton from "../buttons/RoundIconButton";
 import SideMenuButton from "../sidemenu/SideMenuButton";
 
 const Navbar = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allStrapiMenuLink(sort: { order: ASC }) {
+        nodes {
+          menulink_title
+          menulink_slug
+        }
+      }
+    }
+  `);
+  const {
+    allStrapiMenuLink: { nodes: links },
+  } = data;
   return (
     <NavBar>
       <Link className="logo-link" aria-label="link to homepage" to="/">
@@ -15,17 +27,17 @@ const Navbar = () => {
       </Link>
       <SideMenuButton aria-label="sidemenu button" />
       <ul className="menu-list">
-        {MenuLinksArray.map((menuLink) => {
-          const { id, url, text } = menuLink;
+        {links.map((menuLink, index) => {
+          const { menulink_title, menulink_slug } = menuLink;
           return (
             <Link
-              key={id}
+              key={index}
               className="nav-link"
-              aria-label={`link for page: ${text}`}
-              to={url}
+              aria-label={`link for page: ${menulink_title}`}
+              to={`/${menulink_slug ? menulink_slug : ""}`}
               activeClassName="active"
             >
-              {text}
+              {menulink_title}
             </Link>
           );
         })}
