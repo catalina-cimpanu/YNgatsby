@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 
 const headingStyles = {
   marginTop: 0,
@@ -8,9 +9,6 @@ const headingStyles = {
   maxWidth: 320,
 };
 
-const paragraphStyles = {
-  marginBottom: 48,
-};
 const codeStyles = {
   color: "#8A6534",
   padding: 4,
@@ -22,8 +20,8 @@ const codeStyles = {
 const NotFoundPage = () => {
   return (
     <Layout>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
+      <h1>Page not found</h1>
+      <p>
         Sorry 😔, we couldn’t find what you were looking for.
         <br />
         {process.env.NODE_ENV === "development" ? (
@@ -42,4 +40,14 @@ const NotFoundPage = () => {
 
 export default NotFoundPage;
 
-export const Head = () => <title>Not found</title>;
+export const Head = () => {
+  return (
+    <SEO
+      title="Page not found"
+      description="The page that you are looking for doesn't exist."
+      pathname="/404"
+      // image={publicURL}
+      // alt={alternativeText}
+    />
+  );
+};

@@ -7,6 +7,7 @@ import LibrarySidebar from "../../components/library/LibrarySidebar";
 import Infos from "../../components/library/Infos";
 import LibrarySidebarSmall from "../../components/library/LibrarySidebarSmall";
 import ContentsButton from "../../components/buttons/ContentsButton";
+import SEO from "../../components/SEO";
 
 const NeuroskillPageTemplate = ({ data }) => {
   const {
@@ -373,3 +374,25 @@ export const query = graphql`
 `;
 
 export default NeuroskillPageTemplate;
+
+export const Head = ({ data }) => {
+  const {
+    neuroskill: {
+      neuroskill_name,
+      neuroskill_slug,
+      neuroskill_image: {
+        alternativeText,
+        localFile: { publicURL },
+      },
+    },
+  } = data;
+  return (
+    <SEO
+      title={neuroskill_name}
+      description={`Library - ${neuroskill_name}`}
+      pathname={`/neuroskills/${neuroskill_slug}`}
+      image={publicURL}
+      alt={alternativeText}
+    />
+  );
+};

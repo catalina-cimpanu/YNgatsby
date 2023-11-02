@@ -5,9 +5,9 @@ import styled from "styled-components";
 import Layout from "../../components/Layout";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
 import Infos from "../../components/library/Infos";
-import InfosSection from "../../components/library/InfosSection";
 import LibrarySidebarSmall from "../../components/library/LibrarySidebarSmall";
 import ContentsButton from "../../components/buttons/ContentsButton";
+import SEO from "../../components/SEO";
 
 const PathologyPageTemplate = ({ data }) => {
   const {
@@ -305,3 +305,25 @@ export const query = graphql`
 `;
 
 export default PathologyPageTemplate;
+
+export const Head = ({ data }) => {
+  const {
+    pathology: {
+      pathology_name,
+      pathology_slug,
+      pathology_image: {
+        alternativeText,
+        localFile: { publicURL },
+      },
+    },
+  } = data;
+  return (
+    <SEO
+      title={pathology_name}
+      description={`Library - ${pathology_name}`}
+      pathname={`/pathologies/${pathology_slug}`}
+      image={publicURL}
+      alt={alternativeText}
+    />
+  );
+};

@@ -291,11 +291,9 @@ export const Head = ({ data }) => {
       blogpost_image: {
         alternativeText,
         localFile: { publicURL },
-        formats,
       },
     },
   } = data;
-  console.log("from the fucking SEO on article: ", formats);
   return (
     <SEO
       title={blogpost_title}

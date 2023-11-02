@@ -8,6 +8,7 @@ import LoadBlogposts from "../../components/blog/LoadBlogposts";
 import BlogSidebar from "../../components/blog/BlogSidebar";
 import ContentsButton from "../../components/buttons/ContentsButton";
 import BlogSidebarSmall from "../../components/blog/BlogSidebarSmall";
+import SEO from "../../components/SEO";
 
 const BlogCategoryPageTemplate = ({ data }) => {
   const {
@@ -74,3 +75,16 @@ const BlogPageContainer = styled.div`
 `;
 
 export default BlogCategoryPageTemplate;
+
+export const Head = ({ data }) => {
+  const {
+    strapiBlogCategory: { category_name, blog_category_slug },
+  } = data;
+  return (
+    <SEO
+      title={category_name}
+      description={`Young Neuros Blog`}
+      pathname={`/blog/${blog_category_slug}`}
+    />
+  );
+};

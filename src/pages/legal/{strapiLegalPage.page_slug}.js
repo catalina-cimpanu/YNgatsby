@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../../../src/components/Layout";
 import * as legalStyles from "./legal.module.css";
+import SEO from "../../components/SEO";
 
 const LegalPageTemplate = ({ data }) => {
   const {
@@ -30,6 +31,7 @@ export const query = graphql`
   query ($page_slug: String) {
     strapiLegalPage(page_slug: { eq: $page_slug }) {
       page_title
+      page_slug
       updatedAt(formatString: "DD MMMM YYYY")
       page_content {
         data {
@@ -43,3 +45,10 @@ export const query = graphql`
 `;
 
 export default LegalPageTemplate;
+
+export const Head = ({ data }) => {
+  const {
+    strapiLegalPage: { page_title, page_slug },
+  } = data;
+  return <SEO title={page_title} pathname={`/legal/${page_slug}`} />;
+};
