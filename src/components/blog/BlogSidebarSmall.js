@@ -1,5 +1,4 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
 import { ThemeContext } from "../../context/Provider";

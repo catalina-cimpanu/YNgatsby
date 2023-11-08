@@ -1,11 +1,8 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import { ThemeContext } from "../../context/Provider";
 import TagsList from "./TagsList";
 
 const BlogSidebar = ({ categories }) => {
-  const { closePageContents } = React.useContext(ThemeContext);
   console.log(categories);
   return (
     <Aside>
