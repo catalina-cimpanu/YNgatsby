@@ -29,7 +29,6 @@ const NeuroskillPageTemplate = ({ data }) => {
     links: { nodes: links },
     locations: { nodes: locations },
   } = data;
-
   return (
     <Layout>
       <Container>
@@ -67,29 +66,35 @@ const NeuroskillPageTemplate = ({ data }) => {
           <div className="infos">
             {sub_neuroskills.length > 0 ? (
               sub_neuroskills.map((subNeuroskill) => {
-                let name = subNeuroskill.subneuroskill_name;
+                let subskillname = subNeuroskill.subneuroskill_name;
+                let subskillslug = subNeuroskill.subneuroskill_slug;
                 let filteredGuidelines = guidelines.filter(
                   (guideline) =>
-                    guideline.sub_neuroskill.subneuroskill_name === name
+                    guideline.sub_neuroskill.subneuroskill_name === subskillname
                 );
                 let filteredResources = resources.filter(
                   (resource) =>
-                    resource.sub_neuroskill.subneuroskill_name === name
+                    resource.sub_neuroskill.subneuroskill_name === subskillname
                 );
                 let filteredLinks = links.filter(
-                  (link) => link.sub_neuroskill.subneuroskill_name === name
+                  (link) =>
+                    link.sub_neuroskill.subneuroskill_name === subskillname
                 );
                 return (
                   <>
-                    <h2 id={name} className="titleH2">
-                      {name}
+                    <h2
+                      id={subskillslug}
+                      name={subskillslug}
+                      className="titleH2"
+                    >
+                      {subskillname}
                     </h2>
                     <Infos
                       guidelines={filteredGuidelines}
                       resources={filteredResources}
                       links={filteredLinks}
                       locations={locations}
-                      subskill={name}
+                      subskill={subskillname}
                     />
                   </>
                 );
@@ -220,6 +225,7 @@ export const query = graphql`
       }
       sub_neuroskills {
         subneuroskill_name
+        subneuroskill_slug
       }
     }
     guidelines: allStrapiGuideline(

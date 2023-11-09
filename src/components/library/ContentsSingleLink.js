@@ -1,70 +1,61 @@
 import React from "react";
 import styled from "styled-components";
 import { ThemeContext } from "../../context/Provider";
-import { Link } from "gatsby";
+import { navigate } from "gatsby";
 
 const ContentsSingleLink = ({
   link_text,
   link_url,
   sub,
   pureLinks,
-  subskill,
+  inSummary,
 }) => {
   const { closePageContents, activeLink, setActiveLink } =
     React.useContext(ThemeContext);
+  const link = pureLinks ? `#${link_url}_links` : `#${link_url}`;
   return (
-    <Li sub={sub}>
-      <button
-        className="button"
-        aria-label={`go to section ${link_text}`}
-        onClick={closePageContents}
-      >
-        <Link
-          to={pureLinks ? `#${link_url}_links` : `#${link_url}`}
-          onClick={() => {
-            setActiveLink(link_url);
-          }}
-          className={activeLink === link_url ? " active link" : "link"}
-        >
-          {link_text}
-        </Link>
-      </button>
-    </Li>
+    <SingleLink
+      sub={sub}
+      inSummary={inSummary}
+      aria-label={`go to section ${link_text}`}
+      className={activeLink === link ? "active" : ""}
+      onClick={(e) => {
+        closePageContents(e);
+        setActiveLink(link);
+        navigate(link);
+      }}
+    >
+      {link_text}
+    </SingleLink>
   );
 };
 
-const Li = styled.li`
+const SingleLink = styled.span`
+  cursor: pointer;
+  display: ${(props) => (props.inSummary ? "" : "block")};
   list-style: none;
-  margin-left: ${(props) => (props.sub ? "2rem" : "1rem")};
+  margin-left: ${(props) =>
+    props.inSummary ? "0.2rem" : props.sub ? "2rem" : "1.5rem"};
+  color: ${(props) => props.theme.colors.navLinkText};
+  font-family: ${(props) => props.theme.fonts.primary};
+  font-weight: ${(props) => props.inSummary && "600"};
+  font-size: 1rem;
+  white-space: pre;
 
-  .button {
-    appearance: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background: transparent;
-  }
-
-  .link {
-    color: ${(props) => props.theme.colors.navLinkText};
-    font-family: ${(props) => props.theme.fonts.primary};
-    font-size: 1rem;
-    white-space: pre;
-    &:hover {
-      &::before {
-        content: " ";
-        border-left: 3px solid ${(props) => props.theme.colors.primary};
-        margin-right: 0.2rem;
-      }
+  &:hover {
+    &::before {
+      content: " ";
+      border-left: 3px solid ${(props) => props.theme.colors.primary};
+      margin-right: 0.2rem;
     }
-    &.active {
-      color: ${(props) => props.theme.colors.aText};
-      background-color: ${(props) => props.theme.colors.aBg};
-      &::before {
-        content: " ";
-        border-left: 3px solid ${(props) => props.theme.colors.primary};
-        margin-right: 0.2rem;
-      }
+  }
+  &.active {
+    color: ${(props) => props.theme.colors.aText};
+    background-color: ${(props) => props.theme.colors.aBg};
+    &::before {
+      content: " ";
+      border-left: 3px solid ${(props) => props.theme.colors.primary};
+      margin-right: 0.2rem;
     }
   }
 `;

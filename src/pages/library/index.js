@@ -9,7 +9,7 @@ import LibrarySidebarSmall from "../../components/library/LibrarySidebarSmall";
 import ContentsButton from "../../components/buttons/ContentsButton";
 import Seo from "../../components/SEO";
 
-const LibraryPage = ({ data, location }) => {
+const LibraryPage = ({ data }) => {
   const {
     allStrapiPathology: { nodes: pathologies },
     allStrapiNeuroskill: { nodes: neuroskills },

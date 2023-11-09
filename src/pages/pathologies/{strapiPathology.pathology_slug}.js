@@ -28,7 +28,6 @@ const PathologyPageTemplate = ({ data }) => {
     links: { nodes: links },
     locations: { nodes: locations },
   } = data;
-
   return (
     <Layout>
       <Container>

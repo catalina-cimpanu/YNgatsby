@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import LibraryContents from "./LibraryContents";
 import { ThemeContext } from "../../context/Provider";
 
@@ -12,60 +12,92 @@ const LibraryContentsAll = ({
   links,
   locations,
   sub_neuroskills,
+  pathname,
 }) => {
   const { closePageContents } = React.useContext(ThemeContext);
+  console.log("pathname from libraryContentsAll", pathname);
   return (
     <div>
       {/* this is again difficult to read cuz of the conditionals; basically i check if both, then if each */}
       {fromLibraryPage ? (
         (pathologies && neuroskills && (
           <>
-            <LibraryContents links={pathologies} title="Pathologies" />
-            <LibraryContents links={neuroskills} title="Neuroskills" />
+            <LibraryContents
+              links={pathologies}
+              title="Pathologies"
+              pathname={pathname}
+            />
+            <LibraryContents
+              links={neuroskills}
+              title="Neuroskills"
+              pathname={pathname}
+            />
           </>
         )) ||
         (pathologies && (
-          <LibraryContents links={pathologies} title="Pathologies" />
+          <LibraryContents
+            links={pathologies}
+            title="Pathologies"
+            pathname={pathname}
+          />
         )) ||
         (neuroskills && (
-          <LibraryContents links={neuroskills} title="Neuroskills" />
+          <LibraryContents
+            links={neuroskills}
+            title="Neuroskills"
+            pathname={pathname}
+          />
         ))
       ) : sub_neuroskills ? (
         sub_neuroskills.map((subNeuroskill) => {
-          let name = subNeuroskill.subneuroskill_name;
+          let subskillname = subNeuroskill.subneuroskill_name;
+          let subskillhash = `#${subNeuroskill.subneuroskill_slug}`;
+
+          console.log("subskillhash ", subskillhash);
           let filteredGuidelines = guidelines.filter(
-            (guideline) => guideline.sub_neuroskill.subneuroskill_name === name
+            (guideline) =>
+              guideline.sub_neuroskill.subneuroskill_name === subskillname
           );
           let filteredResources = resources.filter(
-            (resource) => resource.sub_neuroskill.subneuroskill_name === name
+            (resource) =>
+              resource.sub_neuroskill.subneuroskill_name === subskillname
           );
           let filteredLinks = links.filter(
-            (link) => link.sub_neuroskill.subneuroskill_name === name
+            (link) => link.sub_neuroskill.subneuroskill_name === subskillname
           );
           return (
             <>
-              <div onClick={closePageContents}>
-                <Link to={`#${name}`}>
-                  <h4>{name}</h4>
-                </Link>
-              </div>
+              <h4
+                style={{ cursor: "pointer" }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  closePageContents(e);
+                  navigate(subskillhash);
+                }}
+              >
+                {subskillname}
+              </h4>
+
               <LibraryContents
                 links={filteredGuidelines}
                 locations={locations}
                 title="Guidelines"
-                subskill={name}
+                subskill={subskillname}
+                pathname={pathname}
               />
               <LibraryContents
                 links={filteredResources}
                 title="Resources"
-                subskill={name}
+                subskill={subskillname}
+                pathname={pathname}
               />
               <LibraryContents
                 links={filteredLinks}
                 locations={locations}
                 title="Links"
                 pureLinks
-                subskill={name}
+                subskill={subskillname}
+                pathname={pathname}
               />
             </>
           );
@@ -76,13 +108,19 @@ const LibraryContentsAll = ({
             links={guidelines}
             locations={locations}
             title="Guidelines"
+            pathname={pathname}
           />
-          <LibraryContents links={resources} title="Resources" />
+          <LibraryContents
+            links={resources}
+            title="Resources"
+            pathname={pathname}
+          />
           <LibraryContents
             links={links}
             locations={locations}
             title="Links"
             pureLinks
+            pathname={pathname}
           />
         </>
       )}
