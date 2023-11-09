@@ -12,7 +12,6 @@ const LibrarySidebar = ({
   links,
   locations,
   sub_neuroskills,
-  pathname,
 }) => {
   return (
     <Aside>
@@ -27,7 +26,6 @@ const LibrarySidebar = ({
         links={links}
         locations={locations}
         sub_neuroskills={sub_neuroskills}
-        pathname={pathname}
       />
     </Aside>
   );
