@@ -11,7 +11,7 @@ import ContentsButton from "../../components/buttons/ContentsButton";
 import BlogSidebarSmall from "../../components/blog/BlogSidebarSmall";
 import ShareButtons from "../../components/buttons/ShareButtons";
 import PreviousNextButtons from "../../components/blog/PreviousNextButtons";
-import SEO from "../../components/SEO";
+import Seo from "../../components/SEO";
 
 const BlogpostPageTemplate = ({ data }) => {
   const {
@@ -295,7 +295,7 @@ export const Head = ({ data }) => {
     },
   } = data;
   return (
-    <SEO
+    <Seo
       title={blogpost_title}
       description={blogpost_summary}
       pathname={`/blog/${blogpost_slug}`}

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import TagsList from "./TagsList";
 
 const BlogSidebar = ({ categories }) => {
-  console.log(categories);
   return (
     <Aside>
       <h3>Categories:</h3>

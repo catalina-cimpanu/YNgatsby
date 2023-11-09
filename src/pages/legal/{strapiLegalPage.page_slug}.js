@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../../../src/components/Layout";
 import * as legalStyles from "./legal.module.css";
-import SEO from "../../components/SEO";
+import Seo from "../../components/SEO";
 
 const LegalPageTemplate = ({ data }) => {
   const {
@@ -50,5 +50,5 @@ export const Head = ({ data }) => {
   const {
     strapiLegalPage: { page_title, page_slug },
   } = data;
-  return <SEO title={page_title} pathname={`/legal/${page_slug}`} />;
+  return <Seo title={page_title} pathname={`/legal/${page_slug}`} />;
 };

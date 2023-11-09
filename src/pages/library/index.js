@@ -7,7 +7,7 @@ import LibraryCards from "../../components/library/LibraryCards";
 import LibrarySidebar from "../../components/library/LibrarySidebar";
 import LibrarySidebarSmall from "../../components/library/LibrarySidebarSmall";
 import ContentsButton from "../../components/buttons/ContentsButton";
-import SEO from "../../components/SEO";
+import Seo from "../../components/SEO";
 
 const LibraryPage = ({ data, location }) => {
   const {
@@ -160,7 +160,7 @@ export const query = graphql`
 export default LibraryPage;
 
 export const Head = () => (
-  <SEO
+  <Seo
     title="Library"
     description="Guidelines & Resources"
     pathname="library"

@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 
 const AboutPage = () => {
   return (
@@ -28,4 +28,4 @@ const AboutPage = () => {
 
 export default AboutPage;
 
-export const Head = () => <SEO title="About" />;
+export const Head = () => <Seo title="About" />;

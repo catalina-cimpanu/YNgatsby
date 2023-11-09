@@ -7,7 +7,7 @@ import LibrarySidebar from "../../components/library/LibrarySidebar";
 import Infos from "../../components/library/Infos";
 import LibrarySidebarSmall from "../../components/library/LibrarySidebarSmall";
 import ContentsButton from "../../components/buttons/ContentsButton";
-import SEO from "../../components/SEO";
+import Seo from "../../components/SEO";
 
 const PathologyPageTemplate = ({ data }) => {
   const {
@@ -318,7 +318,7 @@ export const Head = ({ data }) => {
     },
   } = data;
   return (
-    <SEO
+    <Seo
       title={pathology_name}
       description={`Library - ${pathology_name}`}
       pathname={`/pathologies/${pathology_slug}`}

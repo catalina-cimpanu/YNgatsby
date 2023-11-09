@@ -8,11 +8,11 @@ import LoadBlogposts from "../../components/blog/LoadBlogposts";
 import BlogSidebar from "../../components/blog/BlogSidebar";
 import ContentsButton from "../../components/buttons/ContentsButton";
 import BlogSidebarSmall from "../../components/blog/BlogSidebarSmall";
-import SEO from "../../components/SEO";
+import Seo from "../../components/SEO";
 
 const BlogCategoryPageTemplate = ({ data }) => {
   const {
-    strapiBlogCategory: { category_name, blog_category_slug, blog_posts },
+    strapiBlogCategory: { category_name, blog_posts },
     allStrapiBlogCategory: { nodes: categories },
   } = data;
   return (
@@ -81,7 +81,7 @@ export const Head = ({ data }) => {
     strapiBlogCategory: { category_name, blog_category_slug },
   } = data;
   return (
-    <SEO
+    <Seo
       title={category_name}
       description={`Young Neuros Blog`}
       pathname={`/blog/${blog_category_slug}`}

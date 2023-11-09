@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 import TitleH1 from "../components/titles/TitleH1";
 import NotFoundImg from "../images/not_found.inline.svg";
 
@@ -38,7 +38,7 @@ export default NotFoundPage;
 
 export const Head = () => {
   return (
-    <SEO
+    <Seo
       title="Page not found"
       description="The page that you are looking for doesn't exist."
       pathname="/404"
