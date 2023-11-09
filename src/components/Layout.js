@@ -20,7 +20,6 @@ const Layout = ({ children, homepage, nocontents }) => {
       <Navbar />
       <SideMenu />
       <Main homepage={homepage}>
-        {/* <MyCookieConsentBanner /> */}
         <Container homepage={homepage}>{children}</Container>
       </Main>
       <Footer />
