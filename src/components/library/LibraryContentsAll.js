@@ -12,48 +12,29 @@ const LibraryContentsAll = ({
   links,
   locations,
   sub_neuroskills,
-  pathname,
 }) => {
   const { closePageContents } = React.useContext(ThemeContext);
-  console.log("pathname from libraryContentsAll", pathname);
   return (
     <div>
       {/* this is again difficult to read cuz of the conditionals; basically i check if both, then if each */}
       {fromLibraryPage ? (
         (pathologies && neuroskills && (
           <>
-            <LibraryContents
-              links={pathologies}
-              title="Pathologies"
-              pathname={pathname}
-            />
-            <LibraryContents
-              links={neuroskills}
-              title="Neuroskills"
-              pathname={pathname}
-            />
+            <LibraryContents links={pathologies} title="Pathologies" />
+            <LibraryContents links={neuroskills} title="Neuroskills" />
           </>
         )) ||
         (pathologies && (
-          <LibraryContents
-            links={pathologies}
-            title="Pathologies"
-            pathname={pathname}
-          />
+          <LibraryContents links={pathologies} title="Pathologies" />
         )) ||
         (neuroskills && (
-          <LibraryContents
-            links={neuroskills}
-            title="Neuroskills"
-            pathname={pathname}
-          />
+          <LibraryContents links={neuroskills} title="Neuroskills" />
         ))
       ) : sub_neuroskills ? (
         sub_neuroskills.map((subNeuroskill) => {
           let subskillname = subNeuroskill.subneuroskill_name;
           let subskillhash = `#${subNeuroskill.subneuroskill_slug}`;
 
-          console.log("subskillhash ", subskillhash);
           let filteredGuidelines = guidelines.filter(
             (guideline) =>
               guideline.sub_neuroskill.subneuroskill_name === subskillname
@@ -83,13 +64,11 @@ const LibraryContentsAll = ({
                 locations={locations}
                 title="Guidelines"
                 subskill={subskillname}
-                pathname={pathname}
               />
               <LibraryContents
                 links={filteredResources}
                 title="Resources"
                 subskill={subskillname}
-                pathname={pathname}
               />
               <LibraryContents
                 links={filteredLinks}
@@ -97,7 +76,6 @@ const LibraryContentsAll = ({
                 title="Links"
                 pureLinks
                 subskill={subskillname}
-                pathname={pathname}
               />
             </>
           );
@@ -108,19 +86,13 @@ const LibraryContentsAll = ({
             links={guidelines}
             locations={locations}
             title="Guidelines"
-            pathname={pathname}
           />
-          <LibraryContents
-            links={resources}
-            title="Resources"
-            pathname={pathname}
-          />
+          <LibraryContents links={resources} title="Resources" />
           <LibraryContents
             links={links}
             locations={locations}
             title="Links"
             pureLinks
-            pathname={pathname}
           />
         </>
       )}
