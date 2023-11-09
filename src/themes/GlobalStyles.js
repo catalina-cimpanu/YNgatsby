@@ -22,8 +22,8 @@ html, body {
     word-break: break-word;
     background-color: ${(props) => props.theme.colors.bg};
     scroll-behavior: smooth; 
-    scroll-margin-top: 5.3rem;
-    scroll-padding-top: 5.3rem;
+    scroll-margin-top: 5.5rem;
+    scroll-padding-top: 5.5rem;
     height: 100%;
     overflow-x: hidden; /* hides horizontal scrolling */
 }
