@@ -54,7 +54,6 @@ const NeuroskillPageTemplate = ({ data }) => {
 
         <div className="body">
           <LibrarySidebar
-            pagename={neuroskill_name}
             title={sub_neuroskills.length > 0 ? "" : "Contents"}
             guidelines={guidelines}
             resources={resources}
@@ -69,20 +68,21 @@ const NeuroskillPageTemplate = ({ data }) => {
             {sub_neuroskills.length > 0 ? (
               sub_neuroskills.map((subNeuroskill) => {
                 let subskillname = subNeuroskill.subneuroskill_name;
-                let subskillslug = normalize(
-                  neuroskill_name + "-" + subNeuroskill.subneuroskill_slug
-                );
+                let subskillslug = subNeuroskill.subneuroskill_slug;
                 let filteredGuidelines = guidelines.filter(
                   (guideline) =>
-                    guideline.sub_neuroskill.subneuroskill_slug === subskillslug
+                    guideline.sub_neuroskill.subneuroskill_slug ===
+                    subNeuroskill.subneuroskill_slug
                 );
                 let filteredResources = resources.filter(
                   (resource) =>
-                    resource.sub_neuroskill.subneuroskill_slug === subskillslug
+                    resource.sub_neuroskill.subneuroskill_slug ===
+                    subNeuroskill.subneuroskill_slug
                 );
                 let filteredLinks = links.filter(
                   (link) =>
-                    link.sub_neuroskill.subneuroskill_slug === subskillslug
+                    link.sub_neuroskill.subneuroskill_slug ===
+                    subNeuroskill.subneuroskill_slug
                 );
                 return (
                   <>
@@ -94,7 +94,6 @@ const NeuroskillPageTemplate = ({ data }) => {
                       {subskillname}
                     </h2>
                     <Infos
-                      pagename={neuroskill_name}
                       guidelines={filteredGuidelines}
                       resources={filteredResources}
                       links={filteredLinks}
@@ -106,7 +105,6 @@ const NeuroskillPageTemplate = ({ data }) => {
               })
             ) : (
               <Infos
-                pagename={neuroskill_name}
                 guidelines={guidelines}
                 resources={resources}
                 links={links}
@@ -117,7 +115,6 @@ const NeuroskillPageTemplate = ({ data }) => {
         </div>
         <ContentsButton buttonText="Contents+" />
         <LibrarySidebarSmall
-          pagename={neuroskill_name}
           title={sub_neuroskills.length > 0 ? "" : "Contents"}
           guidelines={guidelines}
           resources={resources}

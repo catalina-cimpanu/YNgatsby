@@ -2,7 +2,6 @@ import React from "react";
 import { navigate } from "gatsby";
 import LibraryContents from "./LibraryContents";
 import { ThemeContext } from "../../context/Provider";
-import { normalize } from "./libraryFunctions";
 
 const LibraryContentsAll = ({
   pathologies,
@@ -13,7 +12,6 @@ const LibraryContentsAll = ({
   links,
   locations,
   sub_neuroskills,
-  pagename,
 }) => {
   const { closePageContents } = React.useContext(ThemeContext);
   return (
@@ -35,9 +33,7 @@ const LibraryContentsAll = ({
       ) : sub_neuroskills ? (
         sub_neuroskills.map((subNeuroskill) => {
           let subskillname = subNeuroskill.subneuroskill_name;
-          let subskillhash = `#${normalize(
-            pagename + "-" + subNeuroskill.subneuroskill_slug
-          )}`;
+          let subskillhash = `#${subNeuroskill.subneuroskill_slug}`;
 
           let filteredGuidelines = guidelines.filter(
             (guideline) =>
@@ -68,20 +64,17 @@ const LibraryContentsAll = ({
               </h4>
 
               <LibraryContents
-                pagename={pagename}
                 links={filteredGuidelines}
                 locations={locations}
                 title="Guidelines"
                 subskill={subskillname}
               />
               <LibraryContents
-                pagename={pagename}
                 links={filteredResources}
                 title="Resources"
                 subskill={subskillname}
               />
               <LibraryContents
-                pagename={pagename}
                 links={filteredLinks}
                 locations={locations}
                 title="Links"
@@ -94,18 +87,12 @@ const LibraryContentsAll = ({
       ) : (
         <>
           <LibraryContents
-            pagename={pagename}
             links={guidelines}
             locations={locations}
             title="Guidelines"
           />
+          <LibraryContents links={resources} title="Resources" />
           <LibraryContents
-            pagename={pagename}
-            links={resources}
-            title="Resources"
-          />
-          <LibraryContents
-            pagename={pagename}
             links={links}
             locations={locations}
             title="Links"

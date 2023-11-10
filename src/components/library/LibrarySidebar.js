@@ -12,13 +12,11 @@ const LibrarySidebar = ({
   links,
   locations,
   sub_neuroskills,
-  pagename,
 }) => {
   return (
     <Aside>
       <h4>{title}</h4>
       <LibraryContentsAll
-        pagename={pagename}
         title={title}
         pathologies={pathologies}
         neuroskills={neuroskills}

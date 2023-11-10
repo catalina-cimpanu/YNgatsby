@@ -3,28 +3,20 @@ import styled from "styled-components";
 import InfosList from "./InfosList";
 import InfosListByLocation from "./InfosListByLocation";
 
-const InfosSection = ({
-  title,
-  infos,
-  type,
-  locations,
-  subskill,
-  pagename,
-}) => {
+const InfosSection = ({ title, infos, type, locations, subskill }) => {
   return (
     <Section>
       <h2 id={subskill ? `${title + subskill}` : `${title}`}>{title}</h2>
       {infos.length > 0 ? (
         locations ? (
           <InfosListByLocation
-            pagename={pagename}
             infos={infos}
             type={type}
             locations={locations}
             subskill={subskill}
           />
         ) : (
-          <InfosList pagename={pagename} infos={infos} type={type} />
+          <InfosList infos={infos} type={type} />
         )
       ) : (
         <p>

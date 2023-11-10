@@ -52,7 +52,6 @@ const PathologyPageTemplate = ({ data }) => {
 
         <div className="body">
           <LibrarySidebar
-            pagename={pathology_name}
             title="Contents"
             guidelines={guidelines}
             resources={resources}
@@ -62,7 +61,6 @@ const PathologyPageTemplate = ({ data }) => {
 
           <div className="infos">
             <Infos
-              pagename={pathology_name}
               guidelines={guidelines}
               resources={resources}
               links={links}
@@ -72,7 +70,6 @@ const PathologyPageTemplate = ({ data }) => {
         </div>
         <ContentsButton buttonText="Contents+" />
         <LibrarySidebarSmall
-          pagename={pathology_name}
           title="Contents"
           guidelines={guidelines}
           resources={resources}
