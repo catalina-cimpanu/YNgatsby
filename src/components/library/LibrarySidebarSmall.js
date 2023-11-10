@@ -14,6 +14,7 @@ const LibraryContentsSmall = ({
   links,
   locations,
   sub_neuroskills,
+  pagename,
 }) => {
   const { showPageContents, togglePageContents } =
     React.useContext(ThemeContext);
@@ -30,6 +31,7 @@ const LibraryContentsSmall = ({
       <div className="contents">
         <h2>Contents</h2>
         <LibraryContentsAll
+          pagename={pagename}
           title={title}
           pathologies={pathologies}
           neuroskills={neuroskills}

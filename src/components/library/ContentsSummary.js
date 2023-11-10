@@ -2,11 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import ContentsSingleLink from "./ContentsSingleLink";
 
-const ContentsSummary = ({ summary_title, subskill, sub }) => {
+const ContentsSummary = ({ summary_title, subskill, sub, pagename }) => {
   const link = subskill ? `${summary_title + subskill}` : `${summary_title}`;
   return (
     <Summary sub={sub}>
-      <ContentsSingleLink link_text={summary_title} link_url={link} inSummary />
+      <ContentsSingleLink
+        pagename={pagename}
+        link_text={summary_title}
+        link_url={link}
+        inSummary
+      />
     </Summary>
   );
 };

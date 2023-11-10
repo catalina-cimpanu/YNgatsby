@@ -73,3 +73,8 @@ export const FilterLocationsWithInfos = (infos, locations) => {
   const furtherFiltered = filtered.filter((location) => location !== false);
   return furtherFiltered;
 };
+
+// normalize string
+export const normalize = (words) => {
+  return words.replace(/ /g, "-").toLowerCase();
+};

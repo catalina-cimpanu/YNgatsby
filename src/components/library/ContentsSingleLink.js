@@ -9,6 +9,7 @@ const ContentsSingleLink = ({
   sub,
   pureLinks,
   inSummary,
+  pagename,
 }) => {
   const { closePageContents, activeLink, setActiveLink } =
     React.useContext(ThemeContext);

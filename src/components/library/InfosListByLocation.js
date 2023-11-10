@@ -4,7 +4,13 @@ import InfosList from "./InfosList";
 import { FilterLocationsWithInfos } from "./libraryFunctions";
 
 /* basically based on AccordionsList, but with a filter for locations */
-const AccordionsListByLocation = ({ infos, type, locations, subskill }) => {
+const AccordionsListByLocation = ({
+  infos,
+  type,
+  locations,
+  subskill,
+  pagename,
+}) => {
   const locationsWithInfos =
     locations && FilterLocationsWithInfos(infos, locations);
   return (
@@ -25,7 +31,7 @@ const AccordionsListByLocation = ({ infos, type, locations, subskill }) => {
             >
               {location.location_name}
             </h3>
-            <InfosList infos={location.infos} type={type} />
+            <InfosList pagename={pagename} infos={location.infos} type={type} />
           </div>
         );
       })}

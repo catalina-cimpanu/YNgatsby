@@ -4,7 +4,7 @@ import { destructureGuideline, destructureResource } from "./libraryFunctions";
 import Accordion from "./Accordion";
 import ExternalLink from "./ExternalLink";
 
-const AccordionsList = ({ infos, type }) => {
+const InfosList = ({ infos, type }) => {
   return (
     <List>
       {type === "guidelines" &&
@@ -37,4 +37,4 @@ const List = styled.div`
   gap: 1rem;
 `;
 
-export default AccordionsList;
+export default InfosList;

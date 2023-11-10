@@ -8,6 +8,7 @@ import Infos from "../../components/library/Infos";
 import LibrarySidebarSmall from "../../components/library/LibrarySidebarSmall";
 import ContentsButton from "../../components/buttons/ContentsButton";
 import Seo from "../../components/SEO";
+import { normalize } from "../../components/library/libraryFunctions";
 
 const NeuroskillPageTemplate = ({ data }) => {
   const {
@@ -53,6 +54,7 @@ const NeuroskillPageTemplate = ({ data }) => {
 
         <div className="body">
           <LibrarySidebar
+            pagename={neuroskill_name}
             title={sub_neuroskills.length > 0 ? "" : "Contents"}
             guidelines={guidelines}
             resources={resources}
@@ -67,18 +69,20 @@ const NeuroskillPageTemplate = ({ data }) => {
             {sub_neuroskills.length > 0 ? (
               sub_neuroskills.map((subNeuroskill) => {
                 let subskillname = subNeuroskill.subneuroskill_name;
-                let subskillslug = subNeuroskill.subneuroskill_slug;
+                let subskillslug = normalize(
+                  neuroskill_name + "-" + subNeuroskill.subneuroskill_slug
+                );
                 let filteredGuidelines = guidelines.filter(
                   (guideline) =>
-                    guideline.sub_neuroskill.subneuroskill_name === subskillname
+                    guideline.sub_neuroskill.subneuroskill_slug === subskillslug
                 );
                 let filteredResources = resources.filter(
                   (resource) =>
-                    resource.sub_neuroskill.subneuroskill_name === subskillname
+                    resource.sub_neuroskill.subneuroskill_slug === subskillslug
                 );
                 let filteredLinks = links.filter(
                   (link) =>
-                    link.sub_neuroskill.subneuroskill_name === subskillname
+                    link.sub_neuroskill.subneuroskill_slug === subskillslug
                 );
                 return (
                   <>
@@ -90,6 +94,7 @@ const NeuroskillPageTemplate = ({ data }) => {
                       {subskillname}
                     </h2>
                     <Infos
+                      pagename={neuroskill_name}
                       guidelines={filteredGuidelines}
                       resources={filteredResources}
                       links={filteredLinks}
@@ -101,6 +106,7 @@ const NeuroskillPageTemplate = ({ data }) => {
               })
             ) : (
               <Infos
+                pagename={neuroskill_name}
                 guidelines={guidelines}
                 resources={resources}
                 links={links}
@@ -111,6 +117,7 @@ const NeuroskillPageTemplate = ({ data }) => {
         </div>
         <ContentsButton buttonText="Contents+" />
         <LibrarySidebarSmall
+          pagename={neuroskill_name}
           title={sub_neuroskills.length > 0 ? "" : "Contents"}
           guidelines={guidelines}
           resources={resources}
@@ -238,6 +245,7 @@ export const query = graphql`
         guideline_source
         sub_neuroskill {
           subneuroskill_name
+          subneuroskill_slug
         }
         locations {
           location_name
@@ -317,6 +325,7 @@ export const query = graphql`
         }
         sub_neuroskill {
           subneuroskill_name
+          subneuroskill_slug
         }
         pricing {
           pricing_type

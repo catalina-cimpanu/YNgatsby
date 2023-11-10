@@ -3,20 +3,28 @@ import styled from "styled-components";
 import InfosList from "./InfosList";
 import InfosListByLocation from "./InfosListByLocation";
 
-const AccordionSection = ({ title, infos, type, locations, subskill }) => {
+const InfosSection = ({
+  title,
+  infos,
+  type,
+  locations,
+  subskill,
+  pagename,
+}) => {
   return (
     <Section>
       <h2 id={subskill ? `${title + subskill}` : `${title}`}>{title}</h2>
       {infos.length > 0 ? (
         locations ? (
           <InfosListByLocation
+            pagename={pagename}
             infos={infos}
             type={type}
             locations={locations}
             subskill={subskill}
           />
         ) : (
-          <InfosList infos={infos} type={type} />
+          <InfosList pagename={pagename} infos={infos} type={type} />
         )
       ) : (
         <p>
@@ -38,4 +46,4 @@ const Section = styled.section`
   }
 `;
 
-export default AccordionSection;
+export default InfosSection;
