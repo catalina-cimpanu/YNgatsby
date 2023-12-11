@@ -21,6 +21,7 @@ const ContentsSingleLink = ({
       aria-label={`go to section ${link_text}`}
       className={activeLink === link ? "active" : ""}
       onClick={(e) => {
+        e.preventDefault();
         closePageContents(e);
         setActiveLink(link);
         navigate(link);
@@ -41,7 +42,11 @@ const SingleLink = styled.span`
   font-family: ${(props) => props.theme.fonts.primary};
   font-weight: ${(props) => props.inSummary && "600"};
   font-size: 1rem;
+  line-height: 2;
   white-space: pre;
+  @media screen and (min-width: 900px) {
+    line-height: 1.5;
+  }
 
   &:hover {
     &::before {

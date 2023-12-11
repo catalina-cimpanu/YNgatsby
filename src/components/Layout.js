@@ -4,6 +4,7 @@ import Footer from "./footer/Footer";
 import styled from "styled-components";
 import SideMenu from "./sidemenu/SideMenu";
 import ToTopButton from "./buttons/ToTopButton";
+import { Script } from "gatsby";
 
 const Layout = ({ children, homepage, nocontents }) => {
   // so that new page always go up - doesn't work in build
@@ -24,6 +25,11 @@ const Layout = ({ children, homepage, nocontents }) => {
       </Main>
       <Footer />
       <ToTopButton showBelow={350} keepdown={homepage || nocontents} />
+      <Script
+        data-goatcounter="https://youngneuros.goatcounter.com/count"
+        async
+        src="//gc.zgo.at/count.js"
+      />
     </LayoutDiv>
   );
 };

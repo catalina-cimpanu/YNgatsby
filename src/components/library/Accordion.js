@@ -151,7 +151,7 @@ const Label = styled.label`
     border-radius: ${(props) => props.theme.radiusXS};
     height: 50%;
     @media screen and (min-width: 550px) {
-      height: 75%;
+      height: 60%;
     }
   }
 
