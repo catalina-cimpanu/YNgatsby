@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./navbar/Navbar";
 import Footer from "./footer/Footer";
 import styled from "styled-components";
+import GlobalStyles from "../themes/GlobalStyles";
 import SideMenu from "./sidemenu/SideMenu";
 import ToTopButton from "./buttons/ToTopButton";
 import { Script } from "gatsby";
@@ -18,6 +19,7 @@ const Layout = ({ children, homepage, nocontents }) => {
 
   return (
     <LayoutDiv>
+      <GlobalStyles />
       <Navbar />
       <SideMenu />
       <Main homepage={homepage}>

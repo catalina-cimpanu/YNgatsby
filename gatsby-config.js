@@ -1,53 +1,10 @@
 /**
- * @type {import('gatsby').GatsbyConfig}
+/ * @type {import('gatsby').GatsbyConfig}
  */
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
-
-const strapiConfig = {
-  apiURL: process.env.STRAPI_API_URL || "http://127.0.0.1:1337",
-  accessToken: process.env.STRAPI_TOKEN,
-  queryParams: {
-    publicationState:
-      process.env.GATSBY_IS_PREVIEW === "true" ? "preview" : "live",
-    populate: {
-      cover: "*",
-      blocks: {
-        populate: "*",
-      },
-    },
-  },
-  collectionTypes: [
-    "blog-article",
-    "blog-category",
-    "pathology",
-    "neuroskill",
-    "sub-neuroskill",
-    "guideline",
-    "resource",
-    "resource-type",
-    "pricing",
-    "link",
-    "location",
-    "language",
-    "feature",
-    "minifeature",
-    "legal-page",
-    "menu-link",
-  ],
-  singleTypes: [],
-  remoteFileHeaders: {
-    /**
-     * Customized request headers
-     * For http request with a image or other files need authorization
-     * For expamle: Fetch a CDN file which has a security config when gatsby building needs
-     */
-    // Referer: "https://your-site-domain/",
-    // Authorization: "Bearer eyJhabcdefg_replace_it_with_your_own_token",
-  },
-};
 
 module.exports = {
   siteMetadata: {
@@ -118,7 +75,29 @@ module.exports = {
     },
     {
       resolve: `gatsby-source-strapi`,
-      options: strapiConfig,
+      options: {
+        apiURL: process.env.STRAPI_API_URL,
+        accessToken: process.env.STRAPI_TOKEN,
+        collectionTypes: [
+          "blog-article",
+          "blog-category",
+          "pathology",
+          "neuroskill",
+          "sub-neuroskill",
+          "guideline",
+          "resource",
+          "resource-type",
+          "pricing",
+          "link",
+          "location",
+          "language",
+          "feature",
+          "minifeature",
+          "legal-page",
+          "menu-link",
+        ],
+        singleTypes: [],
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,

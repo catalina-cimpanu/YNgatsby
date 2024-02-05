@@ -46,9 +46,7 @@ export const query = graphql`
       nodes {
         post_id: id
         updatedAt(formatString: "DD MMMM YYYY")
-        author {
-          username
-        }
+
         blogpost_title
         blogpost_slug
         blogpost_summary

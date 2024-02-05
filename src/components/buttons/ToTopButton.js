@@ -54,6 +54,7 @@ const Button = styled.button`
   padding: 0.2rem;
   display: grid;
   place-items: center;
+  color: ${(props) => props.theme.colors.p};
   border-radius: ${(props) => props.theme.radiusL};
   background-color: ${(props) => props.theme.colors.surface1};
   border: solid 2px ${(props) => props.theme.colors.buttonTextSecondary};
@@ -66,10 +67,8 @@ const Button = styled.button`
     margin-bottom: 0;
   }
   &:hover {
+    color: ${(props) => props.theme.colors.surface1};
     background-color: ${(props) => props.theme.colors.buttonTextSecondary};
-  }
-  &:hover p {
-    color: ${(props) => props.theme.colors.buttonTextPrimary};
   }
 
   .link {

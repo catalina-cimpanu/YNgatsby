@@ -30,9 +30,9 @@ const Accordion = ({
     language: {
       language_name,
       language_emoji,
-      language_flag: {
-        localFile: { flag_extension, flag_publicURL, flag_childImageSharp },
-      },
+      // language_flag: {
+      //   localFile: { flag_extension, flag_publicURL, flag_childImageSharp },
+      // },
     },
   },
 }) => {
@@ -40,7 +40,7 @@ const Accordion = ({
     <Info>
       <Input type="checkbox" id={internal_link.link_url} />
       <Label for={internal_link.link_url}>
-        {!childImageSharp && extension === "svg" ? (
+        {/* {!childImageSharp && extension === "svg" ? (
           <div className="img-container">
             <img className="img" src={publicURL} alt={alternativeText} />
           </div>
@@ -51,11 +51,11 @@ const Accordion = ({
             image={childImageSharp.gatsbyImageData}
             alt={alternativeText}
           />
-        )}
+        )} */}
         <h4 className="title">{title}</h4>
         <span className="arrow">‣</span>
-        {/* <span className="language">{language_emoji}</span> */}
-        {!flag_childImageSharp && flag_extension === "svg" ? (
+        <span className="language">{language_emoji}</span>
+        {/* {!flag_childImageSharp && flag_extension === "svg" ? (
           <div className="flag-img-container">
             <img
               className="flag-img"
@@ -70,7 +70,7 @@ const Accordion = ({
             image={flag_childImageSharp.gatsbyImageData}
             alt={language_name}
           />
-        )}
+        )} */}
       </Label>
       <Content>
         <div className="info-body" dangerouslySetInnerHTML={{ __html: html }} />
@@ -101,6 +101,7 @@ const Info = styled.article`
   box-shadow: ${(props) => props.theme.elevations.elevation3};
   border-radius: ${(props) => props.theme.radiusS};
   overflow: hidden;
+  margin-bottom: 1rem;
 `;
 
 /* Input */

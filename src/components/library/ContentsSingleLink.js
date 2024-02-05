@@ -56,7 +56,7 @@ const SingleLink = styled.span`
     }
   }
   &.active {
-    color: ${(props) => props.theme.colors.aText};
+    color: ${(props) => props.theme.colors.aTextActive};
     background-color: ${(props) => props.theme.colors.aBg};
     &::before {
       content: " ";

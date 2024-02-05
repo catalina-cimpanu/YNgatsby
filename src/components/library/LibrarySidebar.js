@@ -15,7 +15,7 @@ const LibrarySidebar = ({
 }) => {
   return (
     <Aside>
-      <h4>{title}</h4>
+      <h4 className="heading">{title}</h4>
       <LibraryContentsAll
         title={title}
         pathologies={pathologies}
@@ -51,6 +51,10 @@ const Aside = styled.aside`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  h4:not(:first-of-type) {
+    margin-top: 1rem;
   }
 `;
 

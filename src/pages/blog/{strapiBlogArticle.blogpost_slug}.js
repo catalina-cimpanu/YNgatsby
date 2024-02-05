@@ -24,8 +24,10 @@ const BlogpostPageTemplate = ({ data }) => {
       language,
       blog_categories,
       blogpost_image: {
-        alternativeText,
-        localFile: { extension, publicURL, childImageSharp },
+        0: {
+          localFile: { extension, publicURL, childImageSharp },
+          alternativeText,
+        },
       },
       blogpost_body: {
         data: { blogpost_body },
@@ -218,9 +220,7 @@ export const query = graphql`
       blogpost_title
       blogpost_slug
       updatedAt(formatString: "DD MMMM YYYY")
-      author {
-        username
-      }
+
       language {
         language_name
       }

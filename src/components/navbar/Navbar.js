@@ -34,7 +34,13 @@ const Navbar = () => {
               key={index}
               className="nav-link"
               aria-label={`link for page: ${menulink_title}`}
-              to={`/${menulink_slug ? menulink_slug : ""}`}
+              to={`/${
+                menulink_slug
+                  ? menulink_slug !== "home"
+                    ? menulink_slug
+                    : ""
+                  : ""
+              }`}
               activeClassName="active"
             >
               {menulink_title}

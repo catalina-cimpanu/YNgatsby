@@ -34,7 +34,7 @@ const InfosList = ({ infos, type }) => {
 const List = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  /* gap: 1rem; */
 `;
 
 export default InfosList;

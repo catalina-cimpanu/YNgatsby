@@ -4,16 +4,20 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-const BlogCard = ({
-  blogpost_slug,
-  blogpost_title,
-  blogpost_summary,
-  blog_categories,
-  blogpost_image: {
-    localFile: { extension, publicURL, childImageSharp },
-    alternativeText,
-  },
-}) => {
+const BlogCard = ({ article }) => {
+  console.log("from BlogCard here: ", article);
+  const {
+    blogpost_slug,
+    blogpost_title,
+    blogpost_summary,
+    blog_categories,
+    blogpost_image: {
+      0: {
+        localFile: { extension, publicURL, childImageSharp },
+        alternativeText,
+      },
+    },
+  } = article;
   const first_tag = blog_categories[0].blog_category_name;
   return (
     <Card

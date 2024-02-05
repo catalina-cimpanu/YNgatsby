@@ -11,7 +11,7 @@ import Blob4 from "../../images/blobs/Blob4.inline.svg";
 const Features = () => {
   const data = useStaticQuery(graphql`
     query {
-      allStrapiFeature {
+      allStrapiFeature(sort: { strapi_id: ASC }) {
         nodes {
           id
           feature_title

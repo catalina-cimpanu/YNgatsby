@@ -11,14 +11,16 @@ import GoToGuideSection from "../components/guide/GoToGuideSection";
 import Seo from "../components/SEO";
 
 const HomePage = ({ data }) => {
-  const articles = data.allStrapiBlogArticle.nodes;
-
+  // const articles = data.allStrapiBlogArticle.nodes;
+  const {
+    allStrapiBlogArticle: { articles },
+  } = data;
   return (
     <Layout homepage>
       <HeroNew />
       <Description />
       <Features />
-      <MiniFeatures />
+      {/* <MiniFeatures /> */}
       <ContactSection />
       <BlogCards title="Latest blog posts" articles={articles} showLink />
       <GoToGuideSection />
@@ -35,7 +37,7 @@ const HomePage = ({ data }) => {
 export const query = graphql`
   query {
     allStrapiBlogArticle(limit: 5, sort: { updatedAt: DESC }) {
-      nodes {
+      articles: nodes {
         id
         blogpost_slug
         blogpost_title

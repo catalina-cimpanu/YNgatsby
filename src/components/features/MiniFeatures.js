@@ -4,69 +4,71 @@ import styled from "styled-components";
 import MiniFeatureCard from "./MiniFeatureCard";
 
 const MiniFeaturesImported = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allAdvantages: allStrapiMinifeature(
-        filter: { minifeature_type: { eq: "advantage" } }
-      ) {
-        nodes {
-          id
-          minifeature_title
-          minifeature_description
-          minifeature_image {
-            alternativeText
-            localFile {
-              extension
-              publicURL
-              childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
-              }
-            }
-          }
-        }
-      }
-      allActions: allStrapiMinifeature(
-        filter: { minifeature_type: { eq: "action" } }
-      ) {
-        nodes {
-          minifeature_title
-          minifeature_description
-          minifeature_image {
-            alternativeText
-            localFile {
-              extension
-              publicURL
-              childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-  const {
-    allAdvantages: { nodes: advantages },
-  } = data;
-  const {
-    allActions: { nodes: actions },
-  } = data;
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     allAdvantages: allStrapiMinifeature(
+  //       filter: { minifeature_type: { eq: "advantage" } }
+  //     ) {
+  //       nodes {
+  //         id
+  //         minifeature_title
+  //         minifeature_description
+  //         minifeature_image {
+  //           alternativeText
+  //           localFile {
+  //             extension
+  //             publicURL
+  //             childImageSharp {
+  //               gatsbyImageData(layout: FULL_WIDTH)
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //     allActions: allStrapiMinifeature(
+  //       filter: { minifeature_type: { eq: "action" } }
+  //     ) {
+  //       nodes {
+  //         minifeature_title
+  //         minifeature_description
+  //         minifeature_image {
+  //           alternativeText
+  //           localFile {
+  //             extension
+  //             publicURL
+  //             childImageSharp {
+  //               gatsbyImageData(layout: FULL_WIDTH)
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
+  // const {
+  //   allAdvantages: { nodes: advantages },
+  // } = data;
+  // const {
+  //   allActions: { nodes: actions },
+  // } = data;
   return (
     <div>
       <MiniFeaturesSection blue>
         <h2>Our philosophy</h2>
         <div className="minifeatures-row ">
-          {advantages.map((advantage, index) => {
+          mini features row
+          {/* {advantages.map((advantage, index) => {
             return <MiniFeatureCard key={index} minifeature={advantage} />;
-          })}
+          })} */}
         </div>
       </MiniFeaturesSection>
       <MiniFeaturesSection>
         <h2>Support our work</h2>
         <div className="minifeatures-row ">
-          {actions.map((action, index) => {
+          minifeatures row
+          {/* {actions.map((action, index) => {
             return <MiniFeatureCard key={index} minifeature={action} />;
-          })}
+          })} */}
         </div>
       </MiniFeaturesSection>
     </div>

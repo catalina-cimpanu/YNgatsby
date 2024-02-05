@@ -123,7 +123,7 @@ export default {
 
     aText: colorPalette.PBlue2,
     // aTextHovered: colorPalette.colorSecondary900,
-    // aTextActive: colorPalette.colorSecondary900,
+    aTextActive: colorPalette.colorSecondary900,
     aBg: colorPalette.PBlue2,
     aUnderline: colorPalette.PBlue5,
     aHoverBg: colorPalette.PBlue3,

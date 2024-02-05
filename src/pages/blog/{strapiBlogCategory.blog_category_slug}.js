@@ -39,9 +39,7 @@ export const query = graphql`
         blogpost_slug
         blogpost_summary
         updatedAt(formatString: "DD MMMM YYYYY")
-        author {
-          username
-        }
+
         blog_categories {
           blog_category_name
         }

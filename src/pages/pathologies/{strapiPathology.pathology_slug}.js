@@ -19,8 +19,8 @@ const PathologyPageTemplate = ({ data }) => {
         },
       },
       pathology_image: {
-        alternativeText,
         localFile: { extension, publicURL, childImageSharp },
+        alternativeText,
       },
     },
     guidelines: { nodes: guidelines },

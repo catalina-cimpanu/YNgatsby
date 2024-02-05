@@ -25,7 +25,7 @@ const MyThemeProvider = (props) => {
     const data = localStorage.getItem("DarkMode");
     if (data) {
       setDarkMode(JSON.parse(data));
-    }
+    } else return null;
   }, []);
 
   useEffect(() => {
@@ -99,7 +99,6 @@ const MyThemeProvider = (props) => {
   return (
     <ThemeContext.Provider value={value}>
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-        <GlobalStyles />
         {props.children}
       </ThemeProvider>
     </ThemeContext.Provider>

@@ -2,14 +2,14 @@ import React from "react";
 import Layout from "../components/Layout";
 import Seo from "../components/SEO";
 
-const AboutPage = () => {
+const CalendarPage = () => {
   return (
     <Layout nocontents>
-      <h1>About Page </h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Vivamus at augue eget
-      arcu dictum varius duis. Viverra nibh cras pulvinar mattis nunc sed
-      blandit. Scelerisque eu ultrices vitae auctor eu augue ut lectus arcu.
+      <h1>Calendar</h1>
+      About Page Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Vivamus at
+      augue eget arcu dictum varius duis. Viverra nibh cras pulvinar mattis nunc
+      sed blandit. Scelerisque eu ultrices vitae auctor eu augue ut lectus arcu.
       Orci sagittis eu volutpat odio facilisis mauris sit amet massa. Nunc
       consequat interdum varius sit amet mattis vulputate. Non blandit massa
       enim nec dui nunc mattis enim. Est lorem ipsum dolor sit amet. Mauris
@@ -27,6 +27,6 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default CalendarPage;
 
 export const Head = () => <Seo title="About" />;

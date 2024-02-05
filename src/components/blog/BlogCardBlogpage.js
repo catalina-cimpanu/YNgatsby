@@ -4,18 +4,22 @@ import { Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { RiCalendarFill, RiPriceTag3Fill, RiUserFill } from "react-icons/ri";
 
-const BlogCardBlogpage = ({
-  updatedAt,
-  author,
-  blogpost_title,
-  blogpost_slug,
-  blogpost_summary,
-  blogpost_image: {
-    localFile: { extension, publicURL, childImageSharp },
-    alternativeText,
-  },
-  blog_categories,
-}) => {
+const BlogCardBlogpage = ({ article }) => {
+  console.log("from blog page:", article);
+  const {
+    updatedAt,
+    author,
+    blogpost_title,
+    blogpost_slug,
+    blogpost_summary,
+    blogpost_image: {
+      0: {
+        localFile: { extension, publicURL, childImageSharp },
+        alternativeText,
+      },
+    },
+    blog_categories,
+  } = article;
   return (
     <BlogCard to={`/blog/${blogpost_slug}`}>
       <div className="meta-div">

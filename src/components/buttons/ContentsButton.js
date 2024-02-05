@@ -24,6 +24,7 @@ const Button = styled.button`
   min-width: max-content;
   padding: 0.3rem 0.7rem;
   text-align: center;
+  color: ${(props) => props.theme.colors.p};
   border-radius: ${(props) => props.theme.radiusL};
   background-color: ${(props) => props.theme.colors.surface1};
   border: solid 2px ${(props) => props.theme.colors.buttonTextSecondary};
@@ -40,6 +41,7 @@ const Button = styled.button`
   }
   &:hover {
     transition: ${(props) => props.theme.transition};
+    color: ${(props) => props.theme.colors.surface1};
     background-color: ${(props) => props.theme.colors.buttonTextSecondary};
   }
   &:hover p {

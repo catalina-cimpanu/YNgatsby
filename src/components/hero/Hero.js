@@ -16,7 +16,7 @@ const Hero = () => {
         </h3>
       </HeroInfo>
       <StaticImage
-        src="../../images/YN_hero.inline.svg"
+        src="../../images/YN_hero_multi_color.inline.svg"
         alt="brain mri"
         placeholder="blurred"
         layout="fullWidth"
