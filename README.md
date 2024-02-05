@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.youngneuros.com">
-    <img alt="Young Neuros Logo" src="./src/images/icon.png" width="60" />
+    <img alt="Young Neuros Logo" src="./src/images/logo.png" width="60" />
   </a>
 </p>
 <h1 align="center">
