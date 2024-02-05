@@ -289,8 +289,10 @@ export const Head = ({ data }) => {
       blogpost_summary,
       author,
       blogpost_image: {
-        alternativeText,
-        localFile: { publicURL },
+        0: {
+          alternativeText,
+          localFile: { publicURL },
+        },
       },
     },
   } = data;

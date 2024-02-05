@@ -78,6 +78,7 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_API_URL,
         accessToken: process.env.STRAPI_TOKEN,
+        queryLimit: 10000,
         collectionTypes: [
           "blog-article",
           "blog-category",
